@@ -1,7 +1,7 @@
 import React ,{useState,useEffect} from 'react'
 import moment from 'moment'
 import parse from 'html-react-parser'
-import {getComments} from'../services/Index'
+import {getComments} from'../services/services'
 import { comment } from 'postcss'
 
 function Comments({slug}) {

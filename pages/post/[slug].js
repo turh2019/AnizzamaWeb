@@ -2,8 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 
-import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader } from '../../components';
-import { getPosts, getPostDetails } from '../../services';
+import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader } from '../../components/getComponents';
+import { getPosts, getPostDetails } from '../../services/services';
 
 
 const PostDetails = ({post}) => {
@@ -40,7 +40,7 @@ export default PostDetails;
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
-  console.log(data);
+  
   return {
     props: {
       post: data,
@@ -51,7 +51,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const posts = await getPosts();
-  console.log(posts);
+
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: true,
