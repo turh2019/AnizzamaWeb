@@ -7,12 +7,12 @@ function Categories() {
    const [categories, setcategories] = useState([])
  
    useEffect(() =>{
-       getCategories()
+    getCategories()
        .then((newCategories)=>setcategories(newCategories))
    },[])
    
     return (
-        <div className ="bg-white shadow-lg rounded-lg p-8 mb-8 pb-12">
+        <div className ="bg-[#261D78] shadow-lg rounded-lg p-8 mb-8 pb-12 text-white">
                   <h3 className="text-xl mb-8 font-semibold border-b pb-4">
                      Categories
                   </h3>

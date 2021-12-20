@@ -6,7 +6,8 @@ export const getPosts = async () => {
   
   const query = gql`
   query MyQuery {
-    postsConnection {
+    postsConnection(orderBy: createdAt_DESC) {
+      
       edges {
         node {
           author {
@@ -212,7 +213,7 @@ export const submitComment = async (obj) => {
   const result = await fetch('/api/comments', {
     method: 'POST',
     headers: {
-      'Content-Type': 'https://application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(obj),
   });

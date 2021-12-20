@@ -4,7 +4,12 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: (theme) =>({
+        'bgt-top': "url('/bg/bg_2.png')",
+        'title': "url('/bg/title.png')"
+      })
+    },
   },
   plugins: [],
 }

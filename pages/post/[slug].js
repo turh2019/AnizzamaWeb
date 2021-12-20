@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 
-import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader } from '../../components/getComponents';
+import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo} from '../../components/getComponents';
 import { getPosts, getPostDetails } from '../../services/services';
 
 
@@ -24,10 +24,11 @@ const PostDetails = ({post}) => {
             <CommentsFrom slug={post.slug} />
             <Comments slug={post.slug} />
           </div>
-          <div className="col-span-1 lg:col-span-4">
+          <div className="col-span-1 lg:col-span-4 float-left" >
             <div className="relative lg:sticky top-8">
             <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} />
               <Categories />
+              <LinksTo />
             </div>
           </div>
         </div>
