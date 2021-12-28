@@ -31,7 +31,7 @@ const Header = () => {
                         <div className='container mx-auto lg:translate-x-24'>
                           <div className='lg:translate-x-14 '>
                             <div className='lg:translate-x-5  '>
-                              <h1 className='transition duration-700 text-center text-white mb-5 pb-5   cursor-pointer  text-3xl font-semibold  '>פוסטים מולצים</h1> 
+                              <h1 className='transition duration-700 text-center text-white mb-5 pb-5 text-3xl font-semibold  '>פוסטים מומלצים</h1> 
                               <FeaturedPosts className  /> 
                             </div>
                           </div>
