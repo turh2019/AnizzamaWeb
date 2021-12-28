@@ -1,6 +1,6 @@
 import React, { useRef} from 'react';
 import moment from 'moment';
-import LinksTo from './LinksTo';
+import Link from 'next/link'
 
 const PostDetail = ({ post }) => {
  
@@ -81,12 +81,14 @@ const PostDetail = ({ post }) => {
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
-          <div className='grid grid-flow-row auto-rows-max   py-5 place-content-center' >
+             <div className='grid grid-flow-row auto-rows-max   py-5 place-content-center' >
               <div className=''> 
                   {post.linkVideo.map((linkEp,index)=>(
+                     <Link key={linkEp} href={linkEp}> 
                       <span className ="cursor-pointer  ">
                          <button type="button"  className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">  קישור  {index+1}  </button>
-                      </span>                 
+                      </span>       
+                      </Link>          
                   ))}
             </div>
           </div>
