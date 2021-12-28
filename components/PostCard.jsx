@@ -11,18 +11,18 @@ const PostCard = ({ post }) => (
         <Link href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
       </h1>
 
-    <div className="relative overflow-hidden shadow-md pb-80 mb-6 bg-[#18154E]  rounded-lg">
+    <div className="relative overflow-hidden shadow-md pb-80 mb-6 bg-[#18154E]  rounded-lg lg:scale-100 scale-75">
       <img src={post.featuredImage.url} alt="" className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
     </div>
-    <div className="block lg:flex text-center items-center justify-center mb-8 w-full text-white">
-      <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center text-white">
+    <div className="block lg:flex text-center items-center justify-center mb-8 w-full text-white ">
+      <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center text-white ">
         <Image
           unoptimized
           
           alt={post.author.name}
           height="30px"
           width="30px"
-          className="align-middle rounded-full"
+          className="align-middle rounded-full "
           src={post.author.photo.url}
         />
         <p className="inline align-middle text-white-700 ml-2 font-medium text-lg">{post.author.name}</p>
@@ -39,7 +39,7 @@ const PostCard = ({ post }) => (
     </p>
     <div className="text-center">
       <Link href={`/post/${post.slug}`}>
-        <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">Continue Reading</span>
+        <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">להמשיך לקרוא</span>
       </Link>
     </div>
   </div>

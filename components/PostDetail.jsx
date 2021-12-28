@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React, { useRef} from 'react';
 import moment from 'moment';
+import LinksTo from './LinksTo';
 
 const PostDetail = ({ post }) => {
-  console.log("result.seriesConnection.edges.featuredImage.url:")
-console.log({post})
-
+ 
+  const vidRef = useRef(null);
+  const handlePlayVideo = () => {
+    vidRef.current.play();
+  }
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -43,17 +45,20 @@ console.log({post})
       default:
         return modifiedText;
     }
+    
   };
 
+ 
+    
   return (
     <>
       <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
-        <div className="relative overflow-hidden shadow-md mb-6">
+        <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
           <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
-            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
+            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center ">
               <img
                 alt={post.author.name}
                 height="30px"
@@ -76,9 +81,19 @@ console.log({post})
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
+          <div className='grid grid-flow-row auto-rows-max   py-5 place-content-center' >
+              <div className=''> 
+                  {post.linkVideo.map((linkEp,index)=>(
+                      <span className ="cursor-pointer  ">
+                         <button type="button"  className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">  קישור  {index+1}  </button>
+                      </span>                 
+                  ))}
+            </div>
+          </div>
+       
         </div>
       </div>
-
+       
     </>
   );
 };

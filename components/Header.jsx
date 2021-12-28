@@ -26,12 +26,12 @@ const Header = () => {
             
           <div className="relative overflow-hidden   mb-15 lg:col-span-8 col-span-1 mb-8 ">
             <div className=" bg-no-repeat bg-bgt-top  object-center  h-full w-full object-cover rounded-t-lg lg:rounded-lg  py-10 bg-center  " >
-                  <div className='grid grid-cols-2 gap-20 lg:grid-cols-12  transform-gpu translate-x-24 '> 
-                    <div className="lg:col-span-5 col-span-2 container mx-auto translate-x-24 ">
-                        <div className='container mx-auto translate-x-24'>
-                          <div className='translate-x-14 '>
-                            <div className='translate-x-5'>
-                              <h1 className='transition duration-700 text-center text-white mb-5 pb-5   cursor-pointer  text-3xl font-semibold  '>post</h1> 
+                  <div className='grid grid-cols-2 gap-20 lg:grid-cols-12  transform-gpu lg:translate-x-24 '> 
+                    <div className="lg:col-span-5 col-span-2 container mx-auto lg:translate-x-24 ">
+                        <div className='container mx-auto lg:translate-x-24'>
+                          <div className='lg:translate-x-14 '>
+                            <div className='lg:translate-x-5  '>
+                              <h1 className='transition duration-700 text-center text-white mb-5 pb-5   cursor-pointer  text-3xl font-semibold  '>פוסטים מולצים</h1> 
                               <FeaturedPosts className  /> 
                             </div>
                           </div>

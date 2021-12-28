@@ -23,10 +23,17 @@ const PostWidget = ({ categories, slug }) => {
 
   return (
     <div className="bg-[#261D78] shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 text-white font-semibold border-b pb-4">{slug ? 'Related Posts' : 'Recent Posts'}</h3>
+      <h3 className="text-xl mb-8 text-white font-semibold border-b pb-4 flex justify-center">{slug ? 'פוסטים קשורים' : 'פוסטים אחרונים'}</h3>
       {relatedPosts.map((post, index) => (
-        <div key={index} className="flex items-center w-full mb-4 text-white">
-          <div className="w-16 flex-none">
+        <div key={index} className="flex items-right w-full mb-4 text-white ">
+     
+          <div className="flex-grow ml-10">
+            <p className="text-gray-400 font-xs flex justify-center">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
+            <div className='flex justify-center'>
+               <Link href={`/post/${post.slug}`} className="text-md flex justify-center" key={index}>{post.title}</Link>
+            </div>
+          </div>
+          <div className="w-16 flex-none ">
             <Image
               
               alt={post.title}
@@ -36,10 +43,6 @@ const PostWidget = ({ categories, slug }) => {
               className="align-middle rounded-full"
               src={post.featuredImage.url}
             />
-          </div>
-          <div className="flex-grow ml-4">
-            <p className="text-gray-400 font-xs">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
-            <Link href={`/post/${post.slug}`} className="text-md" key={index}>{post.title}</Link>
           </div>
         </div>
       ))}

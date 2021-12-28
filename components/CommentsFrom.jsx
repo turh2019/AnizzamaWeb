@@ -76,25 +76,30 @@ const CommentsForm = ({ slug }) => {
 
   return (
     <div className="bg-[#261D78] text-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">Leave a Reply</h3>
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4  flex justify-center">הוסף תגובה</h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
-        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
+        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-white bg-[#4864F6] text-white caret-pink-500  " name="comment" placeholder="Comment" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-        <input type="text" value={formData.name} onChange={onInputChange} className=" py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Name" name="name" />
-        <input type="email" value={formData.email} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Email" name="email" />
+        <input type="text" value={formData.name} onChange={onInputChange} className=" py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-white  bg-[#4864F6] text-white caret-pink-500 " placeholder="Name" name="name" />
+        <input type="email" value={formData.email} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-white  bg-[#4864F6] text-white caret-pink-500" placeholder="Email" name="email" />
       </div>
       <div className="grid grid-cols-1 gap-4 mb-4">
-        <div>
-          <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
-          <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
+        <div className="  ">
+        <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" className="float-right mt-2" />
+        <label className="text-gray-100 cursor-pointer px-3 py-1 float-right" htmlFor="storeData"> שמור את השם שלי ואת האיימל שלי </label>
         </div>
       </div>
-      {error && <p className="text-xs text-red-500">All fields are mandatory</p>}
-      <div className="mt-8">
-        <button type="button" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">Post Comment</button>
-        {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
+      <div className="mt-8 flex justify-center">
+      {error && <p className="text-xl text-red-500 font-semibold">צריך למלא את כל הפרטים </p>}
+      {showSuccessMessage && <span className="text-xl  font-semibold pt-10 text-green-500">התגובה נשלחה</span>}
       </div>
+      <div className="mt-8 flex justify-center">
+        <button type="button" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ">פרסם תגובה</button>
+       
+      </div>
+      
+     
     </div>
   );
 };
