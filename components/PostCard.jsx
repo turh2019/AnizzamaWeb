@@ -15,7 +15,7 @@ const PostCard = ({ post }) => (
     </div>
   
     <div className="block lg:flex text-center items-center  mb-8 w-full text-white ">
-      <div className="flex items-center  mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center text-white ">
+      <div className="flex items-center  mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center text-white justify-center">
         <Image
           unoptimized
          
@@ -39,9 +39,10 @@ const PostCard = ({ post }) => (
           <h1 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
             <Link href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
           </h1>
-    <p className="text-center text-lg text-white-700 font-normal px-4 lg:px-20 mb-8">
-      {post.excerpt}
-    </p>
+
+          <p className="text-center text-lg text-white-700 font-normal px-4 lg:px-20 mb-8">
+             {post.excerpt}
+          </p>
     <div className="text-center">
       <Link href={`/post/${post.slug}`}>
         <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">להמשיך לקרוא</span>

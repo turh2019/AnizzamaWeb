@@ -94,7 +94,7 @@ const PostDetail = ({ post }) => {
                   {post.linkVideo.map((linkEp,index)=>(
                      <Link key={linkEp} href={linkEp}> 
                       <span className ="cursor-pointer  ">
-                         <button type="button"  className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">  קישור  {index+1}  </button>
+                         <button type="button"  className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">   קישור מספר  {index+1}  </button>
                       </span>       
                       </Link>          
                   ))}
