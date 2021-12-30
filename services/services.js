@@ -55,6 +55,27 @@ export const getCategories = async () => {
   return result.categories;
 };
 
+
+export const getLinksto = async () => {
+  const query = gql`
+  query MyQuery {
+    linksTos {
+      link
+      title
+      featuredImage {
+        url
+      }
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.linksTos;
+};
+
+
+
 export const getPostDetails = async (slug) => {
   const query = gql`
     query GetPostDetails($slug : String!) {
