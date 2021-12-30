@@ -11,5 +11,8 @@ module.exports = {
       })
     },
   },
+  colors: {
+    'bG-Color': '#243c5a',
+  },
   plugins: [],
 }

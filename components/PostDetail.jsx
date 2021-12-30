@@ -1,7 +1,7 @@
 import React, { useRef} from 'react';
 import moment from 'moment';
-import Link from 'next/link'
 
+import Link from 'next/link'
 const PostDetail = ({ post }) => {
  
   const vidRef = useRef(null);
@@ -10,7 +10,7 @@ const PostDetail = ({ post }) => {
   }
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
-
+   
     if (obj) {
       if (obj.bold) {
         modifiedText = (<b key={index}>{text}</b>);
@@ -23,16 +23,23 @@ const PostDetail = ({ post }) => {
       if (obj.underline) {
         modifiedText = (<u key={index}>{text}</u>);
       }
+    
     }
 
-    switch (type) {
-      case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
-      case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
-      case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
-      case 'image':
+    switch (obj.type) {
+      case 'heading-three'://h3
+        return <h3 key={index} className="text-xl font-semibold mb-4 canter mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+
+      case 'paragraph'://" "
+        return <p key={index} className="mb-5 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+
+      case 'heading-four'://h4
+        return <h4 key={index} className="text-md font-semibold mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+
+        case 'link'://h4
+        return  <Link key={index} href={obj.href} ><span className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  ">{obj.title}</span></Link>;
+
+      case 'image': //img
         return (
           <img
             key={index}
@@ -75,13 +82,14 @@ const PostDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
-          <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-
-            return getContentFragment(index, children, typeObj, typeObj.type);
-          })}
-             <div className='grid grid-flow-row auto-rows-max   py-5 place-content-center' >
+          <h1 className="mb-10 text-3xl font-semibold text-center">{post.title}</h1>
+          <div className='text-right '> 
+              {post.content.raw.children.map((typeObj, index) => {
+                const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+                  return getContentFragment(index, children, typeObj, typeObj.type);
+              })}
+          </div>
+          <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center' >
               <div className=''> 
                   {post.linkVideo.map((linkEp,index)=>(
                      <Link key={linkEp} href={linkEp}> 

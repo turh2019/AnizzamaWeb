@@ -4,6 +4,7 @@ import moment from 'moment';
 import Link from 'next/link';
 
 
+
 import { getSimilarPosts, getRecentPosts } from '../services/services';
 
 const PostWidget = ({ categories, slug }) => {
@@ -26,23 +27,25 @@ const PostWidget = ({ categories, slug }) => {
       <h3 className="text-xl mb-8 text-white font-semibold border-b pb-4 flex justify-center">{slug ? 'פוסטים קשורים' : 'פוסטים אחרונים'}</h3>
       {relatedPosts.map((post, index) => (
         <div key={index} className="flex items-right w-full mb-4 text-white ">
-     
           <div className="flex-grow ml-10">
             <p className="text-gray-400 font-xs flex justify-center">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
             <div className='flex justify-center'>
-               <Link href={`/post/${post.slug}`} className="text-md flex justify-center" key={index}>{post.title}</Link>
+               <Link href={`/post/${post.slug}`} className="text-md flex justify-center" key={index}>
+                 {post.title}
+                 </Link>
             </div>
           </div>
           <div className="w-16 flex-none ">
-            <Image
-              
-              alt={post.title}
-              height="60px"
-              width="60px"
-              unoptimized
-              className="align-middle rounded-full"
-              src={post.featuredImage.url}
-            />
+            <Link href={`/post/${post.slug}`} className="text-md flex justify-center cursor-pointer" key={index}>
+              <Image
+                alt={post.title}
+                height="60px"
+                width="60px"
+                unoptimized
+                className="align-middle rounded-full cursor-pointer"
+                src={post.featuredImage.url}
+              />
+            </Link>
           </div>
         </div>
       ))}
