@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
       <Layout>
           <Component {...pageProps} />
-      </Layout>
+       </Layout>
     </>
  
   )

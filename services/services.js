@@ -6,10 +6,11 @@ export const getPosts = async () => {
   
   const query = gql`
   query MyQuery {
-    postsConnection(orderBy: createdAt_DESC) {
+    postsConnection( orderBy: createdAt_DESC) {
       
       edges {
         node {
+          search
           author {
             bio
             name
@@ -114,9 +115,10 @@ export const getPostDetails = async (slug) => {
 export const getSimilarPosts = async (categories,  slug) => {
 
   const query = gql`
-    query GetSimilarPosts($slug: String!, $categories: [String!]) {
+    query GetSimilarPosts($slug: String!, $categories: [String!],) {
       posts(
         where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
+        orderBy: createdAt_DESC
         last: 3
       ) {
         title
@@ -135,10 +137,10 @@ export const getSimilarPosts = async (categories,  slug) => {
 
 export const getAdjacentPosts = async (createdAt, slug) => {
   const query = gql`
-    query GetAdjacentPosts($createdAt: DateTime!,$slug:String!) {
+    query GetAdjacentPosts($createdAt: DateTime!,$slug:String! ) {
       next:posts(
         first: 1
-        orderBy: createdAt_ASC
+        orderBy: createdAt_DESC
         where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
       ) {
         title
@@ -264,7 +266,7 @@ export const getRecentPosts = async () => {
   const query = gql`
     query etPostDetails() {
       posts(
-        orderBy: createdAt_ASC
+        orderBy: createdAt_DESC
         last: 3
       ) {
         title

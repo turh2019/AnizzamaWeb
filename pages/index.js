@@ -1,12 +1,13 @@
 
 import  Head  from 'next/head';
-import { PostCard, Categories, PostWidget,LinksTo } from '../components/getComponents';
+import { PostCard, Categories, PostWidget,LinksTo,Toolbar } from '../components/getComponents';
 import { getPosts } from '../services/services';
 
 export default function Home({ posts }) {
   return (
    
     <div className="container mx-auto px-10 mb-8">
+      
         <Head>
           <title>anizzama</title>
         </Head>
@@ -19,6 +20,7 @@ export default function Home({ posts }) {
         </div>
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8 ">
+          
             <PostWidget />
             <Categories />
             <LinksTo />

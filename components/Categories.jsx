@@ -16,10 +16,10 @@ function Categories() {
                   <h3 className="text-xl mb-8 font-semibold border-b pb-4 flex justify-center">
                      קטגוריות      
                   </h3>
-                  <div className=''>
-                        {categories.map((category)=>(
+                  <div className='flex flex-wrap'>
+                        {categories.map((category, index)=>(
                             <Link key={category.slug}  href={`/category/${category.slug}`}>
-                                <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2">
+                                <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block">
                                     {category.name}
                                 </span>
                             </Link>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FeaturedPosts } from '../sections/index';
+import { FeaturedPosts} from '../sections/index';
 import Link from 'next/link';
 import { getCategories } from '../services/services';
-
+import {Toolbar} from './getComponents';
 
 const points =[{name :"p1" ,size:5},{name :"p2",size:10},{name :"p2",size:10},{name :"p2",size:10},{name :"p2",size:10}]
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <div className='container mx-auto px-10 mb-8 content-center  grid grid-flow-row  auto-rows-max  '>
     
-        <div className =" rounded-lg p-0  pb-12 mb-8 border-b-4  border-[#5344C1]  ">
+        <div className =" rounded-lg p-0  mb-8 border-b-4  border-[#5344C1]  ">
           <Link href="/">
               <div className='bg-contain bg-center bg-no-repeat bg-title px-10 pt-10 pb-24 relative top-8 cursor-pointer font-bold pt-5 mb-10 '> 
               
@@ -33,10 +33,13 @@ const Header = () => {
                               <FeaturedPosts className=" " /> 
                             </div>
                           </div>
+                         
                         </div>
                       </div>        
                   </div>
+                  <Toolbar/>
             </div>
+           
           </div>  
      
   );
