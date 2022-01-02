@@ -5,7 +5,7 @@ import { getCategories, getCategoryPost } from '../../services/services';
 import { PostCard, Categories, Loader,LinksTo,PostWidget ,Toolbar} from '../../components/getComponents';
 
 const CategoryPost = ({ posts }) => {
-  const router = useRouter();
+ // const router = useRouter();
 
   //if (router.isFallback) {
  //   return <Loader />;
