@@ -4,7 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const FeaturedPostCard = ({ post }) => (
-  <div className="mx-8  h-60 translate-x-5 place-self-center flex justify-center lg:mr-0 lg-translate-x-0 -translate-x-1 mr-6">
+  <Link href={`/post/${post.slug}`}>
+  <div className="mx-8  h-60 translate-x-5 place-self-center flex justify-center lg:mr-0 lg-translate-x-0 -translate-x-1 mr-6 cursor-pointer ">
+
     <div className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-80 h-80 m" style={{ backgroundImage: `url('${post.featuredImage.url}')` }} />
     <div className="absolute rounded-lg bg-center bg-gradient-to-b opacity-50 from-gray-400 via-gray-700 to-black w-80 h-80 " />
     <div className="flex flex-col rounded-lg p-4 items-center justify-center absolute w-60 h-full">
@@ -22,8 +24,8 @@ const FeaturedPostCard = ({ post }) => (
         <p className="inline align-middle text-white text-shadow ml-2 font-medium">{post.author.name}</p>
       </div>
     </div>
-    <Link href={`/post/${post.slug}`}><span className="cursor-pointer absolute w-full h-full" /></Link>
   </div>
+  </Link>
 );
 
 export default FeaturedPostCard;

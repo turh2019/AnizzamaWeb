@@ -6,7 +6,7 @@ import { comment } from 'postcss'
 
 function Comments({slug,from}) {
     const [comments, setComments] = useState([])
-    console.log({slug});
+
     useEffect(() => {
         if(from ==""){
             getComments($slug)
