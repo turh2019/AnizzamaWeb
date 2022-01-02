@@ -3,33 +3,35 @@ import { useRouter } from 'next/router';
 
 
 import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
-import { getPosts, getPostDetails } from '../../services/services';
+import { getPage, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post}) => {
+const pageDetails = ({page}) => {
   
  //const router =useRouter();
  //if(router.isFallback){
  //  return <Loader />
  //}
+console.log({page})
 
   return (
     <>
+    
       <div className="container mx-auto px-10 mb-8">
          
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
            
-           <PostDetail post={post} />
-            <Author author={post.author} />
+          <PostDetail post={page} />
+           <Author  author={page.author} />
             
-            <CommentsFrom slug={post.slug} />
-            <Comments slug={post.slug} />
+            <CommentsFrom slug={page.slug} />
+            <Comments slug={page.slug} from="pages" />
           </div>
           <div className="col-span-1 lg:col-span-4 float-left" >
             <div className="relative lg:sticky top-8">
            
-            <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} />
+            <PostWidget />
             <Categories />
             <LinksTo />
             </div>
@@ -39,22 +41,22 @@ const PostDetails = ({post}) => {
     </>
   );
 };
-export default PostDetails;
+export default pageDetails;
 
 
 export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug);
+  const data = await getpageDetails(params.slug);
   
   return {
     props: {
-      post: data,
+      page: data,
     },
   };
 }
 
 
 export async function getStaticPaths() {
-  const posts = await getPosts();
+  const posts = await getPage();
 
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),

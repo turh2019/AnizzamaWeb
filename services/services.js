@@ -41,6 +41,46 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
+
+export const getPage = async () => {
+  
+  const query = gql`
+  query MyQuery {
+    page_Connection( orderBy: createdAt_DESC) {
+      
+      edges {
+        node {
+          search
+          author {
+            bio
+            name
+            id
+            photo {
+              url
+            }
+          }
+          createdAt
+          slug
+          title
+          excerpt
+          featuredImage {
+            url
+          }
+          pages_ {
+            name
+            slug
+          }
+        }
+      }
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query);
+  
+  return result.page_Connection.edges;
+};
+
 export const getCategories = async () => {
   const query = gql`
     query GetGategories {
@@ -56,6 +96,20 @@ export const getCategories = async () => {
   return result.categories;
 };
 
+export const getPages = async () => {
+  const query = gql`
+    query GetGategories {
+      pages_ {
+          name
+          slug
+        }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.pages_;
+};
 
 export const getLinksto = async () => {
   const query = gql`
@@ -110,6 +164,41 @@ export const getPostDetails = async (slug) => {
   const result = await request(graphqlAPI, query, { slug });
 
   return result.post;
+};
+
+export const getpageDetails = async (slug) => {
+  const query = gql`
+    query GetpageDetails($slug : String!) {
+      page_(where: {slug: $slug}) {
+        title
+        excerpt
+        linkVideo 
+        featuredImage {
+          url
+        }
+        author{
+          name
+          bio
+          photo {
+            url
+          }
+        }
+        createdAt
+        slug
+        content {
+          raw
+        }
+        pages_ {
+          name
+          slug
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.page_;
 };
 
 export const getSimilarPosts = async (categories,  slug) => {
@@ -208,6 +297,47 @@ export const getCategoryPost = async (slug) => {
   return result.postsConnection.edges;
 };
 
+export const getPagesPage = async (slug) => {
+  const query = gql`
+    query GetPagesPage($slug: String!) {
+      page_Connection(where: {pages__some: {slug: $slug}}) {
+        edges {
+          cursor
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            linkVideo 
+            excerpt
+            featuredImage {
+              url
+            }
+            pages_ {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.page_Connection.edges;
+};
+
+
+
+
 export const getFeaturedPosts = async () => {
   const query = gql`
     query GetCategoryPost() {
@@ -262,6 +392,21 @@ export const getComments = async (slug) => {
   return result.comments;
 };
 
+export const getCommentsPages = async (slug) => {
+  const query = gql`
+    query GetComments($slug:String!) {
+      comments(where: {page: {slug:$slug}}){
+        name
+        createdAt
+        comment
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.comments;
+};
 export const getRecentPosts = async () => {
   const query = gql`
     query etPostDetails() {

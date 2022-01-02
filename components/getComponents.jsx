@@ -1,4 +1,5 @@
 export {default as PostCard} from './PostCard';
+export {default as PageCard} from './PageCard';
 export {default as Categories} from './Categories';
 export {default as LinksTo} from './LinksTo';
 export {default as PostWidget} from './PostWidget';

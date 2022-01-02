@@ -1,15 +1,22 @@
 import React ,{useState,useEffect} from 'react'
 import moment from 'moment'
 import parse from 'html-react-parser'
-import {getComments} from'../services/services'
+import {getComments,getCommentsPages} from'../services/services'
 import { comment } from 'postcss'
 
-function Comments({slug}) {
+function Comments({slug,from}) {
     const [comments, setComments] = useState([])
-
+    console.log({slug});
     useEffect(() => {
-        getComments(slug)
-        .then((result) =>setComments(result))
+        if(from ==""){
+            getComments($slug)
+            .then((result) =>setComments(result))
+        }else if(from =="pages"){
+            
+            getCommentsPages(slug)
+            .then((result) =>setComments(result))
+        }
+    
      
     }, [])
     return (
