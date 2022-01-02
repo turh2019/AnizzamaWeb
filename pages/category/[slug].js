@@ -5,17 +5,17 @@ import { getCategories, getCategoryPost } from '../../services/services';
 import { PostCard, Categories, Loader,LinksTo,PostWidget ,Toolbar} from '../../components/getComponents';
 
 const CategoryPost = ({ posts }) => {
- // const router = useRouter();
+  //const router = useRouter();
 
   //if (router.isFallback) {
- //   return <Loader />;
- // }
+ //  return <Loader />;
+ //}
 
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
-           <Toolbar />
+          
           {posts.map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
