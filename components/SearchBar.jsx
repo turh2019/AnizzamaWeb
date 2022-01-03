@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Header } from './getComponents';
-import { getPosts } from '../services/services';
+import { getPosts ,getPage} from '../services/services';
 import Link from 'next/link'
 import Image from 'next/image';
 
@@ -10,17 +10,18 @@ const SearchBar = () => {
     const itsfound = ""
 
     useEffect(() =>{
-        getPosts()
+        getPage()
         .then((newpost)=>postsTo(newpost))
+   
     },[])
     return (
        <div className='pb-5 bg-blend-multiply text-white inline-block lg:sticky relative'>
            
            <div className='flex justify-center inline-block lg:sticky relative'>
-           <div class=" rounded-lg text-white text-right   inline-block block ">
+           <div className=" rounded-lg text-white text-right   inline-block block ">
                
-                <div class="relative translate-y-3 absolute pointer-events-none focus:pointer-events-auto py-1 px-1 bg-red ">
-                    <svg class="absolute inset-y-0 right-1 w-16 text-white h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <div className="relative translate-y-3 absolute pointer-events-none focus:pointer-events-auto py-1 px-1 bg-red ">
+                    <svg className="absolute inset-y-0 right-1 w-16 text-white h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                 </div >
@@ -37,17 +38,17 @@ const SearchBar = () => {
                         return null
                         }else if(val.node.search.toString().toLowerCase().includes(SearcTerm.toLowerCase())){
                              
-                            itsfound ="a";
+                            itsfound ="true";
                             return val
                         }
                        
                     }).map((val,key)=>
                     {
-                        itsfound ="a";
+                        itsfound ="true";
                             return <div className=" mt-5 transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 "> 
                             <div className='flex items-right w-full mb-2 text-white  mb-4 text-white p-4'>
-                                     <Link key={key} href={`/post/${val.node.slug}`} ><p className='p-4 flex-grow ml-10' >{val.node.title}</p></Link>
-                                     <Link href={`/post/${val.node.slug}`} className="text-md  cursor-pointer" key={val.node.title}>
+                                     <Link key={key} href={`/page/${val.node.slug}`} ><p className='p-4 flex-grow ml-10' >{val.node.title}</p></Link>
+                                     <Link href={`/page/${val.node.slug}`} className="text-md  cursor-pointer" key={val.node.title}>
                                         <Image
                                             alt={val.node.title}
                                             height="60px"

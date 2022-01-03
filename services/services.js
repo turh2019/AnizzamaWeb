@@ -169,7 +169,7 @@ export const getPostDetails = async (slug) => {
 export const getpageDetails = async (slug) => {
   const query = gql`
     query GetpageDetails($slug : String!) {
-      page_(where: {slug: $slug}) {
+      page(where: {slug: $slug}) {
         title
         excerpt
         linkVideo 
@@ -198,7 +198,7 @@ export const getpageDetails = async (slug) => {
 
   const result = await request(graphqlAPI, query, { slug });
 
-  return result.page_;
+  return result.page;
 };
 
 export const getSimilarPosts = async (categories,  slug) => {
@@ -300,7 +300,7 @@ export const getCategoryPost = async (slug) => {
 export const getPagesPage = async (slug) => {
   const query = gql`
     query GetPagesPage($slug: String!) {
-      page_Connection(where: {pages__some: {slug: $slug}}) {
+      page_Connection(where: {pages__some: {slug: $slug}}, orderBy: slug_ASC) {
         edges {
           cursor
           node {
@@ -375,6 +375,23 @@ export const submitComment = async (obj) => {
 
   return result.json();
 };
+
+export const submitCommentPage = async (obj) => {
+ 
+  const result = await fetch('/api/commentsPage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+
+
+
 
 export const getComments = async (slug) => {
   const query = gql`

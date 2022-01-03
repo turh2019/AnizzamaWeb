@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { submitComment } from '../services/services';
+import { submitComment,submitCommentPage } from '../services/services';
 
-const CommentsForm = ({ slug }) => {
+const CommentsForm = ({ slug ,type}) => {
   const [error, setError] = useState(false);
   const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
-  
+
   useEffect(() => {
     setLocalStorage(window.localStorage);
     const initalFormData = {
@@ -53,26 +53,50 @@ const CommentsForm = ({ slug }) => {
       localStorage.removeItem('name');
       localStorage.removeItem('email');
     }
-
+    
+  if(type=="")
+  {
     submitComment(commentObj)
-      .then((res) => {
-        if (res.createComment) {
-          if (!storeData) {
-            formData.name = '';
-            formData.email = '';
-          }
-          formData.comment = '';
-          setFormData((prevState) => ({
-            ...prevState,
-            ...formData,
-          }));
-          setShowSuccessMessage(true);
-          setTimeout(() => {
-            setShowSuccessMessage(false);
-          }, 3000);
+    .then((res) => {
+      if (res.createComment) {
+        if (!storeData) {
+          formData.name = '';
+          formData.email = '';
         }
-      });
-  };
+        formData.comment = '';
+        setFormData((prevState) => ({
+          ...prevState,
+          ...formData,
+        }));
+        setShowSuccessMessage(true);
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+        }, 3000);
+      }
+    });
+  }else if (type=="page")
+  {
+    submitCommentPage(commentObj)
+    .then((res) => {
+      if (res.createComment) {
+        if (!storeData) {
+          formData.name = '';
+          formData.email = '';
+        }
+        formData.comment = '';
+        setFormData((prevState) => ({
+          ...prevState,
+          ...formData,
+        }));
+        setShowSuccessMessage(true);
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+        }, 3000);
+      }
+    });
+  }
+
+  }; 
 
   return (
     <div className="bg-[#261D78] text-white shadow-lg rounded-lg p-8 pb-12 mb-8">
