@@ -19,7 +19,7 @@ function Categories({selected,Setselected,type}) {
 
                     <div className='rounded-full  bg-[#4864F6] text-white mx-5 drop-shadow-xl ' onClick={(e)=>(setisActive(!isActive))} >
                         
-                        <h3 className="text-lg font-semibold text-right  p-1 px-2  caret-pink-500 cursor-pointer">
+                        <h3 className="text-lg font-semibold text-right  p-1 px-2  caret-pink-500 cursor-pointer mb-2">
                           
                             {selected!=""?
                                 <div>
