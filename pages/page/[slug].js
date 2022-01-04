@@ -22,6 +22,8 @@ const PostDetails = ({post}) => {
              <PageDetail post ={post}  />
             <Author author={post.author} />
             
+            <CommentsFrom slug={post.slug} type="page"/>
+            <Comments slug={post.slug} from="pages" />
           </div>
           <div className="col-span-1 lg:col-span-4 float-left" >
             <div className="relative lg:sticky top-8">
