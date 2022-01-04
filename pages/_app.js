@@ -10,8 +10,10 @@ function MyApp({ Component, pageProps }) {
       <Head>
           <title>anizzama</title>
           <link rel="icon" href='/bg/icon.png'/>
+          <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
         </Head>
       <Layout>
+        
           <Component {...pageProps} />
        </Layout>
     </>

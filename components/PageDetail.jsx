@@ -1,11 +1,12 @@
-import React, { useRef} from 'react';
+import React, { useRef,useState,useEffect} from 'react';
 import moment from 'moment';
 
 import Link from 'next/link'
 const PageDetail = ({ post }) => {
     
- 
-
+  const [watching,setWatching] = useState(false);
+  const [linkto,setlink] = useState();
+  const [Name,setName] = useState();
   
   const vidRef = useRef(null);
   const handlePlayVideo = () => {
@@ -62,7 +63,7 @@ const PageDetail = ({ post }) => {
     
   return (
     <>
-      <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+      <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3">
         <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
           <img src={post.featuredImage.url} alt="" 
           className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
@@ -87,8 +88,8 @@ const PageDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
-          <h1 className="mb-10 text-3xl font-semibold text-center">{post.title}</h1>
-          <div className='text-right '> 
+          <h1 className="mb-10 text-3xl font-semibold text-center rtl:mr-3">{post.title}</h1>
+          <div className='text-right rtl:mr-3'> 
               {post.content.raw.children.map((typeObj, index) => {
                 const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                   return getContentFragment(index, children, typeObj, typeObj.type);
@@ -98,21 +99,31 @@ const PageDetail = ({ post }) => {
               <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
               
                   {post.linkVideo.map((linkEp,index)=>(
-                     <Link key={linkEp} href={linkEp}> 
-                      <span  className ="cursor-pointer  ">
+                     
+                        <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                         <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">
                             {post.pages_.map((page)=>(
-                                page.name == "סדרות" ? "פרק  ":"קישור לסרט מספר "
+ 
+                                     page.name == "סדרות" ? "פרק  ":"קישור לסרט מספר "
+                             
                             ))}
                               {index+1} 
                         </button>
                       </span>       
-                      </Link>          
+                            
                   ))}
             </div>
+            
           </div>
-       
+                              
         </div>
+
+
+        {watching== true?
+                     <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
+                          <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>
+                         
+                     </div>:""}
       </div>
        
     </>

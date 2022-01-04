@@ -1,13 +1,18 @@
-import React, { useRef} from 'react';
+import React, { useRef,useState,useEffect} from 'react';
 import moment from 'moment';
 
 import Link from 'next/link'
 const PostDetail = ({ post }) => {
  
   const vidRef = useRef(null);
+  const [watching,setWatching] = useState(false);
+  const [linkto,setlink] = useState();
+
   const handlePlayVideo = () => {
     vidRef.current.play();
   }
+
+  //
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
    
@@ -92,15 +97,21 @@ const PostDetail = ({ post }) => {
           <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center' >
               <div className=''> 
                   {post.linkVideo.map((linkEp,index)=>(
-                     <Link key={linkEp} href={linkEp}> 
-                      <span className ="cursor-pointer  ">
+                     
+                      <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
+                          
+                     
                          <button type="button"  className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">   קישור מספר  {index+1}  </button>
                       </span>       
-                      </Link>          
+                           
                   ))}
             </div>
           </div>
-       
+                    {watching== true?
+                     <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
+                          <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>
+                         
+                     </div>:""}
         </div>
       </div>
        

@@ -40,7 +40,7 @@ const PostCard = ({ post }) => (
             <Link href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
           </h1>
 
-          <p className="text-center text-lg text-white-700 font-normal px-4 lg:px-20 mb-8">
+          <p className="text-center text-base rtl:mr-3 text-white-700 font-normal px-4 lg:px-20 mb-8">
              {post.excerpt}
           </p>
     <div className="text-center sticky ">
