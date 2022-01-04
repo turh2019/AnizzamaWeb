@@ -5,7 +5,7 @@ import { getCategories } from '../services/services';
 import {Toolbar} from './getComponents';
 
 const points =[{name :"p1" ,size:5},{name :"p2",size:10},{name :"p2",size:10},{name :"p2",size:10},{name :"p2",size:10}]
-const Header = () => {
+const Header = (type) => {
   const [categories, setCategories] = useState([]);
   
   useEffect(() => {
@@ -37,7 +37,7 @@ const Header = () => {
                         </div>
                       </div>        
                   </div>
-                  <Toolbar/>
+                  <Toolbar type ={type}/>
             </div>
            
           </div>  

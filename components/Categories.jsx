@@ -3,29 +3,61 @@ import Link from 'next/link'
 import {getCategories} from '../services/services'
 import { getPosts, getPostDetails } from '../services/services';
 
-function Categories() {
+function Categories({selected,Setselected,type}) {
    const [categories, setcategories] = useState([])
  
    useEffect(() =>{
+       
     getCategories()
        .then((newCategories)=>setcategories(newCategories))
    },[])
+   const [isActive,setisActive] =useState(false)
+
    
     return (
-        <div className ="bg-[#261D78] shadow-lg rounded-lg p-8 mb-8 pb-12 text-white">
-                  <h3 className="text-xl mb-8 font-semibold border-b pb-4 flex justify-center">
-                     קטגוריות      
-                  </h3>
-                  <div className='flex flex-wrap'>
-                        {categories.map((category, index)=>(
-                            <Link key={category.slug}  href={`/category/${category.slug}`}>
-                                <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block">
-                                    {category.name}
-                                </span>
-                            </Link>
-                        ))}
+        <div className ="p-1">
 
-                  </div>
+                    <div className='rounded-full  bg-[#4864F6] text-white mx-5 drop-shadow-xl ' onClick={(e)=>(setisActive(!isActive))} >
+                        
+                        <h3 className="text-lg font-semibold text-right  p-1 px-2  caret-pink-500 cursor-pointer">
+                          
+                            {selected!=""?
+                                <div>
+                                    {selected}
+                                    <select className='bg-[#4864F6]  rounded-full'>
+                                    </select> 
+                                </div>
+                                 :    
+                                 <div>
+                                    <select options="null" className='bg-[#4864F6] mr-1 bg-opacity-[0] '>
+                                    </select> 
+                                    { "קטגוריות"}
+                             </div>
+                                   
+                            }       
+                        </h3>
+                    </div>
+                    {isActive&&(
+                        <div className='bg-[#4864F6] text-white p-6 mb-10 rounded-lg drop-shadow-xl'>
+                            {categories.map((category, index)=>(
+                                type!=""?
+                                <Link key={category.slug} type ={type} href={`/category/${category.slug}`}>
+                                    <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
+                                
+                                     {category.name}
+                                    </span>
+                                </Link>:
+                                   <Link key={category.slug} type ={type} href={`/pages/categotyPage/${category.slug}`}>
+                                   <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
+                               
+                                    {category.name}
+                                   </span>
+                               </Link>
+                            ))}
+         
+                        </div>   
+                    )}
+          
              
         </div>
     )

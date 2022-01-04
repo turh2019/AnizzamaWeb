@@ -297,6 +297,49 @@ export const getCategoryPost = async (slug) => {
   return result.postsConnection.edges;
 };
 
+export const getPageCatgory = async (slug,slugc) => {
+  console.log(slug + " " +slugc )
+  const query = gql`
+    query GetPagesPage($slug: String!,$slugc: String!) {
+      page_Connection(where: {pages__some: {slug: $slug},category_some: {slug: $slugc}}, orderBy: slug_ASC) {
+        edges {
+          cursor
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            linkVideo 
+            excerpt
+            featuredImage {
+              url
+            }
+            pages_ {
+              name
+              slug
+            }
+            categories {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug,slugc });
+  console.log(result.page_Connection.edges )
+  return result.page_Connection.edges;
+};
+
 export const getPagesPage = async (slug) => {
   const query = gql`
     query GetPagesPage($slug: String!) {

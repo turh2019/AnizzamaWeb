@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import { SearchBar } from './getComponents';
+import { SearchBar ,Categories } from './getComponents';
 import {getPages} from '../services/services'
 import Link from 'next/link'
-const Toolbar = () => {
+const Toolbar = (type) => {
     const [pages, setPages] = useState([])
- 
+    const [selected,Setselected] = useState([""])
+
     useEffect(() =>{
         getPages()
         .then((newPage)=>setPages(newPage))
@@ -17,15 +18,22 @@ const Toolbar = () => {
                 <div className='place-self-canter  px-3 pb-3 my-2'>
                     {pages.map((page)=>(
                         <Link key={page.name} href={`/pages/${page.slug}`}>
-                            <span className='transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8  cursor-pointer  mx-2 '>
+                            <span className='transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8  cursor-pointer  mx-2 ' onClick={e=>Setselected("")}>
                                     {page.name}
                             </span>
                         </Link>
                        
                        
                         ))}
+
+                         <Link key="home" href={`/`}>
+                            <span className='transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8  cursor-pointer  mx-2 ' onClick={e=>Setselected("")}>
+                                    בית
+                            </span>
+                        </Link>
                 </div>
-                <SearchBar/> 
+                <SearchBar /> 
+                <Categories selected ={selected}  Setselected ={Setselected} type={type}/>
             </div>  
         </div>
                 

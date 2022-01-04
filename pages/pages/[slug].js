@@ -16,23 +16,23 @@ const Pagespage = ({ posts }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12  '>
-          <div className='' >
+       
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12  '>
               {posts.map((post, index) => (
-                <span className=' '>
+                <span className='flex items-stretch'>
                      <PageCard key={index} post={post.node} />
                 </span>
                    
                   ))}
               </div>
-          </div>
+       
          
         </div>
         <div className="col-span-1 lg:col-span-4 float-left">
           <div className="relative lg:sticky top-8 ">
          
             <PostWidget />
-            <Categories />
+            
             <LinksTo />
           </div>
         </div>

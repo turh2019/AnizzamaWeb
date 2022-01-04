@@ -29,7 +29,7 @@ const PostDetails = ({post}) => {
             <div className="relative lg:sticky top-8">
            
             <PostWidget  />
-            <Categories />
+           
             <LinksTo />
             </div>
           </div>
