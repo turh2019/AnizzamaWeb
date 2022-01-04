@@ -26,11 +26,11 @@ const PostWidget = ({ categories, slug }) => {
     <div className="bg-[#261D78] shadow-lg rounded-lg p-8 pb-12 mb-8">
       <h3 className="text-xl mb-8 text-white font-semibold border-b pb-4 flex justify-center">{slug ? 'פוסטים קשורים' : 'פוסטים אחרונים'}</h3>
       {relatedPosts.map((post, index) => (
-        <div key={index} className="flex items-right w-full mb-4 text-white ">
+        <div key={index} className="flex items-right w-full mb-6 text-white ">
           <div className="flex-grow ml-10">
             <p className="text-gray-400 font-xs flex justify-center">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
-            <div className='flex justify-center'>
-               <Link href={`/post/${post.slug}`} className="text-md flex justify-center" key={index}>
+            <div className='flex justify-center text-center '>
+               <Link href={`/post/${post.slug}`} className="text-md flex justify-center " key={index}>
                  {post.title}
                  </Link>
             </div>
@@ -42,7 +42,7 @@ const PostWidget = ({ categories, slug }) => {
                 height="60px"
                 width="60px"
                 unoptimized
-                className="align-middle rounded-full cursor-pointer"
+                className="align-middle rounded-full cursor-pointer scale-25 bg-fixed"
                 src={post.featuredImage.url}
               />
             </Link>

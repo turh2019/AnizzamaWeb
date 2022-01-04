@@ -84,7 +84,7 @@ export const getPage = async () => {
 export const getCategories = async () => {
   const query = gql`
     query GetGategories {
-        categories {
+        categories(orderBy: name_ASC) {
           name
           slug
         }

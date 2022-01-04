@@ -19,7 +19,7 @@ function Categories({selected,Setselected,type}) {
 
                     <div className='rounded-full  bg-[#4864F6] text-white mx-5 drop-shadow-xl ' onClick={(e)=>(setisActive(!isActive))} >
                         
-                        <h3 className="text-lg font-semibold text-right  p-1 px-2  caret-pink-500 cursor-pointer mb-2">
+                        <h3 className="text-lg font-semibold text-right  p-1 px-2  caret-pink-500 cursor-pointer mb-3">
                           
                             {selected!=""?
                                 <div>
@@ -42,13 +42,13 @@ function Categories({selected,Setselected,type}) {
                             {categories.map((category, index)=>(
                                 type!=""?
                                 <Link key={category.slug} type ={type} href={`/category/${category.slug}`}>
-                                    <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
+                                    <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block hover:bg-white hover:bg-opacity-[0.6] text-center pt-3 drop-shadow-xl rounded-full" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
                                 
                                      {category.name}
                                     </span>
                                 </Link>:
                                    <Link key={category.slug} type ={type} href={`/pages/categotyPage/${category.slug}`}>
-                                   <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
+                                   <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition  ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
                                
                                     {category.name}
                                    </span>
