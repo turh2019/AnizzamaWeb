@@ -30,13 +30,13 @@ const PostWidget = ({ categories, slug }) => {
           <div className="flex-grow ml-10">
             <p className="text-gray-400 font-xs flex justify-center">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
             <div className='flex justify-center text-center '>
-               <Link href={`/post/${post.slug}`} className="text-md flex justify-center " key={index}>
+               <Link target="_blank" href={`/post/${post.slug}`} className="text-md flex justify-center " key={index}>
                  {post.title}
                  </Link>
             </div>
           </div>
           <div className="w-16 flex-none ">
-            <Link href={`/post/${post.slug}`} className="text-md flex justify-center cursor-pointer" key={index}>
+            <Link target="_blank" href={`/post/${post.slug}`} className="text-md flex justify-center cursor-pointer" key={index}>
               <Image
                 alt={post.title}
                 height="60px"

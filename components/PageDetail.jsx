@@ -7,7 +7,7 @@ const PageDetail = ({ post }) => {
   const [watching,setWatching] = useState(false);
   const [linkto,setlink] = useState();
   const [Name,setName] = useState();
-  
+  const [itsMega,setItsMega] = useState(false);
   const vidRef = useRef(null);
   const handlePlayVideo = () => {
     vidRef.current.play();
@@ -41,7 +41,7 @@ const PageDetail = ({ post }) => {
         return <h4 key={index} className="text-md font-semibold mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
 
         case 'link'://h4
-        return  <Link key={index} href={obj.href} ><span className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  ">{obj.title}</span></Link>;
+        return  <a target="_blank" key={index} href={obj.href}><Link target="_blank" key={index} href={obj.href} ><span className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  ">{obj.title}</span></Link></a>;
 
       case 'image': //img
         return (
@@ -88,20 +88,37 @@ const PageDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
-          <h1 className="mb-10 text-3xl font-semibold text-center rtl:mr-3">{post.title}</h1>
-          <div className='text-right rtl:mr-3'> 
+          <h1 className="my-10 text-3xl font-semibold text-center rtl:mr-3  ">{post.title}</h1>
+          <div className='text-right rtl:mr-3 '> 
               {post.content.raw.children.map((typeObj, index) => {
                 const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                   return getContentFragment(index, children, typeObj, typeObj.type);
               })}
           </div>
-          <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter   ' >
+          <div className='text-right border-b-4 rounded-lg  my-10 border-[#5344C1]'>
+              {post.pages_.map((page)=>(
+                  page.name == "סדרות" ?
+                  <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3 " onClick={(e)=>{setWatching(false); setItsMega(false)}}>
+                  פרקים בדרייב
+                </button>:" "
+              ))}
+              
+              {post.pages_.map((page)=>(
+                      page.name == "סדרות" ?
+                      <button type="button"  className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3" onClick={(e)=>{setWatching(false); setItsMega(true)}}>
+                        פרקים במגה  
+                      </button>:" "
+              ))}
+          </div>   
+
+          {itsMega == false?
+          <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter  mt-3 ' >
               <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
               
                   {post.linkVideo.map((linkEp,index)=>(
                      
                         <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                        <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">
+                        <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">
                             {post.pages_.map((page)=>(
  
                                      page.name == "סדרות" ? "פרק  ":"קישור לסרט מספר "
@@ -114,10 +131,24 @@ const PageDetail = ({ post }) => {
                   ))}
             </div>
             
-          </div>
+          </div>:
+            <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter   ' >
+              <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
+                {post.linkVideoMega.map((linkEp,index)=>(
+                  <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
+                    <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] focus:bg-[#382C8B]   inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 " >
+                      {post.pages_.map((page)=>(
+                         page.name == "סדרות" ? "פרק  ":"קישור לסרט מספר "
+                      ))}
+                        {index+1} 
+                    </button>
+                  </span>                
+                ))}
+              </div>
+            
+            </div>}
                               
         </div>
-
 
         {watching== true?
                      <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>

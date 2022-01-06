@@ -5,9 +5,12 @@ import Link from 'next/link';
 
 
 
-
+const handleClick = () => {
+  window.open("http://twitter.com/saigowthamr");
+};
 const PostCard = ({ post }) => (
-  <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 border-2  border-[#18154E]  ">
+  
+  <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 border-2  border-[#18154E] rtl:mr-3 ">
    
 
     <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
@@ -37,16 +40,18 @@ const PostCard = ({ post }) => (
       </div>
     </div>
           <h1 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
-            <Link href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
+            <Link  href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
           </h1>
 
-          <p className="text-center text-base rtl:mr-3 text-white-700 font-normal px-4 lg:px-20 mb-8">
+          <p className="text-center text-base rtl:mr-3 text-white-700 font-normal px-4  mb-8 rtl:mr-3">
              {post.excerpt}
           </p>
-    <div className="text-center sticky ">
-      <Link href={`/page/${post.slug}`}>
-        <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer  ">להמשיך לצפות</span>
-      </Link>
+    <div className="text-center sticky " target="_blank" >
+      <a href={`/page/${post.slug}`} target="_blank" className=' cursor-pointer'>
+        <Link target="_blank" to={`/page/${post.slug}`} href={`/page/${post.slug}`}  >
+          <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer  " >להמשיך לצפות</span>
+        </Link>
+      </a>
     </div>
   </div>
 );

@@ -18,12 +18,11 @@ const Header = (type) => {
     <div className='container mx-auto px-10 mb-8 content-center  grid grid-flow-row  auto-rows-max  '>
     
         <div className =" rounded-lg p-0  mb-8 border-b-4  border-[#5344C1]  ">
-          <Link href="/">
-              <div className='bg-contain bg-center bg-no-repeat bg-title px-10 pt-10 pb-24 relative top-8 cursor-pointer font-bold pt-5 mb-10 '> 
-              
-              </div>
-              </Link>
-            
+          <a target="_blank" href="/">
+            <Link target="_blank" href="/">
+                <div className='bg-contain bg-center bg-no-repeat bg-title px-10 pt-10 pb-24 relative top-8 cursor-pointer font-bold pt-5 mb-10 '> </div>
+            </Link>
+          </a> 
           <div className="relative overflow-hidden   mb-15 col-span-1 mb-8   ">
             <div className=" bg-no-repeat bg-bgt-top flex justify-center  object-center  h-full w-full object-cover rounded-t-lg   py-10 bg-center  " >
                   <div className='grid grid-cols-2 transform-gpu  '> 

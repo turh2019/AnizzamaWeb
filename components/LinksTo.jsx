@@ -22,17 +22,18 @@ function LinksTo() {
                   {linksTo.map((li)=>(
                      <div className='flex items-right w-full mb-2 text-white '>
                             <div className="flex-grow ml-10">
-                                <div className='font-xs flex justify-center my-3'>
-                                    <Link href={li.link} className="text-md flex justify-center " key={li.link}>
-                                        <span className='transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2'>
+                                <a href={li.link} target="_blank" className='font-xs flex justify-center my-3 cursor-pointer'>
+                                    <Link   to={li.link}  href={li.link} className="text-md flex justify-center " key={li.link}>
+                                        <span  target="_blank" className='transition duration-700 text-center color-white  mb-8  hover:text-[#4864F6]  font-semibold  mx-2'>
                                         { li.title}
                                         </span>
                                     </Link>
                                     
-                                </div>
+                                </a>
                             </div>                    
                             <div className='w-16 flex-none'>
-                                    <Link key={li.link} href={li.link} className="text-md flex justify-center cursor-pointer "> 
+                                
+                                    <Link  target="_blank"  to={li.link}  key={li.link} href={li.link} className="text-md flex justify-center cursor-pointer "> 
                                             <img src={li.featuredImage.url}
                                                 alt=""    
                                                 height="60px"

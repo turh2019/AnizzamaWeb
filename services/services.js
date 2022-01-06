@@ -63,6 +63,7 @@ export const getPage = async () => {
           slug
           title
           excerpt
+          linkVideoMega
           featuredImage {
             url
           }
@@ -173,6 +174,7 @@ export const getpageDetails = async (slug) => {
         title
         excerpt
         linkVideo 
+        linkVideoMega
         featuredImage {
           url
         }

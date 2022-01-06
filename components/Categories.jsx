@@ -41,18 +41,20 @@ function Categories({selected,Setselected,type}) {
                         <div className='bg-[#4864F6] text-white p-6 mb-10 rounded-lg drop-shadow-xl'>
                             {categories.map((category, index)=>(
                                 type!=""?
-                                <Link key={category.slug} type ={type} href={`/category/${category.slug}`}>
-                                    <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block hover:bg-white hover:bg-opacity-[0.6] text-center pt-3 drop-shadow-xl rounded-full" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
-                                
-                                     {category.name}
-                                    </span>
-                                </Link>:
-                                   <Link key={category.slug} type ={type} href={`/pages/categotyPage/${category.slug}`}>
-                                   <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition  ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
-                               
-                                    {category.name}
-                                   </span>
-                               </Link>
+                                <a href={`/category/${category.slug}`} target="_blank" className=' cursor-pointer'>
+                                    <Link target="_blank"  key={category.slug} type ={type} href={`/category/${category.slug}`}>
+                                        <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block hover:bg-white hover:bg-opacity-[0.6] text-center pt-3 drop-shadow-xl rounded-full" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
+                                            {category.name}
+                                        </span>
+                                    </Link>
+                                </a>:
+                                <a href={`/pages/categotyPage/${category.slug}`} target="_blank" className=' cursor-pointer'>
+                                    <Link target="_blank" key={category.slug} type ={type} href={`/pages/categotyPage/${category.slug}`}>
+                                        <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition  ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
+                                            {category.name}
+                                        </span>
+                                    </Link>
+                               </a>
                             ))}
          
                         </div>   

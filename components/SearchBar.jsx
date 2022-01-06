@@ -46,9 +46,11 @@ const SearchBar = () => {
                     {
                         itsfound ="true";
                             return <div className=" mt-5 transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 "> 
+                             <a target="_blank" href={`/page/${val.node.slug}`}>
                             <div className='flex items-right w-full mb-2 text-white  mb-4 text-white p-4'>
-                                     <Link key={key} href={`/page/${val.node.slug}`} ><p className='p-4 flex-grow ml-10' >{val.node.title}</p></Link>
-                                     <Link href={`/page/${val.node.slug}`} className="text-md  cursor-pointer" key={val.node.title}>
+                               
+                                     <Link target="_blank" key={key} href={`/page/${val.node.slug}`} ><p className='p-4 flex-grow ml-10' >{val.node.title}</p></Link>
+                                     <Link target="_blank" href={`/page/${val.node.slug}`} className="text-md  cursor-pointer" key={val.node.title}>
                                         <Image
                                             alt={val.node.title}
                                             height="60px"
@@ -58,8 +60,9 @@ const SearchBar = () => {
                                             src={val.node.featuredImage.url}
                                         />
                                     </Link>
+                                
                             </div>
-                        
+                            </a>
                         </div>
                     })}
                     {itsfound ? " ":<div><p className='text-center py-2 font-semibold text-red-200'>לא נמצאו תוצאות</p></div>}
