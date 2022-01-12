@@ -9,6 +9,7 @@ const PageDetail = ({ post }) => {
   const [Name,setName] = useState();
   const [itsMega,setItsMega] = useState(false);
   const vidRef = useRef(null);
+
   const handlePlayVideo = () => {
     vidRef.current.play();
   }
@@ -63,7 +64,7 @@ const PageDetail = ({ post }) => {
     
   return (
     <>
-      <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3">
+      <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3 "dir="rtl">
         <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
           <img src={post.featuredImage.url} alt="" 
           className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
@@ -79,10 +80,10 @@ const PageDetail = ({ post }) => {
                 
                 src={post.author.photo.url}
               />
-              <p className="inline align-middle text-gray-200 ml-2 font-medium text-lg">{post.author.name}</p>
+              <p className="inline align-middle text-gray-200 mx-2 font-medium text-lg">{post.author.name}</p>
             </div>
             <div className="font-medium text-gray-200">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mx-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>

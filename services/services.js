@@ -100,9 +100,10 @@ export const getCategories = async () => {
 export const getPages = async () => {
   const query = gql`
     query GetGategories {
-      pages_ {
+      pages_(orderBy: createdAt_DESC) {
           name
           slug
+          
         }
     }
   `;
@@ -469,6 +470,7 @@ export const getCommentsPages = async (slug) => {
 
   return result.comments;
 };
+
 export const getRecentPosts = async () => {
   const query = gql`
     query etPostDetails() {
@@ -488,4 +490,23 @@ export const getRecentPosts = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.posts;
+};
+
+
+export const getJobs = async () => {
+  const query = gql`
+  query MyQuery {
+    
+      authors {
+        bio
+        name
+        photo {
+          url
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+
+  return result.authors;
 };

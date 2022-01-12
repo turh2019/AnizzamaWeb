@@ -6,7 +6,7 @@ import { getPosts } from '../services/services';
 export default function Home({ posts }) {
   return (
    
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-10 mb-8" >
       
         <Head>
           <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />

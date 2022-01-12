@@ -4,12 +4,14 @@ import {getPages} from '../services/services'
 import Link from 'next/link'
 const Toolbar = (type) => {
     const [pages, setPages] = useState([])
+ 
     const [selected,Setselected] = useState([""])
 
     useEffect(() =>{
         getPages()
         .then((newPage)=>setPages(newPage))
     },[])
+   
    
     return (
         <>
