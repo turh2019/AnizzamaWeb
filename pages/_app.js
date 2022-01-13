@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
           <title>anizzama</title>
           <link target="_blank" rel="icon" href='/bg/icon.png'/>
- 
+          <meta name="google-site-verification" content="FojcSmKWD0kChqW_8sPC0fvRO6ppd-Svm9y534ps61Y" />
 
         </Head>
      
