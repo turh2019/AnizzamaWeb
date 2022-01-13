@@ -9,10 +9,10 @@ export default async (req, res) => {
 
     // List of posts
     const post_slugs = [
-      "hello-world",
-      "perfect-blue",
-      "the-girl-who-leapt-through-time",
-      "remake-our-life-episode-1"
+      "post/hello-world",
+      "post/perfect-blue",
+      "post/the-girl-who-leapt-through-time",
+      "post/remake-our-life-episode-1"
     ];
 
     // Create each URL row
