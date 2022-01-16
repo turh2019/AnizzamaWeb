@@ -20,7 +20,7 @@ function Comments({slug,from}) {
      
     }, [])
     return (
-        <div className='bg-[#261D78]'>
+        <div className='bg-[#261D78] ' dir="rtl">
             {comments.length>0 && (
                 <div className=' shadow-lg rounded-lg p-8 pb-12 mb-8'>
                      <h3 className=' text-xl mb-8 font-semibold border-b pb-4 text-white  '>
@@ -34,7 +34,7 @@ function Comments({slug,from}) {
                       {comments.map((cooment) =>(
                           <div key={cooment.createdAt} className='border-b-2 border-l-2 text-gray-400 border-gray-400 mb-4 pb-4 bg-[#4864F6] px-3 py-3 rounded-lg'>
                             <p className='mb-4 '>
-                                <span className='font-semibold text-white'>{cooment.name}</span>
+                                <span className='font-semibold text-white ml-2' >{cooment.name}</span>
                                 {' '}
                                 on
                                 {' '}

@@ -11,6 +11,7 @@ export const getPosts = async () => {
       edges {
         node {
           search
+          
           author {
             bio
             name
@@ -50,6 +51,7 @@ export const getPage = async () => {
       
       edges {
         node {
+          
           search
           author {
             bio
@@ -174,6 +176,7 @@ export const getpageDetails = async (slug) => {
       page(where: {slug: $slug}) {
         title
         excerpt
+        
         linkVideo 
         linkVideoMega
         featuredImage {
@@ -187,6 +190,9 @@ export const getpageDetails = async (slug) => {
           }
         }
         createdAt
+        time
+        animelist
+        trailer
         slug
         content {
           raw
@@ -215,6 +221,9 @@ export const getSimilarPosts = async (categories,  slug) => {
       ) {
         title
         featuredImage {
+          url
+        }
+        featuredSmallImage{
           url
         }
         createdAt
@@ -300,48 +309,7 @@ export const getCategoryPost = async (slug) => {
   return result.postsConnection.edges;
 };
 
-export const getPageCatgory = async (slug,slugc) => {
-  console.log(slug + " " +slugc )
-  const query = gql`
-    query GetPagesPage($slug: String!,$slugc: String!) {
-      page_Connection(where: {pages__some: {slug: $slug},category_some: {slug: $slugc}}, orderBy: slug_ASC) {
-        edges {
-          cursor
-          node {
-            author {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            linkVideo 
-            excerpt
-            featuredImage {
-              url
-            }
-            pages_ {
-              name
-              slug
-            }
-            categories {
-              name
-              slug
-            }
-          }
-        }
-      }
-    }
-  `;
 
-  const result = await request(graphqlAPI, query, { slug,slugc });
-  console.log(result.page_Connection.edges )
-  return result.page_Connection.edges;
-};
 
 export const getPagesPage = async (slug) => {
   const query = gql`
@@ -349,6 +317,7 @@ export const getPagesPage = async (slug) => {
       page_Connection(where: {pages__some: {slug: $slug}}, orderBy: slug_ASC) {
         edges {
           cursor
+          
           node {
             author {
               bio
@@ -359,6 +328,7 @@ export const getPagesPage = async (slug) => {
               }
             }
             createdAt
+            time
             slug
             title
             linkVideo 
@@ -442,7 +412,7 @@ export const submitCommentPage = async (obj) => {
 export const getComments = async (slug) => {
   const query = gql`
     query GetComments($slug:String!) {
-      comments(where: {post: {slug:$slug}}){
+      comments(where: {post: {slug:$slug}}, orderBy: createdAt_DESC){
         name
         createdAt
         comment
@@ -458,7 +428,7 @@ export const getComments = async (slug) => {
 export const getCommentsPages = async (slug) => {
   const query = gql`
     query GetComments($slug:String!) {
-      comments(where: {page: {slug:$slug}}){
+      comments(where: {page: {slug:$slug}} , orderBy: createdAt_DESC){
         name
         createdAt
         comment
@@ -482,6 +452,10 @@ export const getRecentPosts = async () => {
         featuredImage {
           url
         }
+        featuredSmallImage{
+          url
+        }
+
         createdAt
         slug
       }
@@ -509,4 +483,52 @@ export const getJobs = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.authors;
+};
+
+
+
+export const GetPageCatgory = async (slug) => {
+  
+  const slugs = "Comedy Drama";
+  const query = gql`
+    query GetPagesPage($slug: String!) {
+      page_Connection(where: {category_some: {slug: $slug}}, orderBy: slug_ASC) {
+        edges {
+          cursor
+          
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            time
+            slug
+            title
+            linkVideo 
+            excerpt
+            featuredImage {
+              url
+            }
+            pages_ {
+              name
+              slug
+            }
+            category {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, {slug});
+  console.log(result.page_Connection.edges)
+  return result.page_Connection.edges;
 };

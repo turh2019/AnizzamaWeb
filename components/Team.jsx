@@ -23,8 +23,8 @@ function Team() {
                 <div>
                     <div className=' grid grid-cols-4 gap-4 flex justify-end '>
                         {authors.map((author)=>(
-                            <div className='text-center mt-20 mb-8 p-4 relative rounded-lg bg-black bg-opacity-20 '>
-                                <div className="absolute left-0 right-0 -top-14">
+                            <div className='text-center mt-20 mb-8 p-4 relative rounded-lg bg-black bg-opacity-20'>
+                                <div className="absolute left-0 right-0 -top-14 ">
                                     <Image
                                     unoptimized             
                                     alt={author.name}
@@ -34,8 +34,8 @@ function Team() {
                                     src={author.photo.url}
                                     />
                                 </div>
-                                <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold">{author.name}</h3>
-                                <p className="text-white text-ls">{author.bio}</p>
+                                <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold  text-center">{author.name}</h3>
+                                <p className="text-white text-ls ">{author.bio}</p>
                             </div>
                         ))}
                                  </div>
