@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
           <title>anizzama</title>
-          <link target="_blank" rel="icon" href='/bg/icon.png'/>
+          <link target="_blank" rel="icon" href='/bg/icon.webp'/>
  
 
         </Head>
