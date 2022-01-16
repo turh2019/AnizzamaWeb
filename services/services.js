@@ -10,7 +10,7 @@ export const getPosts = async () => {
       
       edges {
         node {
-          search
+          
           
           author {
             bio
