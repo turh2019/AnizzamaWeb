@@ -13,7 +13,7 @@ module.exports = {
     },
   },
   colors: {
-    'bG-Color': '#ffffff',
+    'bG-Color': '##243c5a',
   },
   plugins: [],
 }
