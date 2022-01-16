@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) =>({
-        'bgt-top': "url('/bg/bg_2.png')",
-        'title': "url('/bg/title.png')",
-        'toolbarBg' : "url('/bg/toolbarBg.png')"
+        'bgt-top': "url('/bg/bg_2.webp')",
+        'title': "url('/bg/title.webp')",
+        'toolbarBg' : "url('/bg/toolbarBg.webp')"
       })
     },
   },
