@@ -4,7 +4,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
-    
   },
   "dependencies": {
     "build": "^0.1.4",
@@ -22,6 +21,7 @@
     "react-ga": "^3.3.0",
     "react-gtm-module": "^2.0.11",
     "react-multi-carousel": "^2.6.5",
+    "react-select": "^5.2.2",
     "sass": "^1.45.0",
     "sitemap": "^7.1.0"
   },

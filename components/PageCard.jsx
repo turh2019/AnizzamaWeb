@@ -12,7 +12,7 @@ const PostCard = ({ post }) => (
   
   <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 border-2  border-[#18154E] rtl:mr-3  grid grid-cols-1  " dir="rtl">
    
-  {console.log({post})}
+ 
     <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
       <img src={post.featuredImage.url} alt="" className="object-top bg-fixed min-h-full w-full   object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
     </div>

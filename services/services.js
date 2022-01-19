@@ -28,7 +28,7 @@ export const getPosts = async () => {
             url
           }
           categories {
-            name
+            label
             slug
           }
         }
@@ -69,6 +69,10 @@ export const getPage = async () => {
           featuredImage {
             url
           }
+          category {
+            label
+            slug
+          }
           pages_ {
             name
             slug
@@ -87,8 +91,9 @@ export const getPage = async () => {
 export const getCategories = async () => {
   const query = gql`
     query GetGategories {
-        categories(orderBy: name_ASC) {
-          name
+        categories(orderBy: label_ASC) {
+          label
+          value
           slug
         }
     }
@@ -158,7 +163,7 @@ export const getPostDetails = async (slug) => {
           raw
         }
         categories {
-          name
+          label
           slug
         }
       }
@@ -295,7 +300,7 @@ export const getCategoryPost = async (slug) => {
               url
             }
             categories {
-              name
+              label
               slug
             }
           }
@@ -340,6 +345,10 @@ export const getPagesPage = async (slug) => {
               name
               slug
             }
+            category {
+              label
+              slug
+            }
           }
         }
       }
@@ -367,6 +376,7 @@ export const getFeaturedPosts = async () => {
         featuredImage {
           url
         }
+        
         title
         slug
         createdAt
@@ -519,7 +529,7 @@ export const GetPageCatgory = async (slug) => {
               slug
             }
             category {
-              name
+              label
               slug
             }
           }
@@ -529,6 +539,6 @@ export const GetPageCatgory = async (slug) => {
   `;
 
   const result = await request(graphqlAPI, query, {slug});
-  console.log(result.page_Connection.edges)
+  
   return result.page_Connection.edges;
 };

@@ -7,7 +7,7 @@ const handleClick = (string) => {
   window.open(string);
 };
 const PageDetail = ({ post }) => {
-    console.log({post})
+ 
   const [watching,setWatching] = useState(false);
   const [linkto,setlink] = useState();
   const [Name,setName] = useState();

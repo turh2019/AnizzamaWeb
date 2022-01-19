@@ -43,7 +43,7 @@ const Toolbar = (type) => {
                         
                 </div>
                 <SearchBar /> 
-                <Categories selected ={selected}  Setselected ={Setselected} type={type} />
+                
             </div>  
         </div>
                 

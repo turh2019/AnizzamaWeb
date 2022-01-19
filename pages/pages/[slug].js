@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import { useRouter } from 'next/router';
 
-import { getPages, getPagesPage} from '../../services/services';
-import { PageCard, Categories, Loader,LinksTo,PostWidget ,Toolbar,Team,HelpUs} from '../../components/getComponents';
+import { getPages, getPagesPage,getCategories} from '../../services/services';
+import { PageCard, Categories, Loader,LinksTo,PostWidget ,CategoriesSearch,Team,HelpUs} from '../../components/getComponents';
 
 const Pagespage = ({ Pages , params }) => {
   const router = useRouter();
@@ -18,12 +18,13 @@ const Pagespage = ({ Pages , params }) => {
     <div className="container mx-auto px-10 mb-8" >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
-         
+      
      {params.slug =="team"? 
         <div>
            <HelpUs />
             <Team />
             <div className='grid grid-cols-1 lg:grid-cols-1 gap-12  '>
+              
             {Pages.map((post, index) => (
               <span className='flex items-stretch'>
                   <PageCard key={index} post={post.node} />
@@ -31,12 +32,10 @@ const Pagespage = ({ Pages , params }) => {
             ))}
           </div>
          </div> :
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12  '>
-            {Pages.map((post, index) => (
-              <span className='flex items-stretch'>
-                  <PageCard key={index} post={post.node} />
-              </span>   
-            ))}
+          <div >
+            
+          <CategoriesSearch posts={Pages} />
+            
           </div>
       }
        
