@@ -4,18 +4,39 @@ import { getCategories ,getPage} from '../services/services';
 import Link from 'next/link'
 import Image from 'next/image';
 import Select from'react-select'
+import makeAnimated from 'react-select/animated';
 
 
 
-
-  
-
+  const formts=[
+      {
+        label:"Movie",
+        value:"Movie"
+      },
+      {
+        label:"Series",
+        value:"Series"
+      },
+      {
+        label:"Special",
+        value:"Special"
+      },
+      {
+        label:"OVA",
+        value:"OVA"
+      },
+      {
+        label:"ONA",
+        value:"ONA"
+      }
+    ]
+const animatedComponents = makeAnimated();
 const CategoriesSearch = ({posts}) => {
-  
+    var num1 =0;
+    var num2 =0;
     const [Catgoryot, setCatgoryot] = useState([])
-    const num1 =0;
-    const num2 =0;
-
+    const [formt, setformt] = useState("")
+    var  x = "";
 
     useEffect(() =>{
         getCategories()
@@ -24,8 +45,9 @@ const CategoriesSearch = ({posts}) => {
    
     },[])
 
-  
     
+    
+ 
     
     var [displayvalue,getvalue] =useState();
     var DdiHandel = (e) =>{
@@ -33,33 +55,94 @@ const CategoriesSearch = ({posts}) => {
         getvalue(Array.isArray(e)?e.map(x => x.label):[]);
       
     }
-        
-   
   
-       console.log({posts})
+      
      
     return (
-       <div className='mt-3 p-4 lg:p-0 text-white text-opacity-50 '>
-           <center className="font-bold text-2xl pb-7  ">
-           {"select Categories "}
-           </center>
+       <div className='mt-3 p-4 lg:p-0 text-white  ' >
+            <div className=' grid grid-cols-4 mx-4  gap-4' dir="rtl">
+                <div className=' p-2 pb-7  text-withe -4'>
+                    <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
+                    {"קטגוריות "}
+                    </center>
+                    <div className='cursor-pointer'>
+                        <Select placeholder="בחר/י..."  autoFocus={true} hideSelectedOptions={false}  tabSelectsValue={true} isRtl={true} components={animatedComponents}  isMulti options={Catgoryot} onChange={DdiHandel} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={false}></Select>
+                    </div>
+                 
+                </div>
+
+                <div className=' p-2 pb-7  text-withe px-4'>
+                    <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
+                    {"פורמט "}
+                    </center>
+                    <div className='cursor-pointer'>
+                        <Select placeholder="בחר/י..." isRtl={true} components={animatedComponents}  isClearable={true} options={formts} onChange={(e)=>(setformt(e?e.label:""))} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={true}></Select>
+                    </div>
+                 
+                </div>
             
-            <div className=' p-2 pb-7 '>
-                <Select isMulti options={Catgoryot} onChange={DdiHandel} className =" text-black bg-black font-bold "></Select>
             </div>
-        
-        
-        
-            {displayvalue && displayvalue!="" ? 
-             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-12'>
-                   {posts.filter((val) =>  {
-                        if(displayvalue ==""){    
-                             return null
-                        }else
-                         num1 =0
-                         num2 =0
-                         val.node.category.map((C)=>{
+            
+            <div className='  ' >
+              
+               
+                 <div>
+                     <div className='bg-bookmark bg-contain bg-left bg-no-repeat    '>
+                     </div>
+                       <div  className=' grid grid-cols-5'>
+                           {formt!=""?
+                            <span className='ml-5 p-1 bg-sky-500 shadow-lg shadow-sky-500/40 text-withe rounded-lg px-2 font-bold mb-4  text-md  '>
+                                {formt}
+                            </span>
+                           :""}
                            
+                           {displayvalue ? 
+                            displayvalue.map((G)=>(
+                                <span key={G} className='ml-5 p-1 bg-sky-500 shadow-lg shadow-sky-500/40 text-withe rounded-lg px-2 font-bold mb-4  text-md  ' >
+                                    {G}
+                                    
+                                </span>
+                                
+                                        
+                            ))
+                            :""}
+                        </div>
+                   
+                </div>  
+                 
+                   
+            </div>
+     
+            
+        
+          {displayvalue && displayvalue!="" ||formt&&formt !="" ? 
+             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-12 py-5'>
+                   
+                    
+                   {posts.filter((val) =>  {
+                        if(!displayvalue || displayvalue==""){
+                            
+                            if(!formt||formt =="") {
+                                
+                                return val
+                               
+                            } 
+                             else if(formt == val.node.format){
+                                
+                                return val
+                            }
+                            else{
+                                
+                                return null
+                            }
+                            
+                        }else
+                        {
+                            
+                            num1 =0
+                            num2 =0
+                            val.node.category.map((C)=>{
+                            
                            
                             displayvalue.map((G,i)=>
                             {
@@ -81,12 +164,20 @@ const CategoriesSearch = ({posts}) => {
                         })
                         console.log(num2 +"="+ num1)
                         if(num2 == num1 &&num2!=0){
-                            return val  
+                            if(!formt||formt =="") {
+                                return val
+                            } 
+                             else if(formt ==val.node.format){
+                                return val
+                            }
+                            else{
+                                return null
+                            }
                         }else{
                             return null
                         }
                        
-                    }).map((val,key)=>
+                    }}).map((val,key)=>
                     (
                         <span className='flex items-stretch'>
                         <PageCard key={key} post={val.node} />
@@ -94,7 +185,7 @@ const CategoriesSearch = ({posts}) => {
                     ))}
                    
                     
-             </div>  :
+             </div>:
              <div className='grid grid-cols-1 lg:grid-cols-2 gap-12  '>
                     {posts.map((post, index) => (
                         <span className='flex items-stretch'>
@@ -104,6 +195,7 @@ const CategoriesSearch = ({posts}) => {
               </div>
               }
               </div>
+              
              
     
     )

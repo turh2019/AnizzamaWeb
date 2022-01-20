@@ -8,7 +8,8 @@ module.exports = {
       backgroundImage: (theme) =>({
         'bgt-top': "url('/bg/bg_2.webp')",
         'title': "url('/bg/title.webp')",
-        'toolbarBg' : "url('/bg/toolbarBg.webp')"
+        'toolbarBg' : "url('/bg/toolbarBg.webp')",
+        'bookmark' : "url('/bg/bookmark.webp')"
       })
     },
   },

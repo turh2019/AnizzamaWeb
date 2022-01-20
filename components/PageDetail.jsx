@@ -65,8 +65,8 @@ const PageDetail = ({ post }) => {
     
   };
 
-
-    
+ 
+   
   return (
     <>
       <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3 "dir="rtl">
@@ -82,7 +82,7 @@ const PageDetail = ({ post }) => {
           ""}
           <div className='flex justify-center'>
 
-          <button className='content-center focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3' onClick={(e)=>{setopen(!open)}}>{open ?"close":"open"}</button>
+          <button className='content-center focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 animate-bounce  my-6' onClick={(e)=>{setopen(!open)}}>{open ?"close":"open"}</button>
           </div>
         </div>
         <div className="px-4 lg:px-0 ">
@@ -110,19 +110,20 @@ const PageDetail = ({ post }) => {
               })}
           </div>
           <div className='text-right border-b-4 rounded-lg  my-10 border-[#5344C1]'>
-              {post.pages_.map((page)=>(
-                  page.name == "סדרות" ?
+              {post.format != "Movie" ?
+                <div>
                   <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3 " onClick={(e)=>{setWatching(false); setItsMega(false)}}>
-                  פרקים בדרייב
-                </button>:" "
-              ))}
-              
-              {post.pages_.map((page)=>(
-                      page.name == "סדרות" ?
-                      <button type="button"  className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3" onClick={(e)=>{setWatching(false); setItsMega(true)}}>
-                        פרקים במגה  
-                      </button>:" "
-              ))}
+                    פרקים בדרייב
+                  </button>
+                  <button type="button"  className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3" onClick={(e)=>{setWatching(false); setItsMega(true)}}>
+                       פרקים במגה     
+                  </button>
+                </div>  
+
+              :" "
+              }
+             
+            
           </div>   
 
           {itsMega == false?
@@ -133,11 +134,9 @@ const PageDetail = ({ post }) => {
                      
                         <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                         <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">
-                            {post.pages_.map((page)=>(
- 
-                                     page.name == "סדרות" ? "פרק  ":"קישור לסרט מספר "
-                             
-                            ))}
+                            {
+                               post.format != "Movie" ? "פרק  ":"קישור לסרט מספר "
+                            }
                               {index+1} 
                         </button>
                       </span>       
@@ -151,9 +150,9 @@ const PageDetail = ({ post }) => {
                 {post.linkVideoMega.map((linkEp,index)=>(
                   <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                     <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] focus:bg-[#382C8B]   inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 " >
-                      {post.pages_.map((page)=>(
-                         page.name == "סדרות" ? "פרק  ":"קישור לסרט מספר "
-                      ))}
+                      {
+                         post.format != "Movie" ? "פרק  ":"קישור לסרט מספר "
+                      }
                         {index+1} 
                     </button>
                   </span>                

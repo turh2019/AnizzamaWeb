@@ -181,7 +181,7 @@ export const getpageDetails = async (slug) => {
       page(where: {slug: $slug}) {
         title
         excerpt
-        
+        format
         linkVideo 
         linkVideoMega
         featuredImage {
@@ -332,6 +332,7 @@ export const getPagesPage = async (slug) => {
                 url
               }
             }
+           
             createdAt
             time
             slug
@@ -344,11 +345,13 @@ export const getPagesPage = async (slug) => {
             pages_ {
               name
               slug
+              formts
             }
             category {
               label
               slug
             }
+            format
           }
         }
       }
