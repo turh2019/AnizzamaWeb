@@ -60,7 +60,7 @@ const CategoriesSearch = ({posts}) => {
      
     return (
        <div className='mt-3 p-4 lg:p-0 text-white  ' >
-            <div className=' grid grid-cols-4 mx-4  gap-4' dir="rtl">
+            <div className=' lg:grid grid-cols-4 mx-4  gap-4' dir="rtl">
                 <div className=' p-2 pb-7  text-withe -4'>
                     <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
                     {"קטגוריות "}
@@ -89,7 +89,7 @@ const CategoriesSearch = ({posts}) => {
                  <div>
                      <div className='bg-bookmark bg-contain bg-left bg-no-repeat    '>
                      </div>
-                       <div  className=' grid grid-cols-5'>
+                       <div  className='grid grid-cols-3  lg:grid grid-cols-5 '>
                            {formt!=""?
                             <span className='ml-5 p-1 bg-sky-500 shadow-lg shadow-sky-500/40 text-withe rounded-lg px-2 font-bold mb-4  text-md  '>
                                 {formt}
