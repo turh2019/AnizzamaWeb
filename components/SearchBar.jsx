@@ -60,7 +60,7 @@ const SearchBar = () => {
                                             unoptimized
                                             className="align-left rounded-full cursor-pointer w-50 h-50  grid justify-items-center "
                                             
-                                            src={val.node.smallFeaturedImage.ur}
+                                            src={val.node.smallFeaturedImage.url}
                                         />
                                     </Link>
                                 
