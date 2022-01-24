@@ -13,8 +13,8 @@ export default async function asynchandler(req, res) {
   })
   if(req.body.id){
     const query = gql`
-    mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs: String!,$id: ID!) {
-      createComment(data: {name: $name, email: $email, comment: $comment, isBelongs: $isBelongs, comments_: {connect: {id: $id}} }) { id }
+    mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs: Boolean,$id: ID!,$sendEmail:Boolean) {
+      createComment(data: {name: $name, email: $email, comment: $comment, isBelongs: $isBelongs, comments_: {connect: {id: $id}}, sendEmail:$sendEmail  }) { id }
     }
   `;
   try {
@@ -27,8 +27,8 @@ export default async function asynchandler(req, res) {
 
   }else{
     const query = gql`
-    mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs: String!, $slug: String!) {
-      createComment(data: {name: $name, email: $email, comment: $comment, isBelongs: $isBelongs, post: {connect: {slug: $slug}} }) { id }
+    mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs:Boolean, $slug: String!,$sendEmail:Boolean) {
+      createComment(data: {name: $name, email: $email, comment: $comment, isBelongs: $isBelongs, post: {connect: {slug: $slug}}, sendEmail:$sendEmail  }) { id }
     }
   `;
 

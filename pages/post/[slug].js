@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 
@@ -7,7 +7,7 @@ import { getPosts, getPostDetails } from '../../services/services';
 
 
 const PostDetails = ({post}) => {
-  
+  const [selected, Setselected] = useState("")
  const router =useRouter();
  if(router.isFallback){
   return <Loader />
@@ -23,8 +23,8 @@ const PostDetails = ({post}) => {
            <PostDetail post={post} />
             <Author author={post.author} />
             
-            <CommentsFrom slug={post.slug} type={""} />
-            <Comments slug={post.slug} />
+            <CommentsFrom slug={post.slug} type={""}  selected={selected}  Setselected={Setselected}/>
+            <Comments slug={post.slug} from={"post"} selected={selected}  Setselected={Setselected} />
           </div>
           <div className="col-span-1 lg:col-span-4 float-left" >
             <div className="relative lg:sticky top-8">

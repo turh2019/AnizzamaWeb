@@ -9,15 +9,15 @@ function Comments({slug,from,selected,Setselected }) {
     const [comments, setComments] = useState([]);
     const [click, setclick] = useState(false)
     useEffect(() => {
-        if(from ==""){
-            getComments($slug)
+        if(from =="post"){
+            getComments(slug)
             .then((result) =>setComments(result))
         }else if(from =="pages"){
             
             getCommentsPages(slug)
             .then((result) =>setComments(result))
         }
-    
+    console.log({comments})
      
     }, [])
     return (
@@ -33,10 +33,10 @@ function Comments({slug,from,selected,Setselected }) {
                          </div>
                       </h3>   
                       {comments.map((cooment) =>(
-                         
-                          cooment.isBelongs == "f" ? 
+                        
+                          !cooment.isBelongs  ? 
                           <div key={cooment.id}>
-                              
+                               
                           <div key={cooment.createdAt} className='text-gray-400 border-gray-400 mb-4 pb-4  px-3  rounded-lg'>
                             <div className='bg-[#4864F6] border-2 text-gray-400 border-gray-400    px-3  rounded-lg'>
                             <p className='mb-4 '>
@@ -68,7 +68,7 @@ function Comments({slug,from,selected,Setselected }) {
                             
                           </div>
                           
-                      :""))}
+                      : ""))}
                       
                 </div>
             )}

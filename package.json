@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.4.0",
     "build": "^0.1.4",
     "fs": "^0.0.1-security",
     "globby": "^12.1.0",

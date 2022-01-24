@@ -4,6 +4,7 @@ import { getPosts ,getPage} from '../services/services';
 import Link from 'next/link'
 import Image from 'next/image';
 
+
 const SearchBar = () => {
     const [posts, postsTo] = useState([])
     const [SearcTerm,SetSearcTerm] =useState('')

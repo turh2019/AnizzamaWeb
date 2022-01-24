@@ -422,6 +422,29 @@ export const submitCommentPage = async (obj) => {
 };
 
 
+export const getCommentsPages = async (slug) => {
+  const query = gql`
+    query GetComments($slug:String!) {
+      comments(where: {page: {slug:$slug}} , orderBy: createdAt_DESC){
+        name
+        createdAt
+        comment
+        id
+        sendEmail
+        email
+        isBelongs
+        comments {
+          id
+          isBelongs
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.comments;
+};
 
 
 
@@ -431,10 +454,13 @@ export const getComments = async (slug) => {
       comments(where: {post: {slug:$slug}}, orderBy: createdAt_DESC){
         name
         createdAt
-        isBelongs
         comment
+        sendEmail
+        email
+        isBelongs
         comments {
           id
+          isBelongs
         }
       }
     }
@@ -451,8 +477,10 @@ export const getComment = async (id) => {
       comment(where: {id: $id}){
         name
         id
+        sendEmail
         createdAt
         isBelongs
+        email
         comment
         comments {
           id
@@ -471,8 +499,10 @@ export const getAllComments = async (id) => {
     query GetComments($id:String!) {
       comments(where: {post: {id:$id}}, orderBy: createdAt_DESC){
         name
+        sendEmail
         createdAt
         isBelongs
+        email
         comment
         comments {
           id
@@ -486,26 +516,6 @@ export const getAllComments = async (id) => {
   return result.comments;
 };
 
-export const getCommentsPages = async (slug) => {
-  const query = gql`
-    query GetComments($slug:String!) {
-      comments(where: {page: {slug:$slug}} , orderBy: createdAt_DESC){
-        name
-        createdAt
-        comment
-        id
-        isBelongs
-        comments {
-          id
-        }
-      }
-    }
-  `;
-
-  const result = await request(graphqlAPI, query, { slug });
-
-  return result.comments;
-};
 
 
 export const getRecentPosts = async () => {
