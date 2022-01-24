@@ -8,7 +8,7 @@ const SearchBar = () => {
     const [posts, postsTo] = useState([])
     const [SearcTerm,SetSearcTerm] =useState('')
     const itsfound = ""
-
+    var img =useState("")
     useEffect(() =>{
         getPage()
         .then((newpost)=>postsTo(newpost))
@@ -47,17 +47,20 @@ const SearchBar = () => {
                         itsfound ="true";
                             return <div className=" mt-5 transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  "> 
                              <a target="_blank" href={`/page/${val.node.slug}`}>
+                            
                             <div className='flex   mb-2 text-white  mb-4 text-white px-4  '>
-                               
+                           
                                      <Link target="_blank" key={key} href={`/page/${val.node.slug}`} ><p className=' flex-grow w-20 flex justify-center text-center transition duration-700 text-center color-white   hover:text-[#4864F6]   ' >{val.node.title}</p></Link>
                                      <Link target="_blank" href={`/page/${val.node.slug}`} className="text-md  cursor-pointer " key={val.node.title}>
                                         <Image
                                             alt={val.node.title}
+                                            
                                             height="60px"
                                             width="60px"
                                             unoptimized
                                             className="align-left rounded-full cursor-pointer w-50 h-50  grid justify-items-center "
-                                            src={val.node.featuredImage.url}
+                                            
+                                            src={val.node.smallFeaturedImage.ur}
                                         />
                                     </Link>
                                 

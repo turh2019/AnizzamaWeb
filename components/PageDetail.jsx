@@ -116,7 +116,7 @@ const PageDetail = ({ post }) => {
                     פרקים בדרייב
                   </button>
                   <button type="button"  className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3" onClick={(e)=>{setWatching(false); setItsMega(true)}}>
-                       פרקים במגה     
+                       פרקים בסטרימלר     
                   </button>
                 </div>  
 
@@ -135,7 +135,7 @@ const PageDetail = ({ post }) => {
                         <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                         <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">
                             {
-                               post.format != "Movie" ? "פרק  ":"קישור לסרט מספר "
+                               post.format != "Movie" ? "פרק  ":"קישור מספר "
                             }
                               {index+1} 
                         </button>

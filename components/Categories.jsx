@@ -5,7 +5,7 @@ import {getCategories} from '../services/services'
 
 function Categories({selected,Setselected,type}) {
    const [categories, setcategories] = useState("")
-
+  
    useEffect(() =>{
        
     getCategories()

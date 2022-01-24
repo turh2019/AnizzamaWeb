@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { submitComment,submitCommentPage } from '../services/services';
 
-const CommentsForm = ({ slug ,type}) => {
+const CommentsForm = ({ slug ,type,selected, Setselected }) => {
   const [error, setError] = useState(false);
   const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
-
+  
+  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false,isBelongs: null ,id:null});
+  formData.isBelongs="f";
+  formData.id= "";
+  if(selected){
+    formData.isBelongs="t";
+    formData.id= selected.id;
+  }
+  
+ 
   useEffect(() => {
     setLocalStorage(window.localStorage);
     const initalFormData = {
@@ -34,8 +42,8 @@ const CommentsForm = ({ slug ,type}) => {
 
   const handlePostSubmission = () => {
     setError(false);
-    const { name, email, comment, storeData } = formData;
-    if (!name || !email || !comment) {
+    const { name, email, comment,isBelongs ,id, storeData} = formData;
+    if (!name || !email || !comment || !isBelongs) {
       setError(true);
       return;
     }
@@ -43,7 +51,9 @@ const CommentsForm = ({ slug ,type}) => {
       name,
       email,
       comment,
+      isBelongs,
       slug,
+      id,
     };
 
     if (storeData) {
@@ -62,7 +72,9 @@ const CommentsForm = ({ slug ,type}) => {
         if (!storeData) {
           formData.name = '';
           formData.email = '';
+         
         }
+        Setselected("")
         formData.comment = '';
         setFormData((prevState) => ({
           ...prevState,
@@ -82,7 +94,9 @@ const CommentsForm = ({ slug ,type}) => {
         if (!storeData) {
           formData.name = '';
           formData.email = '';
+          
         }
+        Setselected("")
         formData.comment = '';
         setFormData((prevState) => ({
           ...prevState,
@@ -99,9 +113,22 @@ const CommentsForm = ({ slug ,type}) => {
   }; 
 
   return (
-    <div className="bg-[#261D78] text-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4  flex justify-center">הוסף תגובה</h3>
+    <div className="bg-[#261D78] text-white shadow-lg rounded-lg p-8 pb-12 mb-8" dir="rtl">
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4  flex justify-center" >הוסף תגובה</h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
+      {selected?
+      <div className='bg-black bg-opacity-50 p-4 rounded-lg' >
+        <p>
+          <button className='float-left text-center  hover:bg-opacity-50 hover:bg-[#cc1100] w-8 h-8 rounded-lg' onClick={(e)=>(Setselected(""))}>x</button>
+          </p>
+        <p className="text-center mt-4">
+          אתה מגיב ל: 
+          <span className='whitespace-pre-line text-white  text-center '> {selected.name} </span>
+        </p>
+        שהגיב:
+        <p className='whitespace-pre-line text-white  '> {selected.comment}</p>
+      
+       </div>:""}
         <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-white bg-[#4864F6] text-white caret-pink-500  " name="comment" placeholder="Comment" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">

@@ -20,7 +20,7 @@ function LinksTo() {
                      קישורים
                   </h3>
                   {linksTo.map((li)=>(
-                     <div className='flex items-right w-full mb-2 text-white '>
+                     <div key={li.link} className='flex items-right w-full mb-2 text-white '>
                             <div className="flex-grow ml-10">
                                 <a href={li.link} target="_blank" className='font-xs flex justify-center my-3 cursor-pointer'>
                                     <Link   to={li.link}  href={li.link} className="text-md flex justify-center " key={li.link}>

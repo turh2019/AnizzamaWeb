@@ -14,7 +14,7 @@ const PostCard = ({ post }) => (
    
  
     <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
-      <img src={post.featuredImage.url} alt="" className="object-top bg-fixed min-h-full w-full   object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
+      <img src={post.featuredImage.url} alt="" className="object-top h-40 w-full    object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
     </div>
   
     <div className="block lg:flex text-center items-center  mb-8 w-full text-white ">
@@ -47,8 +47,8 @@ const PostCard = ({ post }) => (
           <p className="text-center text-base rtl:mr-3 text-white-700 font-normal px-4  mb-8 rtl:mr-3">
              {post.excerpt}
           </p>
-    <div className="text-center sticky " target="_blank" >
-      <a href={`/page/${post.slug}`} target="_blank" className=' cursor-pointer'>
+    <div className="text-center sticky " target="_blank"  dir="rtl" >
+      <a href={`/page/${post.slug}`} target="_blank" className=' cursor-pointer' >
         <Link target="_blank" to={`/page/${post.slug}`} href={`/page/${post.slug}`}  >
           <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer  " >להמשיך לצפות</span>
         </Link>

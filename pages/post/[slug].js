@@ -23,7 +23,7 @@ const PostDetails = ({post}) => {
            <PostDetail post={post} />
             <Author author={post.author} />
             
-            <CommentsFrom slug={post.slug} />
+            <CommentsFrom slug={post.slug} type={""} />
             <Comments slug={post.slug} />
           </div>
           <div className="col-span-1 lg:col-span-4 float-left" >

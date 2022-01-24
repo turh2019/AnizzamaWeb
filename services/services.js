@@ -69,6 +69,9 @@ export const getPage = async () => {
           featuredImage {
             url
           }
+          smallFeaturedImage{
+            url
+          }
           category {
             label
             slug
@@ -428,12 +431,57 @@ export const getComments = async (slug) => {
       comments(where: {post: {slug:$slug}}, orderBy: createdAt_DESC){
         name
         createdAt
+        isBelongs
         comment
+        comments {
+          id
+        }
       }
     }
   `;
 
   const result = await request(graphqlAPI, query, { slug });
+
+  return result.comments;
+};
+
+export const getComment = async (id) => {
+  const query = gql`
+    query GetComments($id:ID!) {
+      comment(where: {id: $id}){
+        name
+        id
+        createdAt
+        isBelongs
+        comment
+        comments {
+          id
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { id });
+
+  return result.comment;
+};
+
+export const getAllComments = async (id) => {
+  const query = gql`
+    query GetComments($id:String!) {
+      comments(where: {post: {id:$id}}, orderBy: createdAt_DESC){
+        name
+        createdAt
+        isBelongs
+        comment
+        comments {
+          id
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { id });
 
   return result.comments;
 };
@@ -445,6 +493,11 @@ export const getCommentsPages = async (slug) => {
         name
         createdAt
         comment
+        id
+        isBelongs
+        comments {
+          id
+        }
       }
     }
   `;
@@ -453,6 +506,7 @@ export const getCommentsPages = async (slug) => {
 
   return result.comments;
 };
+
 
 export const getRecentPosts = async () => {
   const query = gql`

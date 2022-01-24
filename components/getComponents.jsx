@@ -15,7 +15,7 @@ export {default as FeaturedPostCard} from './FeaturedPostCard';
 
 export {default as PageCard} from './PageCard';
 export {default as PageDetail} from './PageDetail';
-
+export {default as CommentsToComments} from './CommentsToComments';
 export {default as CategoriesSearch} from './CategoriesSearch';
 export {default as SearchBar} from './SearchBar';
 export {default as Toolbar} from './Toolbar';
