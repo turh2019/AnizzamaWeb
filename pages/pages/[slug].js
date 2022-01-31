@@ -67,6 +67,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { Pages, params },
+    revalidate: 60,
   };
 }
 
@@ -76,6 +77,6 @@ export async function getStaticPaths() {
   const categories = await getPages();
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: blocking,
   };
 }
