@@ -41,7 +41,10 @@ const PostCard = ({ post }) => (
       </div>
     </div>
           <h1 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
-            <Link  href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
+          <Link target="_blank" to={`/page/${post.slug}`} href={`/page/${post.slug}`}  >
+          <span className="" >{post.title}</span>
+        </Link>
+         
           </h1>
 
           <p className="text-center text-base rtl:mr-3 text-white-700 font-normal px-4  mb-8 rtl:mr-3">

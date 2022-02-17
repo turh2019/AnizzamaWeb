@@ -48,7 +48,7 @@ const Pagespage = ({ Pages , params }) => {
          
         </div>
         <div className="col-span-1 lg:col-span-4 float-left">
-          <div className="relative lg:sticky top-8 ">
+          <div className="relative top-8 ">
          
             <PostWidget />
             
