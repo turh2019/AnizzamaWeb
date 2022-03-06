@@ -15,9 +15,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-          <title>anizzama</title>
+          <title>Anizzama</title>
           <link target="_blank" rel="icon" href='/bg/icon.png'/>
- 
+                    
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
+          <meta property="og:title" content={pageProps.title}/>
+          <meta property="og:description" content={pageProps.excerpt}/>
+          <meta property="og:site_name" content="Anizzama"/>
 
         </Head>
      
