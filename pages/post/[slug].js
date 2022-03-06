@@ -18,6 +18,7 @@ const PostDetails = ({post}) => {
     
     
          <Head>
+          <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
           <title>Anizzama</title>
           <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
