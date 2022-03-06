@@ -19,7 +19,7 @@ export default function Home({ posts }) {
           <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
            <meta property="og:url" content="https://anizzama.vercel.app/"/>
            <meta property="og:title" content="Anizzama"/>
-           <meta property="og:description" content="הפאננסאב"/>
+           <meta property="og:description" content="בית"/>
            <meta property="og:site_name" content="Anizzama"/>
           <title>anizzama</title>
         </Head>
