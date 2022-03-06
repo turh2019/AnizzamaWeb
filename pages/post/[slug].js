@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
+import  Head  from 'next/head';
 
 import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
 import { getPosts, getPostDetails } from '../../services/services';
@@ -15,6 +15,16 @@ const PostDetails = ({post}) => {
 
   return (
     <>
+    
+    
+         <Head>
+          <title>Anizzama</title>
+          <meta property="og:title" content={post.title}/>
+          <meta property="og:description" content={post.excerpt}/>
+          <meta property="og:site_name" content="Anizzama"/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>     
+        </Head>
+  
       <div className="container mx-auto px-10 mb-8" >
          
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
