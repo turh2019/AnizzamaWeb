@@ -455,6 +455,7 @@ export const getComments = async (slug) => {
         name
         createdAt
         comment
+        id
         sendEmail
         email
         isBelongs
