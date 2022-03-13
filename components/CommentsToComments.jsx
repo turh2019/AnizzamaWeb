@@ -9,8 +9,8 @@ function CommentsToComments({slug,id,from,selected,Setselected}) {
     const [cooment, setComments] = useState([])
     const [click, setclick] = useState(false)
     useEffect(() => {
-        if(from ==""){
-            getComment($id)
+        if(from =="post"){
+            getComment(id)
             .then((result) =>setComments(result))
         }else if(from =="pages"){
             
