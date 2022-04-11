@@ -45,7 +45,7 @@ const PostCard = ({ post }) => (
           </p>
     <div className="text-center">
       <a target="_blank" href={`/post/${post.slug}`}>
-      <Link target="_blank" href={`/post/${post.slug}`}>
+      <Link target="_blank" href={`/post/${post.slug}`}  to={`/post/${post.slug}`} >
         <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">להמשיך לקרוא</span>
       </Link>
       </a>

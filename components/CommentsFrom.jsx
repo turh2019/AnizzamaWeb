@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { submitComment,submitCommentPage } from '../services/services';
 import emailjs from '@emailjs/browser';
 
-const CommentsForm = ({ slug ,type,selected, Setselected }) => {
+
+
+
+const CommentsForm = ({ slug ,type ,selected, Setselected }) => {
   const [error, setError] = useState(false);
   const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -11,8 +14,14 @@ const CommentsForm = ({ slug ,type,selected, Setselected }) => {
   formData.isBelongs= false;
   formData.id= "";
   if(selected){
-    formData.isBelongs=true;
-    formData.id= selected.id;
+    formData.isBelongs = true;
+    formData.id = selected.id;
+    console.log(formData.id +"  " +selected.id)
+  }else{
+    formData.isBelongs = false;
+    formData.id = "";
+    console.log(formData.id +"  " +selected.id)
+    
   }
 
   const SendEmail = (e) => {
@@ -39,6 +48,7 @@ const CommentsForm = ({ slug ,type,selected, Setselected }) => {
     };
     setFormData(initalFormData);
   }, []);
+
 
   const onInputChange = (e) => {
     const { target } = e;

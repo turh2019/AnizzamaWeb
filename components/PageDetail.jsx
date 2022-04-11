@@ -70,9 +70,9 @@ const PageDetail = ({ post }) => {
   return (
     <>
       <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3 "dir="rtl">
-        <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
-          <img src={post.featuredImage.url} alt="" 
-          className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] content-center  " />
+        <div className="relative  shadow-md mb-6  lg:scale-100 scale-75">
+          <img src={post.wallpaper.url} alt="" 
+          className="object-top h-50 w-50 object-cover shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] content-center  " />
            
           {open == true ? 
             <div className=' grid grid-cols-2 gap-2'>
@@ -82,7 +82,7 @@ const PageDetail = ({ post }) => {
           ""}
           <div className='flex justify-center'>
 
-          <button className='content-center focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 animate-bounce  my-6' onClick={(e)=>{setopen(!open)}}>{open ?"close":"open"}</button>
+          <button className='content-center focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-20 py-3 cursor-pointer ml-3 text-2xl   my-5' onClick={(e)=>{setopen(!open)}}>{open ?"close":"open"}</button>
           </div>
         </div>
         <div className="px-4 lg:px-0 ">

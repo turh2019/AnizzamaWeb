@@ -8,6 +8,9 @@ import makeAnimated from 'react-select/animated';
 
 
 
+
+
+
   const formts=[
       {
         label:"Movie",
@@ -61,12 +64,12 @@ const CategoriesSearch = ({posts}) => {
     return (
        <div className='mt-3 p-4 lg:p-0 text-white  ' >
             <div className=' lg:grid grid-cols-4 mx-4  gap-4' dir="rtl">
-                <div className=' p-2 pb-7  text-withe -4'>
+                <div className=' p-2 pb-7  text-withe-4'>
                     <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
                     {"קטגוריות "}
                     </center>
                     <div className='cursor-pointer'>
-                        <Select placeholder="בחר/י..."  autoFocus={true} hideSelectedOptions={false}  tabSelectsValue={true} isRtl={true} components={animatedComponents}  isMulti options={Catgoryot} onChange={DdiHandel} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={false}></Select>
+                        <Select styles="mt-3 p-4 lg:p-0 text-white"  placeholder="בחר/י..."  autoFocus={true} hideSelectedOptions={false}  tabSelectsValue={true} isRtl={true} components={animatedComponents}  isMulti options={Catgoryot} onChange={DdiHandel} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={false}></Select>
                     </div>
                  
                 </div>
@@ -76,7 +79,7 @@ const CategoriesSearch = ({posts}) => {
                     {"פורמט "}
                     </center>
                     <div className='cursor-pointer'>
-                        <Select placeholder="בחר/י..." isRtl={true} components={animatedComponents}  isClearable={true} options={formts} onChange={(e)=>(setformt(e?e.label:""))} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={true}></Select>
+                        <Select  placeholder="בחר/י..." isRtl={true} components={animatedComponents}  isClearable={true} options={formts} onChange={(e)=>(setformt(e?e.label:""))} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={true}></Select>
                     </div>
                  
                 </div>
@@ -116,26 +119,26 @@ const CategoriesSearch = ({posts}) => {
             
         
           {displayvalue && displayvalue!="" ||formt&&formt !="" ? 
-             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-12 py-5'>
+             <div className=' grid grid-cols-3 gap-2 py-5'>
                    
                     
                    {posts.filter((val) =>  {
                         if(!displayvalue || displayvalue==""){
                             
-                            if(!formt||formt =="") {
-                                
+                            if(!formt||formt =="") 
+                            {
                                 return val
-                               
-                            } 
-                             else if(formt == val.node.format){
+                            }
+                                
+                              
+                            if(formt == val.node.format){
                                 
                                 return val
                             }
-                            else{
+
+
                                 
-                                return null
-                            }
-                            
+                            return null                           
                         }else
                         {
                             
@@ -148,7 +151,7 @@ const CategoriesSearch = ({posts}) => {
                             {
                                 num1 =i+1
                                 if(C.label ==G){
-                                    console.log(C.label+" == "+G)
+                                    
                                     num2= num2 +1;
                                   
                                     
@@ -162,17 +165,21 @@ const CategoriesSearch = ({posts}) => {
                             
                            
                         })
-                        console.log(num2 +"="+ num1)
-                        if(num2 == num1 &&num2!=0){
-                            if(!formt||formt =="") {
+                       
+                        if(num2 == num1 &&num2!=0)
+                        {
+                            if(!formt||formt =="") 
+                            {
                                 return val
                             } 
-                             else if(formt ==val.node.format){
+
+                            if(formt ==val.node.format)
+                            {
                                 return val
                             }
-                            else{
-                                return null
-                            }
+                           
+                            return null
+                            
                         }else{
                             return null
                         }
@@ -186,7 +193,7 @@ const CategoriesSearch = ({posts}) => {
                    
                     
              </div>:
-             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12  '>
+             <div className='grid grid-cols-2 lg:grid-cols-3 gap-2 '>
                     {posts.map((post, index) => (
                         <span className='flex items-stretch'>
                             <PageCard key={index} post={post.node} />

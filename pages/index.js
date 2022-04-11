@@ -17,18 +17,20 @@ export default function Home({ posts }) {
       
         <Head>
           <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
-           <meta property="og:url" content="https://anizzama.vercel.app/"/>
-           <meta property="og:title" content="Anizzama"/>
-           <meta property="og:description" content="בית"/>
-           <meta property="og:site_name" content="Anizzama"/>
-          <title>anizzama</title>
+         
+          <meta property="og:url" content="https://anizzama.vercel.app/"/>
+          <meta property="og:title" content="Anizzama"/>
+          <meta property="og:description" content="בית"/>
+          <meta property="og:site_name" content="Anizzama"/>
+         
+          <title>Anizzama</title>
         </Head>
                
        
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post, index) => (
-            <PostCard key={index} post={post.node} />
+            <PostCard key={index} post={post.node}  />
            
           ))}
         

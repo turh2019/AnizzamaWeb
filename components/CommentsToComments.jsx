@@ -21,7 +21,7 @@ function CommentsToComments({slug,id,from,selected,Setselected}) {
      
     }, [])
  
-    console.log(cooment )
+    
     return (
         <div className='bg-[#261D78] pl-5 ml-6'  dir="rtl" >
            
@@ -40,7 +40,7 @@ function CommentsToComments({slug,id,from,selected,Setselected}) {
                 
                     <p className='whitespace-pre-line text-white  w-full'>{parse(cooment.comment)}</p>
                     <button className='hover:text-white   my-4' onClick={ (e)=>( Setselected(cooment) )}>replay</button>
-                    {console.log(cooment.length)}
+                    
                    
                   
                     </div>

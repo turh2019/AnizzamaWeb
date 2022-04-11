@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 import { getPages, getPagesPage,getCategories} from '../../services/services';
 import { PageCard, Categories, Loader,LinksTo,PostWidget ,CategoriesSearch,Team,HelpUs} from '../../components/getComponents';
-
 const Pagespage = ({ Pages , params }) => {
   const router = useRouter();
 

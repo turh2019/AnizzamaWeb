@@ -1,13 +1,13 @@
 import React, { useState, useEffect }  from 'react';
 import { useRouter } from 'next/router';
-
 import  Head  from 'next/head';
+
 import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
 import { getPage, getpageDetails } from '../../services/services';
 
 
 const PostDetails = ({post}) => {
-  const [selected, Setselected] = useState("")
+  var [selected, Setselected] = useState("")
 
  const router =useRouter();
  if(router.isFallback){
@@ -18,20 +18,20 @@ const PostDetails = ({post}) => {
     <>
         <Head>
           <title>Anizzama</title>
-          <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
           <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
-          <meta property="og:image" content={post.featuredImage.url}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>  
+          <meta property="og:image" content={post.featuredImage.url}/>   
         </Head>
+
       <div className="container mx-auto px-10 mb-8" >
          
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 ">
              <PageDetail post ={post}  />
-            <Author author={post.author} />
-            
+             <Author  author={post.author} />
+
             <CommentsFrom slug={post.slug} type="page" selected={selected}  Setselected={Setselected}/>
             <Comments slug={post.slug} from="pages" selected={selected}  Setselected={Setselected}  />
           </div>

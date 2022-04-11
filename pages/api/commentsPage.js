@@ -11,8 +11,9 @@ export default async function asynchandler(req, res) {
       authorization: `Bearer ${graphqlToken}`,
     },
   })
+  console.log(req.body.isBelongs)
   console.log(req.body.id)
-  if(req.body.id){
+  if(req.body.isBelongs){
     const query = gql`
     mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs: Boolean, $id: ID!,$sendEmail:Boolean) {
       createComment(data: {name: $name, email: $email, comment: $comment, isBelongs: $isBelongs, comments_: {connect: {id: $id}}, sendEmail:$sendEmail}) { id }
@@ -28,7 +29,7 @@ export default async function asynchandler(req, res) {
 
   }else{
     const query = gql`
-    mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs: Boolean, $slug: String!,$sendEmail:Boolean) {
+    mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs:Boolean, $slug: String!,$sendEmail:Boolean) {
       createComment(data: {name: $name, email: $email, comment: $comment, isBelongs: $isBelongs, page: {connect: {slug: $slug}}, sendEmail:$sendEmail }) { id }
     }
   `;
