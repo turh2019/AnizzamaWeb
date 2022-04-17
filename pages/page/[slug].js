@@ -29,7 +29,7 @@ const PostDetails = ({post}) => {
          
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 ">
-             <PageDetail post ={post}  />
+             <PageDetail post ={post} type={"sad"} />
              <Author  author={post.author} />
 
             <CommentsFrom slug={post.slug} type="page" selected={selected}  Setselected={Setselected}/>

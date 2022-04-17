@@ -26,13 +26,13 @@ const Pagespage = ({ Pages , params }) => {
       
      {params.slug =="team"? 
         <div>
-           
+         
             <Team />
             <div className='grid grid-cols-1 lg:grid-cols-1 gap-12  '>
               
             {Pages.map((post, index) => (
-              <span className='flex items-stretch'>
-                  <PageCard key={index} post={post.node} />
+              <span className=''>
+                  <PageCard key={index} post={post.node} type ={"Team"} />
               </span>   
             ))}
           </div>

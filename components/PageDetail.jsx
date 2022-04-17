@@ -81,34 +81,46 @@ const PageDetail = ({ post }) => {
             </div> :
           ""}
           <div className='flex justify-center'>
-
-          <button className='content-center focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-20 py-3 cursor-pointer ml-3 text-2xl   my-5' onClick={(e)=>{setopen(!open)}}>{open ?"close":"open"}</button>
+          
+            
+          {post.pages_.slug == "anime" ?  <button className='content-center focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-20 py-3 cursor-pointer ml-3 text-2xl   my-5' onClick={(e)=>{setopen(!open)}}>{open ?"close":"open"}</button>:""}
           </div>
         </div>
+     
         <div className="px-4 lg:px-0 ">
           <div className="flex items-center mb-8 w-full ">
             <div className=" md:flex items-center justify-center mb-0 w-auto  items-center  rounded-lg  ">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mx-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              
-            <span className="align-middle"> Anime created at {moment(post.time).format('MMM DD, YYYY')}</span>
+              {post.pages_.map((p) =>(p.slug))=="anime" ?<span className="align-middle"> Anime created at {moment(post.time).format('MMM DD, YYYY')}</span> :<span className="align-middle">  {moment(post.time).format('MMM DD, YYYY')}</span>}
+              {post.pages_.map((p) =>(p.slug)) !="anime" ?<div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center ">
+              <img
+                alt={post.author.name}
+                height="30px"
+                width="30px"
+                className="align-middle rounded-full"
+                src={post.author.photo.url}
+              />
+              <p className="inline align-middle text-gray-200 mr-2 font-medium text-lg">{post.author.name}</p>
+            </div>:""}
              
             </div>
-            <div className="font-medium text-gray-200">
-         
-            </div>
-            
+
+
           </div>
 
-      
+
           <h1 className="my-10 text-3xl font-semibold text-center rtl:mr-3  ">{post.title}</h1>
+         
           <div className='text-right rtl:mr-3 '> 
               {post.content.raw.children.map((typeObj, index) => {
                 const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                   return getContentFragment(index, children, typeObj, typeObj.type);
               })}
           </div>
+          
+          {post.pages_.map((p) =>(p.slug)) == "anime" ?
           <div className='text-right border-b-4 rounded-lg  my-10 border-[#5344C1]'>
               {post.format != "Movie" ?
                 <div>
@@ -125,7 +137,7 @@ const PageDetail = ({ post }) => {
              
             
           </div>   
-
+         :""}
           {itsMega == false?
           <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter  mt-3 ' >
               <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
