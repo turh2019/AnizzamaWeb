@@ -26,7 +26,7 @@ const Pagespage = ({ Pages , params }) => {
       
      {params.slug =="team"? 
         <div>
-           <HelpUs />
+           
             <Team />
             <div className='grid grid-cols-1 lg:grid-cols-1 gap-12  '>
               
