@@ -145,7 +145,7 @@ const PageDetail = ({ post }) => {
                   {post.linkVideo.map((linkEp,index)=>(
                      
                         <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                        <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">
+                        <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">
                             {
                                post.format != "Movie" ? "פרק  ":"קישור מספר "
                             }
@@ -175,13 +175,13 @@ const PageDetail = ({ post }) => {
                               
         </div>
 
-        {watching== true?
-                     <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
-                          <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>
-                         
-                     </div>:""}
+
       </div>
-       
+        {watching== true?
+            <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
+           <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full h-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>
+                         
+        </div>:""}
     </>
   );
 };

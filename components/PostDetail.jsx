@@ -64,6 +64,7 @@ const PostDetail = ({ post }) => {
     
   return (
     <>
+    
       <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8" dir="rtl">
         <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
           <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
@@ -94,27 +95,27 @@ const PostDetail = ({ post }) => {
                   return getContentFragment(index, children, typeObj, typeObj.type);
               })}
           </div>
-          <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center' >
+          <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center ' >
               <div className=''> 
                   {post.linkVideo.map((linkEp,index)=>(
                      
-                      <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                          
-                     
-                         <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3">   קישור מספר  {index+1}  </button>
-                      </span>       
+                    
+                      <span className ="cursor-pointer " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
+                         <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B]  bg-[#4864F6] text-lg font-medium rounded-full text-white  px-5 py-3 cursor-pointer ml-3 mt-3">   קישור מספר  {index+1}  </button>
+                      </span>  
+                    
+     
                            
                   ))}
             </div>
           </div>
-                    {watching== true?
-                     <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
-                          <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>
-                         
-                     </div>:""}
+           
         </div>
       </div>
-       
+      {watching== true?
+        <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
+            <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full h-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>               
+        </div>:""}
     </>
   );
 };
