@@ -3,6 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
+    "sitemap": "next-sitemap --config next-sitemap.config.js",
     "start": "next start"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "html-react-parser": "^1.4.2",
     "moment": "^2.29.1",
     "next": "latest",
+    "next-sitemap": "^2.5.20",
     "path": "^0.12.7",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
