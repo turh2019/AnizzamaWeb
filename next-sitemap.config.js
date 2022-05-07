@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: 'https://example.com/',
-  generateRobotsTxt: true, // (optional)
-  outDir: "./out",
-}
+    siteUrl: 'https://anizzama.vercel.app/',
+    generateRobotsTxt: true, // (optional)
+    outDir: "./out",
+  }
