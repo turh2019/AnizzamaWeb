@@ -144,8 +144,8 @@ const PageDetail = ({ post }) => {
               
                   {post.linkVideo.map((linkEp,index)=>(
                      
-                        <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                        <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">
+                        <span className ="cursor-pointer  " >
+                        <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3" onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                             {
                                post.format != "Movie" ? "פרק  ":"קישור מספר "
                             }
@@ -160,8 +160,8 @@ const PageDetail = ({ post }) => {
             <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter   ' >
               <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
                 {post.linkVideoMega.map((linkEp,index)=>(
-                  <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                    <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] focus:bg-[#382C8B]   inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 " >
+                  <span className ="cursor-pointer  ">
+                    <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] focus:bg-[#382C8B]   inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 "  onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                       {
                          post.format != "Movie" ? "פרק  ":"קישור לסרט מספר "
                       }

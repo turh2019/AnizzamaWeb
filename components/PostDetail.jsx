@@ -100,8 +100,8 @@ const PostDetail = ({ post }) => {
                   {post.linkVideo.map((linkEp,index)=>(
                      
                     
-                      <span className ="cursor-pointer " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                         <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B]  bg-[#4864F6] text-lg font-medium rounded-full text-white  px-5 py-3 cursor-pointer ml-3 mt-3">   קישור מספר  {index+1}  </button>
+                      <span className ="cursor-pointer " >
+                         <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B]  bg-[#4864F6] text-lg font-medium rounded-full text-white  px-5 py-3 cursor-pointer ml-3 mt-3" onClick={(e)=>{setWatching(true); setlink(linkEp)}}>   קישור מספר  {index+1}  </button>
                       </span>  
                     
      
