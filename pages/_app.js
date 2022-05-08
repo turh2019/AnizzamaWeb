@@ -3,15 +3,9 @@ import  Head  from 'next/head';
 import { Layout } from '../components/getComponents';
 import 'tailwindcss/tailwind.css';
 import '../Stayle/globals.scss';
-import ReactGA from 'react-ga'
+import Script from "next/script";
 
-function initizeAnalytics(){
-  ReactGA.initialize("G-FTZMWKQBWQ")
-  ReactGA.pageview('/HomePage')
-  }
 function MyApp({ Component, pageProps }) {
-
-  initizeAnalytics()
 
   
 
@@ -24,8 +18,25 @@ function MyApp({ Component, pageProps }) {
           <meta property="og:description" content={pageProps.excerpt}/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
+      </Head>
+
+          <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-7V1874NXXG`}
+      />
+
+      <Script strategy="lazyOnload">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7V1874NXXG', {
+              page_path: window.location.pathname,
+            });
+                `}
+      </Script>
        
-        </Head>
+        
      
       <Layout>
           <Component {...pageProps} />
