@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           <title>Anizzama</title>
          
           <meta property="og:title" content={pageProps.title}/>
-          <meta property="og:description" content={pageProps.excerpt}/>
+          <meta property="og:description" content={At}/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
       </Head>
