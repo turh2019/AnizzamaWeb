@@ -8,6 +8,8 @@ import Script from "next/script";
 function MyApp({ Component, pageProps }) {
 
   //{pageProps.excerpt}
+  const At = pageProps.excerpt;
+  if (!At) {At = "test"}
 
   return (
     <>
@@ -15,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           <title>Anizzama</title>
          
           <meta property="og:title" content={pageProps.title}/>
-          <meta property="og:description" content={pageProps.excerpt || "בדקיה"}/>
+          <meta property="og:description" content={pageProps.excerpt}/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
       </Head>
