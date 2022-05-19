@@ -6,7 +6,11 @@ import '../Stayle/globals.scss';
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
-//PageProps.excerpt != null ? PageProps.excerpt : "x";
+
+  const AB = "https://anizzama.vercel.app/";
+  if(pageProps.slug) AB = "https://anizzama.vercel.app/"+pageProps.slug
+  const BC = pageProps.excerpt;
+  if(!BC) BC = "test";
 
   return (
     <>
@@ -14,10 +18,9 @@ function MyApp({ Component, pageProps }) {
           <title>Anizzama</title>
          
           <meta property="og:title" content={pageProps.title}/>
-          <meta property="og:description" content={PageProps.excerpt}/>
+          <meta property="og:description" content={BC}/>
           <meta property="og:site_name" content="Anizzama"/>
-          if(pageProps.slug) { <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/> } else { <meta property="og:url" content= "https://anizzama.vercel.app/"/> }
-          <meta name='google-site-verification' content='9RHiqEM-8CzRKtB5oud1dZVkRjFbr_PaUqSukpiwhys'/>
+          <meta property="og:url" content= {AB}/>
       </Head>
 
           <Script
