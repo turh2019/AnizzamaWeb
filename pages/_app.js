@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
 
   //{pageProps.excerpt}
   const At = pageProps.excerpt;
-  if (!At) {At = "test"}
+  if (!At) At = "test"
 
   return (
     <>
