@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
           <title>Anizzama</title>
          
           <meta property="og:title" content={pageProps.title}/>
-          <meta property="og:description" content={PageProps.excerpt != null ? PageProps.excerpt : "Test"}/>
+          <meta property="og:description" content={PageProps.excerpt}/>
           <meta property="og:site_name" content="Anizzama"/>
           if(pageProps.slug) { <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/> } else { <meta property="og:url" content= "https://anizzama.vercel.app/"/> }
           <meta name='google-site-verification' content='9RHiqEM-8CzRKtB5oud1dZVkRjFbr_PaUqSukpiwhys'/>
