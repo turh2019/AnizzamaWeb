@@ -7,20 +7,17 @@ import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
 
-  const AB = "https://anizzama.vercel.app/";
-  if(pageProps.slug) AB = "https://anizzama.vercel.app/"+pageProps.slug
-  const BC = pageProps.excerpt;
-  if(!BC) BC = "test";
-
   return (
     <>
       <Head>
           <title>Anizzama</title>
          
           <meta property="og:title" content={pageProps.title}/>
-          <meta property="og:description" content={BC}/>
+          <meta property="og:description" content={pageProps.excerpt}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:url" content= {AB}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
+          <meta name='google-site-verification' content='BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg'/>
+          
       </Head>
 
           <Script
