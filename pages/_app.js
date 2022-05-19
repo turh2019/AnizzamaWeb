@@ -6,16 +6,17 @@ import '../Stayle/globals.scss';
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
-//google-site-verification=9RHiqEM-8CzRKtB5oud1dZVkRjFbr_PaUqSukpiwhys
+//PageProps.excerpt != null ? PageProps.excerpt : "x";
+
   return (
     <>
       <Head>
           <title>Anizzama</title>
          
           <meta property="og:title" content={pageProps.title}/>
-          <meta property="og:description" content={pageProps.excerpt}/>
+          <meta property="og:description" content={PageProps.excerpt != null ? PageProps.excerpt : "Test"}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug != null ? PageProps.slug : ""}/>
           <meta name='google-site-verification' content='9RHiqEM-8CzRKtB5oud1dZVkRjFbr_PaUqSukpiwhys'/>
       </Head>
 
