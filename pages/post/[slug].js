@@ -24,6 +24,8 @@ const PostDetails = ({post}) => {
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
+          <meta name='google-site-verification' content='BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg'/>
+          <link rel="shortcut icon" href="/public/favicon.ico"></link>
        
         </Head>
 
