@@ -22,8 +22,7 @@ export default function Home({ posts }) {
           <meta property="og:title" content="Anizzama"/>
           <meta property="og:description" content="בית"/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta name='google-site-verification' content='BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg'/>
-          <link rel="shortcut icon" href="/public/favicon.ico"></link>
+         
           <title>Anizzama</title>
         </Head>
                
