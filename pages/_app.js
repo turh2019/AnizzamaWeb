@@ -17,7 +17,6 @@ function MyApp({ Component, pageProps }) {
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
           <meta name='google-site-verification' content='BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg'/>
-          <link rel="shortcut icon" href="/public/favicon.ico"></link>
           
       </Head>
 
