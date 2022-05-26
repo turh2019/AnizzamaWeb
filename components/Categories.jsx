@@ -43,7 +43,7 @@ function Categories({selected,Setselected,type}) {
                             {categories.map((category, index)=>(
                                 
                                 <a href={`/category/${category.slug}`} target="_blank" className=' cursor-pointer'>
-                                    <Link target="_blank"  key={category.slug} type ={type} href={`/category/${category.slug}`}>
+                                    <Link target="_blank"  key={category.slug} type ={type} a href={`/category/${category.slug}`}>
                                         <span className ="cursor-pointer block pb-3 mb-4 flex justify-center transition ease-in-out duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  mx-2 block hover:bg-white hover:bg-opacity-[0.6] text-center pt-3 drop-shadow-xl rounded-full" onClick={(e)=>{Setselected(category.name); setisActive(false)}}>
                                             {category.name}
                                         </span>
