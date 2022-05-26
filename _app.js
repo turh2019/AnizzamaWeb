@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
           <title>anizzama</title>
-          <link rel="icon" href='/bg/icon.webp'/>
-          <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
+          <meta name='google-site-verification' content='BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg'/>
+          <link rel="shortcut icon" href="/public/favicon.ico"></link>
         </Head>
       <Layout>
           <Component {...pageProps} />
