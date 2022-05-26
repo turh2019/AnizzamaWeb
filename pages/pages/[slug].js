@@ -17,7 +17,9 @@ const Pagespage = ({ Pages , params }) => {
     <div className="container mx-auto px-10 mb-8" >
                <Head>
                <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
-                <title>anizzama</title>
+               <meta name="googlebot" content="noindex"/>
+               <meta name="googlebot-news" content="nosnippet"></meta>
+                <title>Anizzama</title>
               </Head>
    
     

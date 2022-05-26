@@ -8,9 +8,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-          <title>anizzama</title>
+          <title>Anizzama</title>
           <a link rel="icon" a href='/public/favicon.ico'/>
           <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
+          <meta name="googlebot" content="noindex"/>
+          <meta name="googlebot-news" content="nosnippet"></meta>
         </Head>
       <Layout>
           <Component {...pageProps} />

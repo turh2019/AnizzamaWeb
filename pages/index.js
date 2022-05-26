@@ -17,6 +17,8 @@ export default function Home({ posts }) {
       
         <Head>
           <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
+          <meta name="googlebot" content="noindex"/>
+          <meta name="googlebot-news" content="nosnippet"></meta>
          
           <meta property="og:url" content="https://anizzama.vercel.app/"/>
           <meta property="og:title" content="Anizzama"/>
