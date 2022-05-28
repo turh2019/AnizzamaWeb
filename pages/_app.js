@@ -26,7 +26,6 @@ function MyApp({ Component, pageProps }) {
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
           <meta name="robots" content="index,follow"/>
-          <meta property="og:title" content="אניזאמה - Anizzama.com"/>
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="application-name" content="Anizzama"/>
       </Head>
