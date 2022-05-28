@@ -17,7 +17,13 @@ const PostDetails = ({post}) => {
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
-         
+      <Head>
+          <meta property="og:title" content={post.title}/>
+          <meta property="og:description" content={post.excerpt}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
+          <meta property="og:image" content={post.featuredImage.url}/>
+          <meta property="og:site_name" content="Anizzama"/>
+        </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 ">
              <PageDetail post ={post} type={"sad"} />
