@@ -71,7 +71,7 @@ const PageDetail = ({ post }) => {
     <>
       <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3 "dir="rtl">
         <div className="relative  shadow-md mb-6  lg:scale-100 scale-75">
-          <img src={post.wallpaper.url} alt="" 
+          <img src={post.wallpaper.url} alt="פאן ארט של הסדרה." 
           className="object-top h-50 w-50 object-cover shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] content-center  " />
            
           {open == true ? 

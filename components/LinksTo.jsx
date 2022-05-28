@@ -35,7 +35,7 @@ function LinksTo() {
                                 
                                     <Link  target="_blank"  to={li.link}  key={li.link} href={li.link} className="text-md flex justify-center cursor-pointer "> 
                                             <img src={li.featuredImage.url}
-                                                alt=""    
+                                                alt="תמונה מהפרק."    
                                                 height="60px"
                                                 width="60px"
                                                 className='align-middle rounded-full cursor-pointer '

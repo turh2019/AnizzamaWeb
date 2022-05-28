@@ -14,7 +14,7 @@ const PostCard = ({ post ,type }) => (
 
  
     <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
-      <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
+      <img src={post.featuredImage.url} alt="תמונה מהפרק." className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
 
  
     </div>
