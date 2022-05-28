@@ -18,7 +18,8 @@ const PostDetails = ({post}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <meta property="og:title" content={post.title}/>
+          <title>{post.title}</title>
+          <meta property="og:title" content="אניזאמה - Anizzama.com"/>
           <meta property="og:description" content={post.excerpt}/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
