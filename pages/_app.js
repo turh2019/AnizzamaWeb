@@ -3,6 +3,16 @@ import  Head  from 'next/head';
 import { Layout } from '../components/getComponents';
 import 'tailwindcss/tailwind.css';
 import '../Stayle/globals.scss';
+import TagManager from 'react-gtm-module'
+
+const tagManagerArgs = {
+    gtmId: 'GTM-P2SV9WH'
+}
+
+TagManager.initialize(tagManagerArgs)
+
+const app = document.getElementById('app')
+ReactDOM.render(<Router routes={routes} />, app)
 
 function MyApp({ Component, pageProps }) {
 
@@ -30,6 +40,8 @@ function MyApp({ Component, pageProps }) {
           <meta name="googlebot-news" content="nosnippet"></meta>
           
       </Head>
+
+      
       <Layout>
           <Component {...pageProps} />
        </Layout>
