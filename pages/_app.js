@@ -3,10 +3,17 @@ import  Head  from 'next/head';
 import { Layout } from '../components/getComponents';
 import 'tailwindcss/tailwind.css';
 import '../Stayle/globals.scss';
+import TagManager from "react-gtm-module"
 
-// import TagManager from "react-gtm-module"; const tagManagerArgs = { id: "GTM-P2SV9WH", }; useEffect(() => { TagManager.initialize(tagManagerArgs) }, [])
+const tagManagerArgs = {
+  id: "GTM-P2SV9WH",
+}
 
 function MyApp({ Component, pageProps }) {
+
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs)
+  }, [])
 
   return (
     <>
@@ -23,21 +30,6 @@ function MyApp({ Component, pageProps }) {
           <meta name="application-name" content="Anizzama"/>
       </Head>
 
-      <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=GTM-P2SV9WH`}
-      />
-
-      <Script strategy="lazyOnload">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GTM-P2SV9WH', {
-              page_path: window.location.pathname,
-            });
-                `}
-      </Script>
       
       <Layout>
           <Component {...pageProps} />
@@ -48,4 +40,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
+
 
