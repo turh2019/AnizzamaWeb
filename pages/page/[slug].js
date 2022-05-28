@@ -16,18 +16,6 @@ const PostDetails = ({post}) => {
  
   return (
     <>
-        <Head>
-          <title>Anizzama</title>
-          <meta property="og:title" content={post.title}/>
-          <meta property="og:description" content={post.excerpt}/>
-          <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>  
-          <meta property="og:image" content={post.featuredImage.url}/> 
-          <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
-          <meta name="googlebot" content="noindex"/>
-          <meta name="googlebot-news" content="nosnippet"></meta>
-        </Head>
-
       <div className="container mx-auto px-10 mb-8" >
          
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
