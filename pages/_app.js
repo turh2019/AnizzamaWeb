@@ -3,13 +3,7 @@ import  Head  from 'next/head';
 import { Layout } from '../components/getComponents';
 import 'tailwindcss/tailwind.css';
 import '../Stayle/globals.scss';
-import TagManager from 'react-gtm-module'
 
-const tagManagerArgs = {
-    gtmId: 'GTM-P2SV9WH'
-}
-
-TagManager.initialize(tagManagerArgs)
 function MyApp({ Component, pageProps }) {
 
   return (
@@ -20,14 +14,13 @@ function MyApp({ Component, pageProps }) {
           <title>Anizzama</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
           <base href="."/>
-          <link rel="icon" type="image/x-icon" href="/public/favicon.ico"/>
+          <link rel="icon" type="image/x-icon" href="https://anizzama.vercel.app/favicon.ico"/>
           <meta name="mobile-web-app-capable" content="yes"/>
-          <meta name="description" content=""/>
+          <meta name="description" content="test"/>
           <meta name="robots" content="index,follow"/>
           <meta property="og:title" content={pageProps.title}/>
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="application-name" content="Anizzama"/>
-          <meta name="theme-color" content="#ffffff"/>
           <meta property="og:description" content={pageProps.excerpt}/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+pageProps.slug}/>
