@@ -14,6 +14,14 @@ export default function Home({ posts }) {
   return (
    
     <div className="container mx-auto px-10 mb-8" >
+
+      <Head>
+          <meta property="og:url" content="https://anizzama.vercel.app/"/>
+          <meta property="og:title" content="אניזאמה - Anizzama.com"/>
+          <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
+          <meta property="og:site_name" content="Anizzama"/>
+        </Head>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post, index) => (
