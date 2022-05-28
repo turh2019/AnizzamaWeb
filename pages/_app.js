@@ -3,9 +3,6 @@ import  Head  from 'next/head';
 import { Layout } from '../components/getComponents';
 import 'tailwindcss/tailwind.css';
 import '../Stayle/globals.scss';
-import ReactDOM from 'react-dom'
-import Router from 'react-router'
-import routes from './routes'
 import TagManager from 'react-gtm-module'
 
 const tagManagerArgs = {
@@ -13,10 +10,6 @@ const tagManagerArgs = {
 }
 
 TagManager.initialize(tagManagerArgs)
-
-const app = document.getElementById('app')
-ReactDOM.render(<Router routes={routes} />, app)
-
 function MyApp({ Component, pageProps }) {
 
   return (
