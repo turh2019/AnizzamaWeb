@@ -7,13 +7,6 @@ export default function Home({ posts }) {
   return (
    
     <div className="container mx-auto px-10 mb-8">
-      
-        <Head>
-          <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
-          <meta name="googlebot" content="noindex"/>
-          <meta name="googlebot-news" content="nosnippet"></meta>
-          <title>Anizzama</title>
-        </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post, index) => (

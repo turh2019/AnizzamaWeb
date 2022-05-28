@@ -21,7 +21,6 @@ const PostDetails = ({post}) => {
          
           <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
-          <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta name="google-site-verification" content="BsaRssdN_eUFiWb0vDifoQ23ikfPZfCsPth93wPGlXg" />
