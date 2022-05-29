@@ -6,15 +6,19 @@ import Link from 'next/link'
 const handleClick = (string) => {
   window.open(string);
 };
-const PageDetail = ({ post }) => {
+const PageDetail = ({ post , link , ep , summary_}) => {
  
   const [watching,setWatching] = useState(false);
-  const [linkto,setlink] = useState();
+  const [open,SetOpen] = useState(false);
   const [Name,setName] = useState();
-  const [open,setopen] = useState(false);
+ 
   const [itsMega,setItsMega] = useState(false);
   const vidRef = useRef(null);
 
+  var type_ = "episode";
+  if(post.format == "movie"){
+    type_ = "link"
+  }  
   const handlePlayVideo = () => {
     vidRef.current.play();
   }
@@ -76,8 +80,8 @@ const PageDetail = ({ post }) => {
            
           {open == true ? 
             <div className=' grid grid-cols-2 gap-2'>
-              <button className=' focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3' onClick={(o)=>{handleClick(post.animelist)}}>MyAnimeList</button>
-              <button className=' focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3'  onClick={(o)=>{handleClick(post.trailer)}}>טריילר</button>
+              <button className=' focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3' onClick={(o)=>{handleClick()}}>MyAnimeList</button>
+              <button className=' focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3'  onClick={(o)=>{handleClick()}}>טריילר</button>
             </div> :
           ""}
           <div className='flex justify-center'>
@@ -120,53 +124,38 @@ const PageDetail = ({ post }) => {
               })}
           </div>
           
-          {post.pages_.map((p) =>(p.slug)) == "anime" ?
-          <div className='text-right border-b-4 rounded-lg  my-10 border-[#5344C1]'>
-              {post.format != "Movie" ?
-                <div>
-                  <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3 " onClick={(e)=>{setWatching(false); setItsMega(false)}}>
-                    פרקים בדרייב
-                  </button>
-                  <button type="button"  className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-2 cursor-pointer ml-3" onClick={(e)=>{setWatching(false); setItsMega(true)}}>
-                       פרקים בסטרימלר     
-                  </button>
-                </div>  
-
-              :" "
-              }
-             
-            
-          </div>   
-         :""}
+     
           {itsMega == false?
           <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter  mt-3 ' >
               <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
               
                   {post.linkVideo.map((linkEp,index)=>(
                      
-                        <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                        <button type="button"   className="  focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">
-                            {
-                               post.format != "Movie" ? "פרק  ":"קישור מספר "
-                            }
-                              {index+1} 
-                        </button>
+                        <span className ="cursor-pointer">
+                          {ep - 1 == index ?   
+                           <Link  target="_blank" href={`/${post.format}/${post.slug + "-" + type_ + "-" + (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                                  <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
+                            </Link>:
+                                <Link  target="_blank" href={`/${post.format}/${post.slug + "-" + type_ + "-" +  (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                                <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
+                            </Link> 
+                          }
+                        
                       </span>       
                             
                   ))}
             </div>
             
           </div>:
-            <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter   ' >
-              <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
+          <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter  mt-3 ' >
+          <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'>
                 {post.linkVideoMega.map((linkEp,index)=>(
-                  <span className ="cursor-pointer  " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
-                    <button type="button"  className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] focus:bg-[#382C8B]   inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3 " >
-                      {
-                         post.format != "Movie" ? "פרק  ":"קישור לסרט מספר "
-                      }
-                        {index+1} 
-                    </button>
+                  <span className ="cursor-pointer  " >
+                    <span className ="cursor-pointer">
+                            <Link  target="_blank" href={`/${post.format}/${post.slug + "-episode-" + (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                                  <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "Movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
+                            </Link>
+                      </span>     
                   </span>                
                 ))}
               </div>
@@ -177,11 +166,26 @@ const PageDetail = ({ post }) => {
 
 
       </div>
-        {watching== true?
+
+        {link ?
+          <div>
             <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
-           <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full h-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>
-                         
-        </div>:""}
+                  
+                <iframe src={link} allowfullscreen="true"  allow="autoplay" className='w-full h-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>           
+            </div>
+
+            <div className='bg-[#382C8B] box-decoration-slice box-content p-4 mt-4   rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
+              <div className='text-right rtl:mr-3 text-white '> 
+                {summary_  ? 
+                  summary_.raw.children.map((typeObj, index) => {
+                        const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+                          return getContentFragment(index, children, typeObj, typeObj.type);
+                      }) :".לפרק זה אין תקציר זמין"} 
+                </div>              
+              </div>
+          </div>
+      :""}
+
     </>
   );
 };

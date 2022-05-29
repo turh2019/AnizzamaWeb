@@ -23,7 +23,8 @@ const Pagespage = ({ Pages , params }) => {
              <div className='grid grid-cols-1 lg:grid-cols-1 gap-12  '>
                   {Pages.map((post, index) => (
                     <span className=''>
-                        <PageCard key={index} post={post.node} type ={"Team"} />
+                      
+                        <PageCard key={index} post={post.node} type ={"team"} />
                     </span>   
                   ))}
           </div>
@@ -40,7 +41,7 @@ const Pagespage = ({ Pages , params }) => {
         </div>
         <div className="col-span-1 lg:col-span-4 float-left">
           <div className="relative top-8 ">
-         
+        
             <PostWidget />
             
             <LinksTo />
