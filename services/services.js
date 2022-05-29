@@ -20,6 +20,8 @@ export const getPosts = async () => {
               url
             }
           }
+
+
           createdAt
           slug
           title
@@ -61,9 +63,11 @@ export const getPage = async () => {
               url
             }
           }
+
           wallpaper{
             url
           }
+
           createdAt
           slug
           title
@@ -163,6 +167,9 @@ export const getPostDetails = async (slug) => {
             url
           }
         }
+
+
+
         createdAt
         slug
         content {
@@ -197,6 +204,7 @@ export const getpageDetails = async (slug) => {
         wallpaper{
           url
         }
+
         author{
           name
           bio
@@ -204,6 +212,7 @@ export const getpageDetails = async (slug) => {
             url
           }
         }
+
         
         createdAt
         time
@@ -346,9 +355,11 @@ export const getPagesPage = async (slug) => {
             smallFeaturedImage{
               url
             }
+
             wallpaper{
               url
             }
+
             createdAt
             time
             slug
@@ -547,6 +558,7 @@ export const getRecentPosts = async () => {
         featuredSmallImage{
           url
         }
+
         createdAt
         slug
       }
