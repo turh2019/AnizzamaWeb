@@ -216,8 +216,6 @@ export const getpageDetails = async (slug) => {
         
         createdAt
         time
-        animelist
-        trailer
         slug
         content {
           raw
