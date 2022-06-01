@@ -13,24 +13,24 @@ import makeAnimated from 'react-select/animated';
 
   const formts=[
       {
-        label:"Movie",
-        value:"Movie"
+        label:"movie",
+        value:"movie"
       },
       {
-        label:"Series",
-        value:"Series"
+        label:"series",
+        value:"series"
       },
       {
-        label:"Special",
-        value:"Special"
+        label:"special",
+        value:"special"
       },
       {
-        label:"OVA",
-        value:"OVA"
+        label:"ova",
+        value:"ova"
       },
       {
-        label:"ONA",
-        value:"ONA"
+        label:"ona",
+        value:"ona"
       }
     ]
 const animatedComponents = makeAnimated();
@@ -187,7 +187,7 @@ const CategoriesSearch = ({posts}) => {
                     }}).map((val,key)=>
                     (
                         <span className='flex items-stretch'>
-                        <PageCard key={key} post={val.node} />
+                        <PageCard key={key} post={val.node}  type={val.node.format} />
                         </span> 
                     ))}
                    
@@ -196,7 +196,7 @@ const CategoriesSearch = ({posts}) => {
              <div className='grid grid-cols-2 lg:grid-cols-3 gap-2 '>
                     {posts.map((post, index) => (
                         <span className='flex items-stretch'>
-                            <PageCard key={index} post={post.node} />
+                            <PageCard key={index} post={post.node}  type={post.node.format}/>
                         </span>   
                     ))}  
               </div>

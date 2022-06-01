@@ -20,6 +20,8 @@ export const getPosts = async () => {
               url
             }
           }
+
+
           createdAt
           slug
           title
@@ -47,11 +49,9 @@ export const getPage = async () => {
   
   const query = gql`
   query MyQuery {
-    page_Connection( orderBy: createdAt_DESC) {
-      
+    page_Connection(orderBy: createdAt_DESC) {
       edges {
         node {
-          
           search
           author {
             bio
@@ -61,7 +61,7 @@ export const getPage = async () => {
               url
             }
           }
-          wallpaper{
+          wallpaper {
             url
           }
           createdAt
@@ -72,7 +72,7 @@ export const getPage = async () => {
           featuredImage {
             url
           }
-          smallFeaturedImage{
+          smallFeaturedImage {
             url
           }
           category {
@@ -83,6 +83,7 @@ export const getPage = async () => {
             name
             slug
           }
+          linkVideo
         }
       }
     }
@@ -163,6 +164,9 @@ export const getPostDetails = async (slug) => {
             url
           }
         }
+
+
+
         createdAt
         slug
         content {
@@ -187,6 +191,9 @@ export const getpageDetails = async (slug) => {
       page(where: {slug: $slug}) {
         title
         excerpt
+        summary {
+          raw
+        }
         format
         linkVideo 
         linkVideoMega
@@ -197,6 +204,7 @@ export const getpageDetails = async (slug) => {
         wallpaper{
           url
         }
+
         author{
           name
           bio
@@ -204,6 +212,7 @@ export const getpageDetails = async (slug) => {
             url
           }
         }
+
         
         createdAt
         time
@@ -344,9 +353,11 @@ export const getPagesPage = async (slug) => {
             smallFeaturedImage{
               url
             }
+
             wallpaper{
               url
             }
+
             createdAt
             time
             slug
@@ -545,6 +556,7 @@ export const getRecentPosts = async () => {
         featuredSmallImage{
           url
         }
+
         createdAt
         slug
       }
