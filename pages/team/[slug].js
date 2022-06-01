@@ -43,9 +43,11 @@ const PostDetails = ({post, ep,slugs}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <meta property="og:title" content={title_}/>
-          <meta property="og:description" content={description}/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/"+slugs.slug}/>
+          <title>Anizzama - Jobs</title>
+          <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
+          <meta property="og:title" content="Anizzama - Jobs"/>
+          <meta property="og:description" content="עמוד הדרושים; בעמוד זה תוכלו להבחן ולראות את מגוון התפקידים בפאנסאב."/>
+          <meta property="og:url" content="https://anizzama.vercel.app/team/staff"/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>

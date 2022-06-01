@@ -10,13 +10,33 @@ const Pagespage = ({ Pages , params }) => {
    return <Loader />;
  }
 
- 
-       
+ var descriptionA;
+ var descriptionB;
+ var titleA;
+
+       if(params.slug === 'anime') {
+        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
+        descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
+        titleA = "Anizzama - Anime List"
+       } else if(params.slug === 'team') {
+        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
+        descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר ולגשת אל עמוד הדרושים."
+        titleA = "Anizzama - Staff"
+       }
 
   return (
     <div className="container mx-auto px-10 mb-8" >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
+        <Head>
+          <title>{titleA}</title>
+          <meta name="description" content={descriptionA}/>
+          <meta property="og:url" content={"https://anizzama.vercel.app/pages/"+params.slug}/>
+          <meta property="og:title" content={titleA}/>
+          <meta property="og:description" content={descriptionB}/>
+          <meta property="og:site_name" content="Anizzama"/>
+          <meta property="og:image" content="https://anizzama.vercel.app/favicon.ico"/> 
+        </Head>
       
      {params.slug =="team"? 
         <div>

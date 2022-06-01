@@ -16,6 +16,8 @@ export default function Home({ posts }) {
     <div className="container mx-auto px-10 mb-8" >
 
       <Head>
+          <title>Anizzama - Homepage</title>
+          <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
           <meta property="og:url" content="https://anizzama.vercel.app/"/>
           <meta property="og:title" content="אניזאמה - Anizzama.com"/>
           <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>

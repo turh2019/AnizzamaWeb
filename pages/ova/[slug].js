@@ -16,10 +16,10 @@ const PostDetails = ({post, ep,slugs}) => {
 
  var link = null//  קישור לפרק
  var summary_ = null //  תקציר
- var description ="הסדרה :"; // השם של הסדרה ואיזה מספר פרק
+ var description ="הסדרה "; // השם של הסדרה ואיזה מספר פרק
  var ogDescription =""; // תקציר של הפרק
- post.search.map((item)=> ( description != "הסדרה :"? description = description +"/"+ item: description =  description + item));
- description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!  "
+ post.search.map((item)=> ( description != "הסדרה "? description = description +"/"+ item: description =  description + item));
+ description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!"
  var title_ = post.title;
 
 
@@ -31,15 +31,17 @@ const PostDetails = ({post, ep,slugs}) => {
     if(ep)
     {
       title_ =post.title + " פרק " + ep;
+      description = description + " פרק " + ep + "!";
       if(summary_)
       summary_.raw.children.map((typeObj, index) => {
         typeObj.children.map((item, itemindex) => 
         ogDescription = ogDescription + item.text
       )});
       else
-      ogDescription = ".לפרק זה אין תקציר זמין"
+      ogDescription = "לפרק זה אין תקציר זמין."
     }
     else{
+      title_ = "Anizzama - " + post.title;
       if(post.summaryAnime ){
         post.summaryAnime.raw.children.map((typeObj, index) => {
           typeObj.children.map((item, itemindex) => 
@@ -48,7 +50,7 @@ const PostDetails = ({post, ep,slugs}) => {
       } 
 
       if(ogDescription =="" || ogDescription =="content")
-      ogDescription ="לסדרה זאת אין תקציר זמין."
+      ogDescription ="לסדרה זו אין תקציר זמין."
 
     };
 
@@ -56,10 +58,11 @@ const PostDetails = ({post, ep,slugs}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
+          <title>Anizzama - {post.title}</title>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/"+slugs.slug}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/ova/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
