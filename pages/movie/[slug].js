@@ -6,7 +6,7 @@ import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loade
 import { getPage, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post,ep}) => {
+const PostDetails = ({post,ep,slugs}) => {
   var [selected, Setselected] = useState("")
 
  const router =useRouter();
@@ -14,19 +14,35 @@ const PostDetails = ({post,ep}) => {
   return <Loader />
  }
  
- var link = null
- var summary_ = null
- if( post.linkVideo.length >0)
+  var link = null
+  var summary_ = null
+  var description =post.excerpt;
+  var title_ = post.title;
+
+  if( post.linkVideo.length > 0)
     post.linkVideo.map((link_, index ) => index == ep -1 ? link = link_ :"" )
-if( post.summary.length >0)
+  if( post.summary.length > 0)
     post.summary.map((sum, index ) => index == ep -1 ?  summary_ = sum:"" )
+
+  if(ep)
+  {
+    description =""
+    title_ =post.title + " link " + ep;
+    {summary_  ? 
+      summary_.raw.children.map((typeObj, index) => {
+         typeObj.children.map((item, itemindex) => 
+               description = description + item.text
+               )}) :description = ".לסרט זה אין תקציר זמין"} 
+
+  }
+
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <meta property="og:title" content={post.title}/>
-          <meta property="og:description" content={post.excerpt}/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
+          <meta property="og:title" content={title_}/>
+          <meta property="og:description" content={description}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
@@ -69,7 +85,7 @@ export async function getStaticProps({ params }) {
     p_ = p_ +"-" + p:
     p_ =  p
     :isfound =true
-    index ==  pieces.length-1?
+    index ==  pieces.length-1 && isfound == true?
     ep_ = p:""
   })
   
@@ -79,7 +95,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post: data,
-      ep : ep_
+      ep : ep_,
+      slugs: params
     },
   };
 }
