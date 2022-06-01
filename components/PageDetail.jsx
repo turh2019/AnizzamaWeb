@@ -180,7 +180,7 @@ const PageDetail = ({ post , link , ep , summary_}) => {
                   summary_.raw.children.map((typeObj, index) => {
                         const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                           return getContentFragment(index, children, typeObj, typeObj.type);
-                      }) :".לפרק זה אין תקציר זמין"} 
+                      }) :post.format != "movie" ? ".לפרק זה אין תקציר זמין":".לסרט זה אין תקציר זמין" } 
                 </div>              
               </div>
           </div>
