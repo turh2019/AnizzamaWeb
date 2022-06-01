@@ -16,7 +16,9 @@ const PostDetails = ({post, ep,slugs}) => {
 
  var link = null
  var summary_ = null
- var description =post.excerpt;
+ var description ="הסדרה :";
+ post.search.map((item)=> ( description != "הסדרה :"? description = description +"/"+ item: description =  description + item));
+ description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!  "
  var title_ = post.title;
 
 
@@ -27,14 +29,8 @@ const PostDetails = ({post, ep,slugs}) => {
 
     if(ep)
     {
-      description =""
       title_ =post.title + " פרק " + ep;
-      {summary_  ? 
-        summary_.raw.children.map((typeObj, index) => {
-           typeObj.children.map((item, itemindex) => 
-                 description = description + item.text
-                 )}) :description = ".לפרק זה אין תקציר זמין"} 
-  
+      description = description + title_;
     }
 
   return (

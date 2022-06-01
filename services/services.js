@@ -204,7 +204,7 @@ export const getpageDetails = async (slug) => {
         wallpaper{
           url
         }
-
+        search
         author{
           name
           bio

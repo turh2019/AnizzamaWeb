@@ -16,7 +16,10 @@ const PostDetails = ({post,ep,slugs}) => {
  
   var link = null
   var summary_ = null
-  var description =post.excerpt;
+  var description ="הסרט :";
+  post.search.map((item)=> ( description != "הסרט :"? description = description +"/"+ item: description =  description + item));
+  description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!  "
+
   var title_ = post.title;
 
   if( post.linkVideo.length > 0)
@@ -24,16 +27,10 @@ const PostDetails = ({post,ep,slugs}) => {
   if( post.summary.length > 0)
     post.summary.map((sum, index ) => index == ep -1 ?  summary_ = sum:"" )
 
+    console.log(description);
   if(ep)
   {
-    description =""
     title_ =post.title + " link " + ep;
-    {summary_  ? 
-      summary_.raw.children.map((typeObj, index) => {
-         typeObj.children.map((item, itemindex) => 
-               description = description + item.text
-               )}) :description = ".לסרט זה אין תקציר זמין"} 
-
   }
 
   return (
