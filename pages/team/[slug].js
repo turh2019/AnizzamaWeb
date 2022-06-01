@@ -31,6 +31,12 @@ const PostDetails = ({post, ep,slugs}) => {
     {
       title_ =post.title + " פרק " + ep;
       description =  description + title_;
+      description = description + "\n";
+      if(summary_)
+      summary_.raw.children.map((typeObj, index) => {
+        typeObj.children.map((item, itemindex) => 
+        description = description + item.text
+      )});
     }
 
   return (

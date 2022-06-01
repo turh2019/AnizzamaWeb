@@ -194,6 +194,11 @@ export const getpageDetails = async (slug) => {
         summary {
           raw
         }
+
+        summaryAnime{
+          raw
+        }
+
         format
         linkVideo 
         linkVideoMega

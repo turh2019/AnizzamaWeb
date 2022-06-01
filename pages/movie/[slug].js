@@ -14,12 +14,15 @@ const PostDetails = ({post,ep,slugs}) => {
   return <Loader />
  }
  
-  var link = null
-  var summary_ = null
-  var description ="הסרט :";
-  post.search.map((item)=> ( description != "הסרט :"? description = description +"/"+ item: description =  description + item));
-  description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!  "
+ var link = null//  קישור לסרט
+ var summary_ = null //  תקציר
+ var description ="הסרט :"; // השם של הסרט ואיזה מספר לינק
+ var ogDescription =""; // תקציר של הסרט
+ post.search.map((item)=> ( description != "הסרט :"? description = description +"/"+ item: description =  description + item));
+ description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!  "
+ var title_ = post.title;
 
+  
   var title_ = post.title;
 
   if( post.linkVideo.length > 0)
@@ -27,18 +30,38 @@ const PostDetails = ({post,ep,slugs}) => {
   if( post.summary.length > 0)
     post.summary.map((sum, index ) => index == ep -1 ?  summary_ = sum:"" )
 
-    console.log(description);
+   
   if(ep)
   {
     title_ =post.title + " link " + ep;
-  }
+    description = description + "התקציר :";
+    if(post.summaryAnime)
+    post.summaryAnime.raw.children.map((typeObj, index) => {
+      typeObj.children.map((item, itemindex) => 
+      ogDescription = ogDescription + item.text
+    )});
+    if(ogDescription =="" || ogDescription =="content")
+    ogDescription ="לסרט זאת אין תקציר זמין."
+
+  }else{
+    if(post.summaryAnime)
+    post.summaryAnime.raw.children.map((typeObj, index) => {
+      typeObj.children.map((item, itemindex) => 
+      ogDescription = ogDescription + item.text
+    )});
+    if(ogDescription =="" || ogDescription =="content")
+    ogDescription ="לסרט זאת אין תקציר זמין."
+ 
+  };
+  
 
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
           <meta property="og:title" content={title_}/>
-          <meta property="og:description" content={description}/>
+          <meta property="og:description" content={ogDescription}/>
+          <meta property="description" content={description}/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>

@@ -14,9 +14,10 @@ const PostDetails = ({post, ep,slugs}) => {
     return <Loader />
   }
 
- var link = null
- var summary_ = null
- var description ="הסדרה :";
+ var link = null//  קישור לפרק
+ var summary_ = null //  תקציר
+ var description ="הסדרה :"; // השם של הסדרה ואיזה מספר פרק
+ var ogDescription =""; // תקציר של הפרק
  post.search.map((item)=> ( description != "הסדרה :"? description = description +"/"+ item: description =  description + item));
  description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!  "
  var title_ = post.title;
@@ -30,15 +31,34 @@ const PostDetails = ({post, ep,slugs}) => {
     if(ep)
     {
       title_ =post.title + " פרק " + ep;
-      description = description + title_;
+      if(summary_)
+      summary_.raw.children.map((typeObj, index) => {
+        typeObj.children.map((item, itemindex) => 
+        ogDescription = ogDescription + item.text
+      )});
+      else
+      ogDescription = ".לפרק זה אין תקציר זמין"
     }
+    else{
+      if(post.summaryAnime ){
+        post.summaryAnime.raw.children.map((typeObj, index) => {
+          typeObj.children.map((item, itemindex) => 
+          ogDescription = ogDescription + item.text
+        )});
+      } 
+
+      if(ogDescription =="" || ogDescription =="content")
+      ogDescription ="לסדרה זאת אין תקציר זמין."
+
+    };
 
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
           <meta property="og:title" content={title_}/>
-          <meta property="og:description" content={description}/>
+          <meta property="og:description" content={ogDescription}/>
+          <meta property="description" content={description}/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
