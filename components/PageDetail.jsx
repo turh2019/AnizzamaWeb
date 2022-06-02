@@ -77,11 +77,17 @@ const PageDetail = ({ post , link , ep , summary_}) => {
         <div className="relative  shadow-md mb-6  lg:scale-100 scale-75">
           <img src={post.wallpaper.url} alt="פאן ארט של הסדרה." 
           className="object-top h-50 w-50 object-cover shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] content-center  " />
-           
+          <div className='flex justify-center'>
+          <button onClick={ (e)=>(SetOpen(!open))} >  <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{open? "סגור תקציר" : "פתח תקציר"}</h1></button>
+          </div>
+         
           {open == true ? 
-            <div className=' grid grid-cols-2 gap-2'>
-              <button className=' focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3' onClick={(o)=>{handleClick()}}>MyAnimeList</button>
-              <button className=' focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ml-3'  onClick={(o)=>{handleClick()}}>טריילר</button>
+            <div className=''>
+              {post.summaryAnime.raw.children.map((typeObj, index) => {
+                const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+                 return getContentFragment(index, children, typeObj, typeObj.type);
+              })}
+       
             </div> :
           ""}
           <div className='flex justify-center'>
