@@ -1,1 +1,0 @@
-To refresh the website, change the number #02 to any diffrent number!
