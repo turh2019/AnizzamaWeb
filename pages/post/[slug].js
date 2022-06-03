@@ -13,12 +13,16 @@ const PostDetails = ({post}) => {
  if(router.isFallback){
   return <Loader />
  }
-
+ var AAAa;
+if(post.title.toLowerCase().includes("anizzama") || post.title.includes("אניזאמה")) AAAa = post.title;
+else AAAa = "Anizzama - " + post.title;
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <meta property="og:title" content={post.title}/>
+          <title>{AAAa}</title>
+          <meta property="description" content={post.excerpt}/>
+          <meta property="og:title" content={AAAa}/>
           <meta property="og:description" content={post.excerpt}/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
