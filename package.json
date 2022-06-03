@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export",
+    "sitemap": "next-sitemap --config next-sitemap.config.js",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.4.0",
+    "build": "^0.1.4",
+    "fs": "^0.0.1-security",
+    "globby": "^12.1.0",
+    "graphql": "^16.1.0",
+    "graphql-request": "^3.7.0",
+    "html-react-parser": "^1.4.2",
+    "moment": "^2.29.1",
+    "next": "latest",
+    "next-sitemap": "^2.5.20",
+    "path": "^0.12.7",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-ga": "^3.3.0",
+    "react-gtm-module": "^2.0.11",
+    "react-multi-carousel": "^2.6.5",
+    "react-select": "^5.2.2",
+    "sass": "^1.45.0",
+    "sitemap": "^7.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0"
+  }
+}
