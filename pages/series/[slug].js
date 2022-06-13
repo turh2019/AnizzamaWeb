@@ -41,7 +41,7 @@ const PostDetails = ({post, ep,slugs}) => {
       ogDescription = "לפרק זה אין תקציר זמין."
     }
     else{
-      title_ = "Anizzama - " + post.title;
+      title_ = post.title;
       if(post.summaryAnime ){
         post.summaryAnime.raw.children.map((typeObj, index) => {
           typeObj.children.map((item, itemindex) => 
@@ -58,7 +58,7 @@ const PostDetails = ({post, ep,slugs}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <title>Anizzama - {post.title}</title>
+          <title>{post.title}</title>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
