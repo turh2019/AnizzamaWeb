@@ -20,9 +20,9 @@ else AAAa = "Anizzama - " + post.title;
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <title>{AAAa}</title>
+          <title>{post.title}</title>
           <meta property="description" content={post.excerpt}/>
-          <meta property="og:title" content={AAAa}/>
+          <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
           <meta property="og:url" content= {"https://anizzama.vercel.app/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
