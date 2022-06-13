@@ -20,7 +20,7 @@ const PostDetails = ({post,ep,slugs}) => {
  var ogDescription =""; // תקציר של הסרט
  post.search.map((item)=> ( description != "הסרט "? description = description +"/"+ item: description =  description + item));
  description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!"
- var title_ ="Anizzama - " + post.title;
+ var title_ = post.title;
 
 
   if( post.linkVideo.length > 0)
@@ -55,7 +55,7 @@ const PostDetails = ({post,ep,slugs}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <title>Anizzama - {post.title}</title>
+          <title>{post.title}</title>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
