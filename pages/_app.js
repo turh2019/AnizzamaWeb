@@ -42,7 +42,6 @@ function MyApp({ Component, pageProps }) {
           <meta name="robots" content="index,follow"/>
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="application-name" content="Anizzama"/>
-          <meta name="referrer" content="unsafe-url"/>
       </Head>
 
       
