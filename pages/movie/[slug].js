@@ -59,7 +59,7 @@ const PostDetails = ({post,ep,slugs}) => {
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/movie/"+slugs.slug}/>
+          <meta property="og:url" content= {"https://anizzama.com/movie/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
