@@ -31,11 +31,11 @@ const Pagespage = ({ Pages , params }) => {
         <Head>
           <title>{titleA}</title>
           <meta name="description" content={descriptionA}/>
-          <meta property="og:url" content={"https://anizzama.vercel.app/pages/"+params.slug}/>
+          <meta property="og:url" content={"https://anizzama.com/pages/"+params.slug}/>
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:image" content="https://anizzama.vercel.app/favicon.ico"/> 
+          <meta property="og:image" content="https://anizzama.com/favicon.ico"/> 
         </Head>
       
      {params.slug =="team"? 
