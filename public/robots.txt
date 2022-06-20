@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://anizzama.com/
+Host: https://www.anizzama.com/
 
 # Sitemaps
-Sitemap: https://anizzama.com/sitemap.xml
+Sitemap: https://www.anizzama.com/sitemap.xml
