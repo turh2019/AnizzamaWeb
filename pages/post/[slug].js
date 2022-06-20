@@ -24,7 +24,7 @@ else AAAa = "Anizzama - " + post.title;
           <meta property="description" content={post.excerpt}/>
           <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
-          <meta property="og:url" content= {"https://anizzama.vercel.app/post/"+post.slug}/>
+          <meta property="og:url" content= {"https://anizzama.com/post/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
