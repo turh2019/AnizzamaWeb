@@ -16,13 +16,16 @@ export default function Home({ posts }) {
     <div className="container mx-auto px-10 mb-8" >
 
       <Head>
+       <script>
+      window.location.href('https://www.anizzama.com/')
+    </script>
           <title>Anizzama - Homepage</title>
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
-          <meta property="og:url" content="https://www.anizzama.com//"/>
+          <meta property="og:url" content="https://www.anizzama.com/"/>
           <meta property="og:title" content="אניזאמה - Anizzama.com"/>
           <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:image" content="https://www.anizzama.com//favicon.ico"/> 
+          <meta property="og:image" content="https://www.anizzama.com/favicon.ico"/> 
         </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
