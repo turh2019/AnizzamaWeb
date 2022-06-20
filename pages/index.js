@@ -19,7 +19,7 @@ export default function Home({ posts }) {
        <script>
       window.location.href('https://www.anizzama.com/')
     </script>
-          <title>Anizzama - Homepage</title>
+          <title>Anizzama T-T Homepage</title>
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
           <meta property="og:url" content="https://www.anizzama.com/"/>
           <meta property="og:title" content="אניזאמה - Anizzama.com"/>
