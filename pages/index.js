@@ -16,7 +16,6 @@ export default function Home({ posts }) {
     <div className="container mx-auto px-10 mb-8" >
 
       <Head>
-   <meta http-equiv="refresh" content="0; url=https://www.anizzama.com/" />
           <title>Anizzama T-T Homepage</title>
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
           <meta property="og:url" content="https://www.anizzama.com/"/>
