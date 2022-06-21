@@ -35,7 +35,7 @@ const Pagespage = ({ Pages , params }) => {
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:image" content="https://www.anizzama.com/favicon.ico"/> 
+          <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
         </Head>
       
      {params.slug =="team"? 
