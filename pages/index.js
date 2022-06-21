@@ -16,6 +16,7 @@ export default function Home({ posts }) {
     <div className="container mx-auto px-10 mb-8" >
 
       <Head>
+   <meta http-equiv="refresh" content="0; url=https://www.anizzama.com/" />
           <title>Anizzama T-T Homepage</title>
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
           <meta property="og:url" content="https://www.anizzama.com/"/>
@@ -23,7 +24,6 @@ export default function Home({ posts }) {
           <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:image" content="https://www.anizzama.com/favicon.ico"/> 
-          <meta http-equiv="refresh" content="0; url=https://www.anizzama.com/" />
         </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
