@@ -244,8 +244,8 @@ export const getSimilarPosts = async (categories,  slug) => {
     query GetSimilarPosts($slug: String!, $categories: [String!],) {
       posts(
         where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
-        orderBy: createdAt_DESC
-        last: 3
+        orderBy: createdAt_ASC
+        
       ) {
         title
         featuredImage {
