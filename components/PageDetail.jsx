@@ -78,7 +78,7 @@ const PageDetail = ({ post , link , ep , summary_}) => {
           <img src={post.wallpaper.url} alt="פאן ארט של הסדרה." 
           className="object-top h-50 w-50 object-cover shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] content-center  " />
           <div className='flex justify-center'>
-          <button onClick={ (e)=>(SetOpen(!open))} >  <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{open? "סגור תקציר" : "פתח תקציר"}</h1></button>
+          <button onClick={ (e)=>(SetOpen(!open))} >  <h4 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{open? "סגור תקציר" : "פתח תקציר"}</h4></button>
           </div>
          
           {open == true ? 
@@ -140,7 +140,7 @@ const PageDetail = ({ post , link , ep , summary_}) => {
                         <span className ="cursor-pointer">
                           {ep - 1 == index ?   
                            <Link  target="_blank" href={`/${post.format}/${post.slug + "-" + type_ + "-" + (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
-                                  <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
+                                  <h4 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h4>
                             </Link>:
                                 <Link  target="_blank" href={`/${post.format}/${post.slug + "-" + type_ + "-" +  (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
                                 <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
@@ -159,7 +159,7 @@ const PageDetail = ({ post , link , ep , summary_}) => {
                   <span className ="cursor-pointer  " >
                     <span className ="cursor-pointer">
                             <Link  target="_blank" href={`/${post.format}/${post.slug + "-episode-" + (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
-                                  <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "Movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
+                                  <h4 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "Movie" ? "פרק  ":"קישור מספר "} {index+1} </h4>
                             </Link>
                       </span>     
                   </span>                
