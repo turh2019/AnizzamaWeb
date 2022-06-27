@@ -58,7 +58,7 @@ const PostDetails = ({post, ep, slugs, name}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <title>{post.title}</title>
+          <title>{title_}</title>
           <link rel="canonical" href={"https://www.anizzama.com/series/"+name}/>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
