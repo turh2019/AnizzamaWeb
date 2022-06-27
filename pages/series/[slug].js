@@ -6,7 +6,7 @@ import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loade
 import { getPage, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post, ep,slugs}) => {
+const PostDetails = ({post, ep, slugs, name}) => {
   var [selected, Setselected] = useState("")
 
   const router =useRouter();
@@ -59,6 +59,7 @@ const PostDetails = ({post, ep,slugs}) => {
       <div className="container mx-auto px-10 mb-8" >
       <Head>
           <title>{post.title}</title>
+          <link rel="canonical" href={"https://anizzama.vercel.app/series/"+name}/>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
@@ -117,7 +118,8 @@ export async function getStaticProps({ params }) {
     props: {
       post: data,
       ep : ep_,
-      slugs: params
+      slugs: params,
+      name: p_
     },
   };
 }
