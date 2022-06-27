@@ -28,7 +28,7 @@ const Header = (type) => {
                   <div className='grid grid-cols-2 transform-gpu  '> 
                     <div className=" col-span-2 container mx-auto  ">
                         <div className=' '>
-                              <h1 className='transition duration-700 text-center text-white  mb-5 pb-5 text-3xl font-semibold  flex justify-center'>פוסטים מומלצים</h1> 
+                              <h4 className='transition duration-700 text-center text-white  mb-5 pb-5 text-3xl font-semibold  flex justify-center'>פוסטים מומלצים</h4> 
                               <FeaturedPosts className=" " /> 
                             </div>
                           </div>
