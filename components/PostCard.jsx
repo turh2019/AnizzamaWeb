@@ -36,9 +36,9 @@ const PostCard = ({ post }) => (
         <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
       </div>
     </div>
-          <h1 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
+          <h4 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
             <Link  target="_blank" href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
-          </h1>
+          </h4>
 
           <p className="text-center text-lg text-white-700 font-normal px-4 lg:px-20 mb-8 rtl:mr-3">
              {post.excerpt}
