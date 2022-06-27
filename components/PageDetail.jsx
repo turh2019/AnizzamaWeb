@@ -143,7 +143,7 @@ const PageDetail = ({ post , link , ep , summary_}) => {
                                   <h4 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h4>
                             </Link>:
                                 <Link  target="_blank" href={`/${post.format}/${post.slug + "-" + type_ + "-" +  (index + 1)}`} key ={post.slug + "/episode-" + (index + 1)} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
-                                <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h1>
+                                <h4 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{post.format != "movie" ? "פרק  ":"קישור מספר "} {index+1} </h4>
                             </Link> 
                           }
                         
