@@ -121,7 +121,7 @@ const PageDetail = ({ post , link , ep , summary_}) => {
           </div>
 
 
-          <h4 className="my-10 text-3xl font-semibold text-center rtl:mr-3  ">{post.title}</h4>
+          <h1 className="my-10 text-3xl font-semibold text-center rtl:mr-3  ">{post.title}</h1>
          
           <div className='text-right rtl:mr-3 '> 
               {post.content.raw.children.map((typeObj, index) => {
