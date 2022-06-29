@@ -37,15 +37,20 @@ function MyApp({ Component, pageProps }) {
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
           <base href="/"/>
-          <link rel="icon" type="image/x-icon" href="https://anizzama.vercel.app/favicon.ico"/>
+          <link rel="icon" type="image/x-icon" href="https://www.anizzama.com/favicon.ico"/>
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="robots" content="index,follow"/>
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="application-name" content="Anizzama"/>
           <meta name="og:email" content="anizzamasub@gmail.com"/>
           <meta name="og:type" content="fansub"/>
-          <meta name="language" content="HE"/>
-          <meta name="og:locale" content="he_IL"/>
+          <meta name="language" content="IW"/>
+          <meta name="subject" content="Fan Sub"/>
+          <meta name="copyright"content="Anizzama"/>
+          <meta name="url" content="https://www.anizzama.com"/>
+          <meta name="identifier-URL" content="https://www.anizzama.com"/>
+          <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+          <meta http-equiv="content-language" content="iw_il"/>
       </Head>
 
       
