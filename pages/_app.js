@@ -43,7 +43,6 @@ function MyApp({ Component, pageProps }) {
           <meta name="mobile-web-app-capable" content="yes"/>
           <meta name="application-name" content="Anizzama"/>
           <meta name="og:email" content="anizzamasub@gmail.com"/>
-          <meta name="og:type" content="fansub"/>
           <meta name="subject" content="Fan Sub"/>
           <meta name="copyright"content="Anizzama"/>
           <meta name="url" content="https://www.anizzama.com"/>
