@@ -44,13 +44,12 @@ function MyApp({ Component, pageProps }) {
           <meta name="application-name" content="Anizzama"/>
           <meta name="og:email" content="anizzamasub@gmail.com"/>
           <meta name="og:type" content="fansub"/>
-          <meta name="language" content="IW"/>
           <meta name="subject" content="Fan Sub"/>
           <meta name="copyright"content="Anizzama"/>
           <meta name="url" content="https://www.anizzama.com"/>
           <meta name="identifier-URL" content="https://www.anizzama.com"/>
           <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
-          <meta http-equiv="content-language" content="iw_il"/>
+          <meta http-equiv="content-language" content="iw_IL"/>
       </Head>
 
       
