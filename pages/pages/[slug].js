@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react';
 import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 import { getPages, getPagesPage,getCategories} from '../../services/services';
-import { PageCard, Categories, Loader,LinksTo,PostWidget ,CategoriesSearch,Team,HelpUs} from '../../components/getComponents';
+import { Loader,LinksTo,PostWidget ,CategoriesSearch,Team,Cooperation} from '../../components/getComponents';
+
 const Pagespage = ({ Pages , params }) => {
   const router = useRouter();
 
@@ -31,34 +32,17 @@ const Pagespage = ({ Pages , params }) => {
         <Head>
           <title>{titleA}</title>
           <meta name="description" content={descriptionA}/>
-          <meta property="og:url" content={"https://www.anizzama.com/pages/"+params.slug}/>
+          <meta property="og:url" content={"https://anizzama.vercel.app/pages/"+params.slug}/>
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
+          <meta property="og:image" content="https://anizzama.vercel.app/favicon.ico"/> 
         </Head>
-      
-     {params.slug =="team"? 
-        <div>
-             <div className='grid grid-cols-1 lg:grid-cols-1 gap-12  '>
-                  {Pages.map((post, index) => (
-                    <span className=''>
-                      
-                        <PageCard key={index} post={post.node} type ={"team"} />
-                    </span>   
-                  ))}
-          </div>
-            <Team />
-         </div> :
-          <div >
-            
-          <CategoriesSearch posts={Pages} />
-            
-          </div>
-      }
-       
+        {params.slug =="team"? <div><Team /></div> :""}
+        {params.slug =="anime"?<div><CategoriesSearch posts={Pages} /></div>:"" }
+        {params.slug =="cooperation"?<div><Cooperation/></div>:"" }
          
-        </div>
+      </div>
         <div className="col-span-1 lg:col-span-4 float-left">
           <div className="relative top-8 ">
         

@@ -18,13 +18,11 @@ export default function Home({ posts }) {
       <Head>
           <title>Anizzama - Homepage</title>
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
-          <meta property="og:url" content="https://www.anizzama.com/"/>
+          <meta property="og:url" content="https://anizzama.vercel.app/"/>
           <meta property="og:title" content="אניזאמה - Anizzama.com"/>
           <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
-          <link rel="canonical" href="https://www.anizzama.com/" />
-
+          <meta property="og:image" content="https://anizzama.vercel.app/favicon.ico"/> 
         </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

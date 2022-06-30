@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 
 import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
-import { getPage, getpageDetails } from '../../services/services';
+import { getPageFormat, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post, ep,slugs, name}) => {
+const PostDetails = ({post, ep,slugs}) => {
   var [selected, Setselected] = useState("")
 
   const router =useRouter();
@@ -41,7 +41,7 @@ const PostDetails = ({post, ep,slugs, name}) => {
       ogDescription = "לפרק זה אין תקציר זמין."
     }
     else{
-      title_ = post.title;
+      title_ = "Anizzama - " + post.title;
       if(post.summaryAnime ){
         post.summaryAnime.raw.children.map((typeObj, index) => {
           typeObj.children.map((item, itemindex) => 
@@ -58,12 +58,11 @@ const PostDetails = ({post, ep,slugs, name}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <title>{title_}</title>
-          <link rel="canonical" href={"https://www.anizzama.com/ona/"+name}/>
+          <title>Anizzama - {post.title}</title>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
-          <meta property="og:url" content= {"https://www.anizzama.com/ona/"+slugs.slug}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/ona/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
@@ -118,8 +117,7 @@ export async function getStaticProps({ params }) {
     props: {
       post: data,
       ep : ep_,
-      slugs: params,
-      name: p_
+      slugs: params
     },
   };
 }
@@ -127,7 +125,7 @@ export async function getStaticProps({ params }) {
 
 
 export async function getStaticPaths() {
-  const posts = await getPage();
+  const posts = await getPageFormat('ona');
 
   const paths = posts.map((p,index)=>{
     

@@ -11,8 +11,7 @@ export default async function asynchandler(req, res) {
       authorization: `Bearer ${graphqlToken}`,
     },
   })
-  console.log(req.body.isBelongs)
-  console.log(req.body.id)
+
   if(req.body.isBelongs){
     const query = gql`
     mutation CreateComment($name: String!, $email: String!, $comment: String!, $isBelongs: Boolean, $id: ID!,$sendEmail:Boolean) {

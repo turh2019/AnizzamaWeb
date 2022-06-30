@@ -66,6 +66,7 @@ export const getPage = async () => {
           }
           createdAt
           slug
+          format
           title
           excerpt
           linkVideoMega
@@ -95,6 +96,57 @@ export const getPage = async () => {
   return result.page_Connection.edges;
 };
 
+export const getPageFormat = async (slug) => {
+  
+  const query = gql`
+  query MyQuery($slug : Format!) {
+    page_Connection(orderBy: createdAt_DESC, where: {format: $slug}) {
+      edges {
+        node {
+          search
+          author {
+            bio
+            name
+            id
+            photo {
+              url
+            }
+          }
+          wallpaper {
+            url
+          }
+          createdAt
+          slug
+          format
+          title
+          excerpt
+          linkVideoMega
+          featuredImage {
+            url
+          }
+          smallFeaturedImage {
+            url
+          }
+          category {
+            label
+            slug
+          }
+          pages_ {
+            name
+            slug
+          }
+          linkVideo
+        }
+      }
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+  
+  return result.page_Connection.edges;
+};
+
 export const getCategories = async () => {
   const query = gql`
     query GetGategories {
@@ -106,26 +158,82 @@ export const getCategories = async () => {
     }
   `;
 
+
+
   const result = await request(graphqlAPI, query);
 
   return result.categories;
 };
 
-export const getPages = async () => {
+
+export const getAllCooperation = async () => {
   const query = gql`
-    query GetGategories {
-      pages_(orderBy: createdAt_DESC) {
-          name
-          slug
-          
+    query MyQuery {
+      cooperation_ {
+        title
+        photo {
+          url
         }
+        link
+        bio
+      }
     }
   `;
 
-  const result = await request(graphqlAPI, query);
+const result = await request(graphqlAPI, query);
 
-  return result.pages_;
+return result.cooperation_;
 };
+
+
+export const getPages = async () => {
+  const query = gql`
+  query MyQuery {
+    pages_ {
+      slug
+      name
+    }
+  }
+  `;
+
+  const result = await request(graphqlAPI, query);
+  
+  return result.pages_;
+
+};
+
+export const GetRandomSeries = async () => {
+    const query = gql`
+    query MyQuery() {
+      page_(
+        orderBy: createdAt_DESC
+      ) {
+        title
+        slug
+      }
+    }
+  `;
+const result = await request(graphqlAPI, query);
+
+return result.page_;
+};
+
+export const GetRandomPost = async () => {
+  const query = gql`
+  query MyQuery() {
+    posts(
+      orderBy: createdAt_DESC
+    ) {
+      title
+      slug
+    }
+  }
+`;
+const result = await request(graphqlAPI, query);
+
+return result.posts;
+};
+
 
 export const getLinksto = async () => {
   const query = gql`
@@ -245,7 +353,7 @@ export const getSimilarPosts = async (categories,  slug) => {
       posts(
         where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
         orderBy: createdAt_ASC
-        
+     
       ) {
         title
         featuredImage {
@@ -263,6 +371,9 @@ export const getSimilarPosts = async (categories,  slug) => {
 
   return result.posts;
 };
+
+
+
 
 export const getAdjacentPosts = async (createdAt, slug) => {
   const query = gql`
@@ -583,6 +694,7 @@ export const getJobs = async () => {
         photo {
           url
         }
+        isHeLeave
       }
     }
   `;

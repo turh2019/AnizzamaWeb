@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 
 import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
-import { getPage, getpageDetails } from '../../services/services';
+import { getPageFormat, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post,ep,slugs, name}) => {
+const PostDetails = ({post,ep,slugs}) => {
   var [selected, Setselected] = useState("")
 
  const router =useRouter();
@@ -20,7 +20,7 @@ const PostDetails = ({post,ep,slugs, name}) => {
  var ogDescription =""; // תקציר של הסרט
  post.search.map((item)=> ( description != "הסרט "? description = description +"/"+ item: description =  description + item));
  description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!"
- var title_ = post.title;
+ var title_ ="Anizzama - " + post.title;
 
 
   if( post.linkVideo.length > 0)
@@ -55,12 +55,11 @@ const PostDetails = ({post,ep,slugs, name}) => {
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-          <title>{title_}</title>
-          <link rel="canonical" href={"https://www.anizzama.com/movie/"+name}/>
+          <title>Anizzama - {post.title}</title>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
-          <meta property="og:url" content= {"https://www.anizzama.com/movie/"+slugs.slug}/>
+          <meta property="og:url" content= {"https://anizzama.vercel.app/movie/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
@@ -107,22 +106,20 @@ export async function getStaticProps({ params }) {
     ep_ = p:""
   })
   
- 
-  console.log({ep_})
+
   const data = await getpageDetails(p_)
   return {
     props: {
       post: data,
       ep : ep_,
-      slugs: params,
-      name: p_
+      slugs: params
     },
   };
 }
 
 
 export async function getStaticPaths() {
-  const posts = await getPage();
+  const posts = await getPageFormat('movie');
 
   const paths = posts.map((p,index)=>{
     
