@@ -39,17 +39,34 @@ const PostDetails = ({post, ep,slugs}) => {
       )});
     }
 
+    ////////////////////////////////
+    
+ var descriptionA;
+ var descriptionB;
+ var titleA;
+
+       if(params.slug === 'jobs') {
+        descriptionA = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
+        descriptionB = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
+        titleA = "Anizzama - Jobs"
+       } else if(params.slug === 'about') {
+        descriptionA = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
+        descriptionB = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
+        titleA = "Anizzama - About Us"
+       } 
+
+// <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
-      <title>Anizzama - Jobs</title>
-          <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
-          <meta property="og:title" content="Anizzama - Jobs"/>
-          <meta property="og:description" content="עמוד הדרושים; בעמוד זה תוכלו להבחן ולראות את מגוון התפקידים בפאנסאב."/>
-          <meta property="og:url" content="https://www.anizzama.com/team/jobs"/>
-          <meta property="og:image" content={post.featuredImage.url}/>
+      <title>{titleA}</title>
+          <meta name="description" content={descriptionA}/>
+          <meta property="og:url" content={"https://www.anizzama.com/team/"+params.slug}/>
+          <meta property="og:title" content={titleA}/>
+          <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
+          <meta property="og:image" content={post.featuredImage.url}/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 ">
