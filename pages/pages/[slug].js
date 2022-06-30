@@ -19,7 +19,7 @@ const Pagespage = ({ Pages , params }) => {
         descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         titleA = "Anizzama - Anime List"
-       } else if(params.slug === 'jobs') {
+       } else if(params.slug === 'team/jobs') {
         descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר ולגשת אל עמוד הדרושים."
         titleA = "Anizzama - Staff"
