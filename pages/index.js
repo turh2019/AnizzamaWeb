@@ -1,4 +1,3 @@
-
 import  Head  from 'next/head';
 import { PostCard, Categories, PostWidget,LinksTo,Toolbar } from '../components/getComponents';
 import { getPosts } from '../services/services';
@@ -24,7 +23,6 @@ export default function Home({ posts }) {
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
           <link rel="canonical" href="https://www.anizzama.com/" />
-
         </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
