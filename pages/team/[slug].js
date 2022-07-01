@@ -44,17 +44,17 @@ const PostDetails = ({post, ep,slugs}) => {
  var descriptionB;
  var titleA;
 
-       if(params.slug === 'jobs') {
-        descriptionA = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
-        descriptionB = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
-        titleA = "Anizzama - Jobs"
-       } else if(params.slug === 'about') {
-        descriptionA = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
-        descriptionB = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
-        titleA = "Anizzama - About Us"
-       } 
-    
-  return (
+        if(params.slug === 'jobs') {
+          descriptionA = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
+          descriptionB = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
+          titleA = "Anizzama - Jobs"
+         } else if(params.slug === 'about') {
+          descriptionA = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
+          descriptionB = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
+          titleA = "Anizzama - About Us"
+         }
+        
+    if(params.slug === 'jobs' || params.slug === 'about') return (
     <>
       <div className="container mx-auto px-10 mb-8" >
       <Head>
