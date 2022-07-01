@@ -39,7 +39,6 @@ const PostDetails = ({post, ep,slugs}) => {
       )});
     }
 
-    ////////////////////////////////
     
  var descriptionA;
  var descriptionB;
@@ -54,8 +53,7 @@ const PostDetails = ({post, ep,slugs}) => {
         descriptionB = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
         titleA = "Anizzama - About Us"
        } 
-
-// <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
+    
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
@@ -67,7 +65,7 @@ const PostDetails = ({post, ep,slugs}) => {
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:image" content={post.featuredImage.url}/>
-        </Head>
+     </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 ">
           <PageDetail post ={post} type={"sad"}  link = {link} ep ={ep} summary_ ={summary_}/>
