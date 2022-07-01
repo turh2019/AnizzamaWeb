@@ -14,29 +14,33 @@ const Pagespage = ({ Pages , params }) => {
  var descriptionA;
  var descriptionB;
  var titleA;
+ var dd;
 
        if(params.slug === 'anime') {
         descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         titleA = "Anizzama - Anime List"
+        dd = "anime"
        } else if(params.slug === 'team') {
         descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר ולגשת אל עמוד הדרושים."
         titleA = "Anizzama - Staff"
+        dd = "team"
        } else if(params.slug === 'cooperation') {
         descriptionA = "אניזאמה; כל המשתפי פעולה המדהימים שלנו!"
         descriptionB = "אניזאמה; כל המשתפי פעולה המדהימים שלנו!"
         titleA = "Anizzama - Cooperation"
+        dd = "cooperation"
        }
 
-  return (
-    <div className="container mx-auto px-10 mb-8" >
+       if(params.slug === 'anime' || params.slug === 'team' || params.slug === 'cooperation') return (
+        <div className="container mx-auto px-10 mb-8" >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
         <Head>
         <title>{titleA}</title>
           <meta name="description" content={descriptionA}/>
-          <meta property="og:url" content={"https://www.anizzama.com/pages/"+params.slug}/>
+          <meta property="og:url" content={"https://www.anizzama.com/pages/"+dd}/>
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>

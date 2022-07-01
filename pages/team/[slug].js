@@ -43,15 +43,18 @@ const PostDetails = ({post, ep,slugs}) => {
  var descriptionA;
  var descriptionB;
  var titleA;
+ var dd;
 
         if(params.slug === 'jobs') {
           descriptionA = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
           descriptionB = "אניזאמה; עמוד הדרושים! כאן תוכלו לראות את כל התפקידים בסאב ואולי גם להיבחן :) !"
           titleA = "Anizzama - Jobs"
+          dd = "jobs"
          } else if(params.slug === 'about') {
           descriptionA = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
           descriptionB = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
           titleA = "Anizzama - About Us"
+          dd = "about"
          }
         
     if(params.slug === 'jobs' || params.slug === 'about') return (
@@ -60,7 +63,7 @@ const PostDetails = ({post, ep,slugs}) => {
       <Head>
       <title>{titleA}</title>
           <meta name="description" content={descriptionA}/>
-          <meta property="og:url" content={"https://www.anizzama.com/team/"+params.slug}/>
+          <meta property="og:url" content={"https://www.anizzama.com/team/"+dd}/>
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
