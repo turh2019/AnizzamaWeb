@@ -11,6 +11,8 @@ const Pagespage = ({ Pages , params }) => {
    return <Loader />;
  }
 
+ if(params.slug !== 'anime' || params.slug !== 'team' || params.slug !== 'cooperation') return;
+
  var descriptionA;
  var descriptionB;
  var titleA;
@@ -33,7 +35,7 @@ const Pagespage = ({ Pages , params }) => {
         dd = "cooperation"
        }
 
-       if(params.slug === 'anime' || params.slug === 'team' || params.slug === 'cooperation') return (
+      return (
         <div className="container mx-auto px-10 mb-8" >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
