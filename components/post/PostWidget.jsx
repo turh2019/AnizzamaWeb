@@ -7,15 +7,16 @@ import Link from 'next/link';
 
 import { getSimilarPosts, getRecentPosts } from '../../services/services';
 
-const PostWidget = ({ categories, slug }) => {
+const PostWidget = ({ nameConnect, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
   var  randomNum_1  = -1;
   var  randomNum_2 = 0;
   var  randomNum_3 = 0;
+  var counter = 0;
   useEffect(() => {
     if (slug) {
      
-      getSimilarPosts(categories, slug).then((result) => {
+      getSimilarPosts(nameConnect ? nameConnect:"" , slug).then((result) => {
         setRelatedPosts(result);  
       });
      
@@ -33,7 +34,9 @@ const PostWidget = ({ categories, slug }) => {
   const handleRandom =( length) =>{
   
       handleRandom_1(length);
+      if(length > 1)
       handleRandom_2(length);
+      if(length > 2)
       handleRandom_3(length);
   }
 
@@ -43,16 +46,15 @@ const PostWidget = ({ categories, slug }) => {
 
   const handleRandom_2 =(length) =>{
     randomNum_2 = Math.floor(Math.random() * length )
-    if(randomNum_2 == randomNum_1)
-    {
+    if(randomNum_2 == randomNum_1 )
+    {     
       handleRandom_2(length);
     }
   }
 
   const handleRandom_3 =(length) =>{
     randomNum_3 = Math.floor(Math.random() * length )
-
-    if(randomNum_3 == randomNum_2 ||randomNum_3 == randomNum_1)
+    if( counter < length && (randomNum_3 == randomNum_2 ||randomNum_3 == randomNum_1))
     {
       handleRandom_3(length);
     }

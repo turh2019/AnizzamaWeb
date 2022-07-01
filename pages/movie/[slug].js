@@ -6,7 +6,7 @@ import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loade
 import { getPageFormat, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post,ep,slugs,name}) => {
+const MoviePage = ({post,ep,slugs,name}) => {
   var [selected, Setselected] = useState("")
 
  const router =useRouter();
@@ -85,7 +85,7 @@ const PostDetails = ({post,ep,slugs,name}) => {
     </>
   );
 };
-export default PostDetails;
+export default MoviePage;
 
 
 export async function getStaticProps({ params }) {

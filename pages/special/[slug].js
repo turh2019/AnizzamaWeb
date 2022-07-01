@@ -6,7 +6,7 @@ import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loade
 import { getPageFormat, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post, ep,slugs,name}) => {
+const SpecialPage = ({post, ep,slugs,name}) => {
   var [selected, Setselected] = useState("")
 
   const router =useRouter();
@@ -88,7 +88,7 @@ const PostDetails = ({post, ep,slugs,name}) => {
     </>
   );
 };
-export default PostDetails;
+export default SpecialPage;
 
 
 

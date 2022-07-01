@@ -6,7 +6,7 @@ import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loade
 import { getPage, getpageDetails } from '../../services/services';
 
 
-const PostDetails = ({post, ep,slugs}) => {
+const TeamPage = ({post, ep,slugs}) => {
   var [selected, Setselected] = useState("")
 
   const router =useRouter();
@@ -88,7 +88,7 @@ const PostDetails = ({post, ep,slugs}) => {
     </>
   );
 };
-export default PostDetails;
+export default TeamPage;
 
 
 

@@ -274,7 +274,7 @@ export const getPostDetails = async (slug) => {
         }
 
 
-
+        nameConnectPost
         createdAt
         slug
         content {
@@ -346,14 +346,14 @@ export const getpageDetails = async (slug) => {
   return result.page;
 };
 
-export const getSimilarPosts = async (categories,  slug) => {
-
+export const getSimilarPosts = async (nameConnectPost,  slug) => {
+console.log({nameConnectPost})
   const query = gql`
-    query GetSimilarPosts($slug: String!, $categories: [String!],) {
+    query GetSimilarPosts($slug: String!, $nameConnectPost: String!,) {
       posts(
-        where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
+        where: {slug_not: $slug, AND: {nameConnectPost:  $nameConnectPost}}
         orderBy: createdAt_ASC
-     
+        last: 3
       ) {
         title
         featuredImage {
@@ -362,13 +362,14 @@ export const getSimilarPosts = async (categories,  slug) => {
         featuredSmallImage{
           url
         }
+        nameConnectPost
         createdAt
         slug
       }
     }
   `;
-  const result = await request(graphqlAPI, query, {categories, slug});
-
+  const result = await request(graphqlAPI, query, {nameConnectPost, slug});
+    console.log({result})
   return result.posts;
 };
 
