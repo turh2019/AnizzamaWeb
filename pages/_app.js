@@ -5,7 +5,7 @@ import 'tailwindcss/tailwind.css';
 import '../Stayle/globals.scss';
 import Script from 'next/script'
 import { useRouter } from 'next/router'
-import pageview from '../lib/gtm'
+import {pageview} from '../lib/gtm'
 
 function MyApp({ Component, pageProps }) {
 

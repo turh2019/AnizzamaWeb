@@ -25,16 +25,17 @@ function Cooperation() {
                            <h1 className="text-white text-center cursor-pointer mb-4 text-xl font-bold p-1"><a  target="_blank" href={cooperation.link} >{cooperation.title}</a></h1>
                             <h2 className="text-white text-ls">{cooperation.bio}</h2>
                             <div className="absolute float-left right-1 top-1  ">
-                                <Image
-                                 unoptimized             
-                                alt={"author.name"}
-                                height="100px"
-                                width="100px"
-                                className="align-left rounded-lg cursor-pointer"
-                                src={cooperation.photo.url}
-                                />
+                                <a  target="_blank" href={cooperation.link} >
+                                    <Image
+                                    unoptimized             
+                                    alt={"author.name"}
+                                    height="100px"
+                                    width="100px"
+                                    className="align-left rounded-lg cursor-pointer"
+                                    src={cooperation.photo.url}
+                                    />
+                                </a>
                             </div>
-         
                         </div>
                     ))}
                 </div>

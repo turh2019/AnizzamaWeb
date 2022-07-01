@@ -10,8 +10,8 @@ const Pagespage = ({ Pages , params }) => {
   if (router.isFallback) {
    return <Loader />;
  }
-
- if(params.slug !== 'anime' || params.slug !== 'team' || params.slug !== 'cooperation') return;
+ 
+ if(params.slug != 'anime' && params.slug != 'team' && params.slug != 'cooperation') return(<></>);
 
  var descriptionA;
  var descriptionB;
@@ -48,9 +48,10 @@ const Pagespage = ({ Pages , params }) => {
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
         </Head>
-        {params.slug =="team"? <div><Team /></div> :""}
+        {params.slug =="team"? <div><Team/></div> :""}
         {params.slug =="anime"?<div><CategoriesSearch posts={Pages} /></div>:"" }
         {params.slug =="cooperation"?<div><Cooperation/></div>:"" }
+        {params.slug =="FAQ"?<div></div>:"" }
          
       </div>
         <div className="col-span-1 lg:col-span-4 float-left">
