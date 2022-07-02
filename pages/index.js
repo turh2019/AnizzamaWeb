@@ -29,6 +29,8 @@ export default function Home({ posts }) {
           <meta property="og:image:alt" content="Anizzama's logo"/>
           <link rel="icon" href="https://i.ibb.co/Gcn00Py/32222ezgif-4-96055fba23.webp" alt="Anizzama's logo 32x32" sizes="32x32"/>
           <link rel="icon" href="https://i.ibb.co/fk9XnJ2/e1119222zgif-4-1de7ea8e30.webp" alt="Anizzama's logo 192x192" sizes="192x192"/>
+          <link rel="apple-touch-icon" href="https://i.ibb.co/d6qzqTh/ezgif22222222222222222-4-5c5079c963.webp" alt="Anizzama's logo 180x180" sizes="180x180"/>
+
 
         </Head>
 
