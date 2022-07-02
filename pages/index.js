@@ -19,10 +19,11 @@ export default function Home({ posts }) {
           <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
           <meta property="og:url" content="https://www.anizzama.com/"/>
           <meta property="og:title" content="אניזאמה - Anizzama.com"/>
-          <meta property="og:description" content="ונים שהוצאנו."/>
+          <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
           <link rel="canonical" href="https://www.anizzama.com/"/>
+   
           <meta property="og:image" content="https://i.ibb.co/yhwPxVS/ezgif-5-ef0b20b1bf.webp"/>
           <meta property="og:image:width" content="512"/>
           <meta property="og:image:height" content="512"/>
