@@ -24,13 +24,13 @@ export default function Home({ posts }) {
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
           <link rel="canonical" href="https://www.anizzama.com/"/>
    
-          <meta property="og:image" content="https://i.ibb.co/yhwPxVS/ezgif-5-ef0b20b1bf.webp"/>
+          <meta property="og:image" content="https://i.ibb.co/Wz8RmR6/512.png"/>
           <meta property="og:image:width" content="512"/>
           <meta property="og:image:height" content="512"/>
           <meta property="og:image:alt" content="Anizzama's logo"/>
-          <link rel="icon" href="https://i.ibb.co/Gcn00Py/32222ezgif-4-96055fba23.webp" sizes="32x32"/>
-          <link rel="icon" href="https://i.ibb.co/fk9XnJ2/e1119222zgif-4-1de7ea8e30.webp" sizes="192x192"/>
-          <link rel="apple-touch-icon" href="https://i.ibb.co/d6qzqTh/ezgif22222222222222222-4-5c5079c963.webp" sizes="180x180"/>
+          <link rel="icon" href="https://i.ibb.co/hVBcCYy/32.png" sizes="32x32"/>
+          <link rel="icon" href="https://i.ibb.co/mHKkbS6/192.png" sizes="192x192"/>
+          <link rel="apple-touch-icon" href="https://i.ibb.co/DL3Dmf0/180.png" sizes="180x180"/>
 
 
         </Head>
