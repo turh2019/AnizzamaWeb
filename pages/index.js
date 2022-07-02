@@ -22,7 +22,12 @@ export default function Home({ posts }) {
           <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
           <meta property="og:site_name" content="Anizzama"/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
-          <link rel="canonical" href="https://www.anizzama.com/" />
+          <link rel="canonical" href="https://www.anizzama.com/"/>
+          <meta property="og:image" content="https://i.ibb.co/yhwPxVS/ezgif-5-ef0b20b1bf.webp"/>
+          <meta property="og:image:width" content="512"/>
+          <meta property="og:image:height" content="512"/>
+          <meta property="og:image:alt" content="Anizzama's logo"/>
+
         </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
