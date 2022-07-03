@@ -20,7 +20,9 @@ function MyApp({ Component, pageProps }) {
   }, [router.events])
 
   return (
+    <html lang="HE"/>
     <>
+    <html lang="HE"/>
           {/* Google Tag Manager - Global base code */}
           <Script
         id="gtag-base"
@@ -36,6 +38,7 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       <Head>
+        <html lang="HE"/>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
           <base href="/"/>
