@@ -8,8 +8,6 @@ import { useRouter } from 'next/router'
 import {pageview} from '../lib/gtm'
 
 function MyApp({ Component, pageProps }) {
-
-  <html lang="HE"/>
     
   const router = useRouter()
   useEffect(() => {
@@ -20,9 +18,8 @@ function MyApp({ Component, pageProps }) {
   }, [router.events])
 
   return (
-    <html lang="HE"/>
     <>
-    <html lang="HE"/>
+    <html lang="he-IL"/>
           {/* Google Tag Manager - Global base code */}
           <Script
         id="gtag-base"
@@ -38,7 +35,6 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       <Head>
-        <html lang="HE"/>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
           <base href="/"/>
@@ -52,7 +48,6 @@ function MyApp({ Component, pageProps }) {
           <meta name="copyright"content="Anizzama"/>
           <meta name="url" content="https://www.anizzama.com"/>
           <meta name="identifier-URL" content="https://www.anizzama.com"/>
-          <meta http-equiv="content-language" content="he_IL"/>
       </Head>
 
       
