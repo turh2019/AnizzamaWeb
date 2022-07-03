@@ -47,10 +47,7 @@ function MyApp({ Component, pageProps }) {
           <meta name="copyright"content="Anizzama"/>
           <meta name="url" content="https://www.anizzama.com"/>
           <meta name="identifier-URL" content="https://www.anizzama.com"/>
-          <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
-          <meta http-equiv="content-language" content="iw_IL"/>
-          <meta property="og:locale" content="he_IL"/>
-          <meta name="language" content="he"/>
+          <meta http-equiv="content-language" content="he_IL"/>
       </Head>
 
       
