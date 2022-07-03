@@ -43,16 +43,20 @@ const TeamPage = ({post, ep,slugs}) => {
     var descriptionB;
     var titleA;
     var dd;
+    var typee;
            if(slugs.slug === 'jobs') {
              descriptionA = "עמוד הדרושים; בעמוד זה תוכלו להבחן ולראות את מגוון התפקידים בפאנסאב."
              descriptionB = "עמוד הדרושים; בעמוד זה תוכלו להבחן ולראות את מגוון התפקידים בפאנסאב."
              titleA = "Anizzama - Jobs"
              dd = "jobs"
+             typee = "Jobs Page"
+
             } else if(slugs.slug === 'about') {
              descriptionA = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
              descriptionB = "אניזאמה; בעמוד זה תוכלו לקרוא את כל מה שאתם צריכים לדעת עלינו!"
              titleA = "Anizzama - About Us"
              dd = "about"
+             typee = "About Page"
             }
            //  <meta property="og:description" content="עמוד הדרושים; בעמוד זה תוכלו להבחן ולראות את מגוון התפקידים בפאנסאב."/>
   return (
@@ -65,6 +69,7 @@ const TeamPage = ({post, ep,slugs}) => {
              <meta property="og:title" content={titleA}/>
              <meta property="og:description" content={descriptionB}/>
              <meta property="og:site_name" content="Anizzama"/>
+             <meta property="og:type" content={typee}/>
              <meta property="og:image" content={post.featuredImage.url}/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
