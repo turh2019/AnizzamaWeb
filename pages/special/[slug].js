@@ -62,7 +62,7 @@ const SpecialPage = ({post, ep,slugs,name}) => {
           <link rel="canonical" href={"https://www.anizzama.com/special/"+name}/>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
-          <meta property="description" content={description}/>
+          <meta name="description" content={description}/>
           <meta property="og:url" content= {"https://www.anizzama.com/special/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
           <meta property="og:type" content="special"/>

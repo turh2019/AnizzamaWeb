@@ -21,7 +21,7 @@ else AAAa = "Anizzama - " + post.title;
       <div className="container mx-auto px-10 mb-8" >
       <Head>
       <title>{post.title}</title>
-          <meta property="description" content={post.excerpt}/>
+          <meta name="description" content={post.excerpt}/>
           <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
           <meta property="og:url" content= {"https://www.anizzama.com/post/"+post.slug}/>
