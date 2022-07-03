@@ -16,7 +16,9 @@ export default function Home({ posts }) {
 
       <Head>
           <title>Anizzama - Homepage</title>
-          <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"/>
+          <meta name="description" content="אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!
+בעמוד זה - דף הבית; תוכלו להיחשף לכל הפוסטים שאי פעם הוצאנו!
+ כמו כן, לפוסטים אחרונים, פוסטים מומלצים, קישורים וסרגל הכלים."/>
           <meta property="og:url" content="https://www.anizzama.com/"/>
           <meta property="og:title" content="אניזאמה - Anizzama.com"/>
           <meta property="og:description" content="עמוד הבית; בעמוד זה תוכלו לראות את כל הפוסטים האחרונים שהוצאנו."/>
