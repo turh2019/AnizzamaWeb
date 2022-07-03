@@ -25,16 +25,6 @@ export default function Home({ posts }) {
           <meta property="og:type" content="Homepage"/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
           <link rel="canonical" href="https://www.anizzama.com/"/>
-   
-          <meta property="og:image" content="https://i.ibb.co/Wz8RmR6/512.png"/>
-          <meta property="og:image:width" content="512"/>
-          <meta property="og:image:height" content="512"/>
-          <meta property="og:image:alt" content="Anizzama's logo"/>
-          <link rel="icon" href="https://i.ibb.co/hVBcCYy/32.png" sizes="32x32"/>
-          <link rel="icon" href="https://i.ibb.co/mHKkbS6/192.png" sizes="192x192"/>
-          <link rel="apple-touch-icon" href="https://i.ibb.co/DL3Dmf0/180.png" sizes="180x180"/>
-
-
         </Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
