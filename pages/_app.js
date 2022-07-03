@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
           <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
           <meta http-equiv="content-language" content="iw_IL"/>
           <meta property="og:locale" content="he_IL"/>
-          <meta name="language" content="HEBREW"/>
+          <meta name="language" content="he"/>
       </Head>
 
       
