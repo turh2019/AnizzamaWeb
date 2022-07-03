@@ -9,6 +9,8 @@ import {pageview} from '../lib/gtm'
 
 function MyApp({ Component, pageProps }) {
 
+  <html lang="HE">
+    
   const router = useRouter()
   useEffect(() => {
     router.events.on('routeChangeComplete', pageview)
