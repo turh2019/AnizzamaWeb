@@ -17,22 +17,29 @@ const Pagespage = ({ Pages , params }) => {
  var descriptionB;
  var titleA;
  var dd;
+ var typpe;
 
        if(params.slug === 'anime') {
         descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         titleA = "Anizzama - Anime List"
         dd = "anime"
+        typpe = "Anime List Page"
+
        } else if(params.slug === 'team') {
         descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר ולגשת אל עמוד הדרושים."
         titleA = "Anizzama - Staff"
         dd = "team"
+        typpe = "Team Page"
+
        } else if(params.slug === 'cooperation') {
         descriptionA = "אניזאמה; כל המשתפי פעולה המדהימים שלנו!"
         descriptionB = "אניזאמה; כל המשתפי פעולה המדהימים שלנו!"
         titleA = "Anizzama - Cooperation"
         dd = "cooperation"
+        typpe = "Cooperation Page"
+
        }
 
       return (
@@ -46,6 +53,7 @@ const Pagespage = ({ Pages , params }) => {
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
+          <meta property="og:type" content={typpe}/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
         </Head>
         {params.slug =="team"? <div><Team/></div> :""}
