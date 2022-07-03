@@ -27,8 +27,8 @@ const Pagespage = ({ Pages , params }) => {
         typpe = "Anime List Page"
 
        } else if(params.slug === 'team') {
-        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
-        descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר ולגשת אל עמוד הדרושים."
+        descriptionA = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר, כולל מי שפרש."
+        descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר, כולל מי שפרש."
         titleA = "Anizzama - Staff"
         dd = "team"
         typpe = "Team Page"
