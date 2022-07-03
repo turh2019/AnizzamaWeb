@@ -41,7 +41,7 @@ const PostDetail = ({ post }) => {
         return <h4 key={index} className="text-md font-semibold mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
 
         case 'link'://h4
-        return  <a target="_blank" href={obj.href} className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold "><Link  target="_blank" key={index} href={obj.href} ><span >{obj.title}</span></Link></a>;
+        return  <a href={obj.href} key={index} className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold " target="_blank">{obj.title}</a>
 
       case 'image': //img
         return (
@@ -119,3 +119,8 @@ const PostDetail = ({ post }) => {
 };
 
 export default PostDetail;
+
+/*        <Link
+         key={index} href={obj.href}><span >{obj.title}</span>
+        </Link></a>;
+        <a href="https://www.w3schools.com/" target="_blank">Visit W3Schools</a>*/
