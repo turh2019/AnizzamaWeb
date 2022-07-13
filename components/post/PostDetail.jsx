@@ -41,7 +41,7 @@ const PostDetail = ({ post }) => {
         return <h4 key={index} className="text-md font-semibold mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
 
         case 'link'://h4
-        return  <a href={obj.href} key={index} className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold " target="_blank">{obj.title}</a>
+        return  <a target="_blank" href={obj.href} className ="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold "><Link  target="_blank" key={index} href={obj.href} ><span >{obj.title}</span></Link></a>;
 
       case 'image': //img
         return (
@@ -96,18 +96,21 @@ const PostDetail = ({ post }) => {
           <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center ' >
               <div className=''> 
                   {post.linkVideo.map((linkEp,index)=>(
-                     
-                    
                       <span className ="cursor-pointer " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                          <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B]  bg-[#4864F6] text-lg font-medium rounded-full text-white  px-5 py-3 cursor-pointer ml-3 mt-3">   קישור מספר  {index+1}  </button>
                       </span>  
-                    
-     
-                           
                   ))}
             </div>
           </div>
-           
+          <div className=' flex flex-wrap items-stretch flex-row-reverse justify-center ' > 
+                {post.tags.map((tag) => (
+                      <span className='py-1   '>
+                           <a  href={`/tags/${tag.slug}`} to className=' text-center shadow-size-[15px]  font-bold text-[11px]  out hadow-full shadow-[#3E2E88] cursor-pointer transition duration-500 ease transform hover:-translate-y-1  rounded-full  mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
+                              {tag.label } 
+                           </a>
+                      </span>
+                ))}
+          </div>
         </div>
       </div>
       {watching== true?
@@ -119,8 +122,3 @@ const PostDetail = ({ post }) => {
 };
 
 export default PostDetail;
-
-/*        <Link
-         key={index} href={obj.href}><span >{obj.title}</span>
-        </Link></a>;
-        <a href="https://www.w3schools.com/" target="_blank">Visit W3Schools</a>*/

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 import { getPages, getPagesPage,getCategories} from '../../services/services';
-import { Loader,LinksTo,PostWidget ,CategoriesSearch,Team,Cooperation} from '../../components/getComponents';
+import { Loader,LinksTo,PostWidget ,CategoriesSearch,Team,Cooperation,TagsList} from '../../components/getComponents';
 
 const Pagespage = ({ Pages , params }) => {
   const router = useRouter();
@@ -10,36 +10,29 @@ const Pagespage = ({ Pages , params }) => {
   if (router.isFallback) {
    return <Loader />;
  }
- 
- if(params.slug != 'anime' && params.slug != 'team' && params.slug != 'cooperation') return(<></>);
+ {console.log( params.slug)}
+ if(params.slug != 'anime' && params.slug != 'team' && params.slug != 'cooperation' && params.slug != 'tags') return(<></>);
 
  var descriptionA;
  var descriptionB;
  var titleA;
  var dd;
- var typpe;
 
        if(params.slug === 'anime') {
-        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!\nבעמוד זה - דף האנימות; תוכלו לראות את כל האנימות שיש באתר!\nכמו כן, תוכלו להשתמש בפיצ'רים שלנו על מנת לצמצם את האפשרויות!"
-        descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!\nבעמוד זה - דף האנימות; תוכלו לראות את כל האנימות שיש באתר!\nכמו כן, תוכלו להשתמש בפיצ'רים שלנו על מנת לצמצם את האפשרויות!"
+        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
+        descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
         titleA = "Anizzama - Anime List"
         dd = "anime"
-        typpe = "Anime List Page"
-
        } else if(params.slug === 'team') {
-        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!\nעמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר, כולל מי שפרש.\nכמו כן, את התפקידים ותאריך ההצטרפות של כל אחד ואחד מהצוות שלנו!"
-        descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!\nעמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר, כולל מי שפרש.\nכמו כן, את התפקידים ותאריך ההצטרפות של כל אחד ואחד מהצוות שלנו!"
+        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!"
+        descriptionB = "עמוד הצוות; בעמוד זה תוכלו לראות את כל צוות האתר ולגשת אל עמוד הדרושים."
         titleA = "Anizzama - Staff"
         dd = "team"
-        typpe = "Team Page"
-
        } else if(params.slug === 'cooperation') {
-        descriptionA = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!\nבעמוד זה - דף השת\"פ; תוכלו לראות את כל המשתפי פעולה המדהימים שלנו!\nומי יודע, אולי גם אתם יכולים להיות כאן!"
-        descriptionB = "אניזאמה; אנימות לצפייה ישירה עם כתוביות בעברית!\nבעמוד זה - דף השת\"פ; תוכלו לראות את כל המשתפי פעולה המדהימים שלנו!\nומי יודע, אולי גם אתם יכולים להיות כאן!"
+        descriptionA = "אניזאמה; כל המשתפי פעולה המדהימים שלנו!"
+        descriptionB = "אניזאמה; כל המשתפי פעולה המדהימים שלנו!"
         titleA = "Anizzama - Cooperation"
         dd = "cooperation"
-        typpe = "Cooperation Page"
-
        }
 
       return (
@@ -53,13 +46,14 @@ const Pagespage = ({ Pages , params }) => {
           <meta property="og:title" content={titleA}/>
           <meta property="og:description" content={descriptionB}/>
           <meta property="og:site_name" content="Anizzama"/>
-          <meta property="og:type" content={typpe}/>
           <meta property="og:image" content="https://media.graphassets.com/Ohod0HmDREytfDNipJCD"/> 
         </Head>
         {params.slug =="team"? <div><Team/></div> :""}
         {params.slug =="anime"?<div><CategoriesSearch posts={Pages} /></div>:"" }
         {params.slug =="cooperation"?<div><Cooperation/></div>:"" }
         {params.slug =="FAQ"?<div></div>:"" }
+        {params.slug =="tags"?<div><TagsList></TagsList></div>:"" }
+       
          
       </div>
         <div className="col-span-1 lg:col-span-4 float-left">

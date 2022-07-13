@@ -20,7 +20,10 @@ export const getPosts = async () => {
               url
             }
           }
-
+          tags {
+            label
+            slug
+          }
 
           createdAt
           slug
@@ -166,6 +169,27 @@ export const getCategories = async () => {
 };
 
 
+
+export const getTags = async () => {
+  const query = gql`
+    query GetTags {
+        tags(orderBy: label_ASC) {
+          label
+          value
+          slug
+          posts {
+            title
+            slug
+          }
+        }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.tags;
+};
+
 export const getAllCooperation = async () => {
   const query = gql`
     query MyQuery {
@@ -273,17 +297,21 @@ export const getPostDetails = async (slug) => {
           }
         }
 
+        categories {
+          label
+          slug
+        }
 
-        nameConnectPost
+        tags {
+          label
+          slug
+        }
         createdAt
         slug
         content {
           raw
         }
-        categories {
-          label
-          slug
-        }
+
       }
     }
   `;
@@ -346,14 +374,14 @@ export const getpageDetails = async (slug) => {
   return result.page;
 };
 
-export const getSimilarPosts = async (nameConnectPost,  slug) => {
-console.log({nameConnectPost})
+export const getSimilarPosts = async (tag,  slug) => {
+
   const query = gql`
-    query GetSimilarPosts($slug: String!, $nameConnectPost: String!,) {
+    query GetSimilarPosts($slug: String!, $tag: [String!],) {
       posts(
-        where: {slug_not: $slug, AND: {nameConnectPost:  $nameConnectPost}}
+        where: {slug_not: $slug, AND: {tags_some: {slug_in: $tag}}}
         orderBy: createdAt_ASC
-        last: 3
+        
       ) {
         title
         featuredImage {
@@ -362,26 +390,24 @@ console.log({nameConnectPost})
         featuredSmallImage{
           url
         }
-        nameConnectPost
+        
         createdAt
         slug
       }
     }
   `;
-  const result = await request(graphqlAPI, query, {nameConnectPost, slug});
-    console.log({result})
+  const result = await request(graphqlAPI, query, {tag, slug});
   return result.posts;
 };
 
-
-
+  
 
 export const getAdjacentPosts = async (createdAt, slug) => {
   const query = gql`
     query GetAdjacentPosts($createdAt: DateTime!,$slug:String! ) {
       next:posts(
         first: 1
-        orderBy: createdAt_DESC
+        orderBy: createdAt_ASC
         where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
       ) {
         title
@@ -393,7 +419,7 @@ export const getAdjacentPosts = async (createdAt, slug) => {
       }
       previous:posts(
         first: 1
-        orderBy: createdAt_DESC
+        orderBy: createdAt_ASC
         where: {slug_not: $slug, AND: {createdAt_lte: $createdAt}}
       ) {
         title
@@ -449,7 +475,49 @@ export const getCategoryPost = async (slug) => {
   return result.postsConnection.edges;
 };
 
+export const getTagsPost = async (slug) => {
+  const query = gql`
+    query GetCategoryPost($slug: String!) {
+      postsConnection(where: {tags_some: {slug: $slug}} , orderBy: createdAt_DESC) {
+        edges {
+          cursor
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            linkVideo 
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              label
+              slug
+            }
 
+            tags {
+              label
+              slug
+            }
+
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.postsConnection.edges;
+};
 
 export const getPagesPage = async (slug) => {
   const query = gql`

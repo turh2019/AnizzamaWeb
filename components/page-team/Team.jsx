@@ -36,8 +36,8 @@ function Team() {
                                 src={author.photo.url}
                             />
                             </div>
-                            <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold p-1">{author.name}</h3>
-                            <p className="text-white text-ls ">{author.bio}</p>
+                            <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold p-1 break-all">{author.name}</h3>
+                            <p className="text-white text-ls break-all">{author.bio}</p>
                         </div>:""
                         ))}
                 </div>
@@ -63,8 +63,8 @@ function Team() {
                                         src={author.photo.url}
                                         />
                                     </div>
-                                    <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold  text-center">{author.name}</h3>
-                                    <p className="text-white text-ls ">{author.bio}</p>
+                                    <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold  text-center break-all">{author.name}</h3>
+                                    <p className="text-white text-ls break-all">{author.bio}</p>
                                 </div>: ""
                             ))}
                                     </div>

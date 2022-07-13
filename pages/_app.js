@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import {pageview} from '../lib/gtm'
 
 function MyApp({ Component, pageProps }) {
-    
+
   const router = useRouter()
   useEffect(() => {
     router.events.on('routeChangeComplete', pageview)
@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-    <html lang="he-IL"/>
           {/* Google Tag Manager - Global base code */}
           <Script
         id="gtag-base"
@@ -48,6 +47,8 @@ function MyApp({ Component, pageProps }) {
           <meta name="copyright"content="Anizzama"/>
           <meta name="url" content="https://www.anizzama.com"/>
           <meta name="identifier-URL" content="https://www.anizzama.com"/>
+          <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+          <meta http-equiv="content-language" content="iw_IL"/>
       </Head>
 
       

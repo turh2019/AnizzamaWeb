@@ -3,6 +3,7 @@ import Link from 'next/link'
 import {getCategories} from '../../services/services'
 import { getJobs, getPostDetails,getAllCooperation } from '../../services/services';
 import Image from 'next/image';
+import { TagsList } from '../getComponents';
 
 function Cooperation() {
     const [cooperations, setCooperations] = useState([])
@@ -14,6 +15,7 @@ function Cooperation() {
  
   
     return (
+        <>
         <div className ="bg-[#261D78] text-white shadow-lg rounded-lg p-8 mb-8 pb-12 ">
                   <h1 className="text-xl mb-8 font-semibold border-b pb-4 flex justify-center ">
                      שת"פ
@@ -41,6 +43,7 @@ function Cooperation() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

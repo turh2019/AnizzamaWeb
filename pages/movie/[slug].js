@@ -59,10 +59,9 @@ const MoviePage = ({post,ep,slugs,name}) => {
           <link rel="canonical" href={"https://www.anizzama.com/movie/"+name}/>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
-          <meta name="description" content={description}/>
+          <meta property="description" content={description}/>
           <meta property="og:url" content= {"https://www.anizzama.com/movie/"+slugs.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
-          <meta property="og:type" content="movie"/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

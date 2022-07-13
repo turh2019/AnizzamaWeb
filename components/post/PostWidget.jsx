@@ -7,16 +7,16 @@ import Link from 'next/link';
 
 import { getSimilarPosts, getRecentPosts } from '../../services/services';
 
-const PostWidget = ({ nameConnect, slug }) => {
+const PostWidget = ({ tags, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
   var  randomNum_1  = -1;
   var  randomNum_2 = 0;
   var  randomNum_3 = 0;
-  var counter = 0;
+  console.log({tags})
   useEffect(() => {
     if (slug) {
      
-      getSimilarPosts(nameConnect ? nameConnect:"" , slug).then((result) => {
+      getSimilarPosts(tags , slug).then((result) => {
         setRelatedPosts(result);  
       });
      
@@ -54,7 +54,7 @@ const PostWidget = ({ nameConnect, slug }) => {
 
   const handleRandom_3 =(length) =>{
     randomNum_3 = Math.floor(Math.random() * length )
-    if( counter < length && (randomNum_3 == randomNum_2 ||randomNum_3 == randomNum_1))
+    if(  randomNum_3 == randomNum_2 ||randomNum_3 == randomNum_1)
     {
       handleRandom_3(length);
     }
@@ -66,7 +66,6 @@ const PostWidget = ({ nameConnect, slug }) => {
   return (
     <div className="bg-[#261D78] shadow-lg rounded-lg p-8 pb-12 mb-9">
       <h3 className="text-xl mb-8 text-white font-semibold border-b pb-4 flex justify-center">{slug ? 'פוסטים קשורים' : 'פוסטים אחרונים'}</h3>
-
       {relatedPosts.map((post, index) => (
       <>
         {randomNum_1 == -1 ? handleRandom(relatedPosts.length):""}

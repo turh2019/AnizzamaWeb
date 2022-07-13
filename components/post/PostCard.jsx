@@ -8,8 +8,6 @@ import Link from 'next/link';
 
 const PostCard = ({ post }) => (
   <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 border-2  border-[#18154E] rtl:mr-3 " dir="rtl">
-   
-
     <div className="relative overflow-hidden shadow-md mb-6  lg:scale-100 scale-75">
       <img src={post.featuredImage.url} alt="תמונה מהפרק." className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] " />
     </div>
@@ -50,7 +48,18 @@ const PostCard = ({ post }) => (
       </Link>
       </a>
     </div>
-  </div>
+    
+        <div className=' mt-5 flex flex-wrap items-stretch flex-row-reverse justify-center ' > 
+                {post.tags.map((tag) => (
+                      <span className='py-1   '>
+                           <a  href={`/tags/${tag.slug}`} to className=' text-center shadow-size-[15px]  font-bold text-[11px]  out hadow-full shadow-[#3E2E88] cursor-pointer transition duration-500 ease transform hover:-translate-y-1  rounded-full  mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
+                              {tag.label } 
+                           </a>
+                      </span>
+
+                ))}
+          </div>
+    </div>
 );
 
 export default PostCard;

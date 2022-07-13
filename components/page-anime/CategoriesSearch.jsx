@@ -87,9 +87,7 @@ const CategoriesSearch = ({posts}) => {
             
             </div>
             
-            <div className='  ' >
-              
-               
+            <div >
                  <div>
                      <div className='bg-bookmark bg-contain bg-left bg-no-repeat    '>
                      </div>
@@ -111,10 +109,7 @@ const CategoriesSearch = ({posts}) => {
                             ))
                             :""}
                         </div>
-                   
-                </div>  
-                 
-                   
+                </div>      
             </div>
      
             

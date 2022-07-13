@@ -6,13 +6,13 @@ import Dropdown from './Dropdown';
 
 
 const OptionsAbout =[
-    {OptionName:"דרושים", href:`/team/jobs`},
-    {OptionName:"אודות", href:`/team/about`},
-    {OptionName:"צוות", href:`/pages/team`},
+    {OptionName:"דרושים", href:`/team/jobs`, to:``},
+    {OptionName:"אודות", href:`/team/about`, to:``},
+    {OptionName:"צוות", href:`/pages/team`, to:``},
 ]
 const OptionsFun = (randomSeries, randomPost) => [
-    {OptionName:"סדרה רנדומלית", href:`/series/` + randomSeries.slug},
-    {OptionName:"פוסט רנדומלי", href:`/post/` + randomPost.slug},
+    {OptionName:"סדרה רנדומלית", href:`/series/` + randomSeries.slug, to:``},
+    {OptionName:"פוסט רנדומלי", href:`/post/` + randomPost.slug, to:``},
     //{OptionName:"המלצות", href:`/page/`},
     //{OptionName:"סקרים", href:`/page/`},
 ]
@@ -21,7 +21,8 @@ const OptionsFun = (randomSeries, randomPost) => [
 const OptionsMore =[
    // {OptionName:"עידכונים", href:`/page/`},
    // {OptionName:'לו"ז', href:`/page/`},
-    {OptionName:'שת"פ', href:`/pages/cooperation`},
+    {OptionName:'שת"פ', href:`/pages/cooperation` , to:``},
+    {OptionName:'תגים', href:`/pages/tags `, to:`tags`}
 
 ]
 

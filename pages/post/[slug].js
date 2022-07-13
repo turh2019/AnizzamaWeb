@@ -13,6 +13,7 @@ const PostDetails = ({post}) => {
  if(router.isFallback){
   return <Loader />
  }
+ console.log({post})
  var AAAa;
 if(post.title.toLowerCase().includes("anizzama") || post.title.includes("אניזאמה")) AAAa = post.title;
 else AAAa = "Anizzama - " + post.title;
@@ -21,12 +22,11 @@ else AAAa = "Anizzama - " + post.title;
       <div className="container mx-auto px-10 mb-8" >
       <Head>
       <title>{post.title}</title>
-          <meta name="description" content={post.excerpt}/>
+          <meta property="description" content={post.excerpt}/>
           <meta property="og:title" content={post.title}/>
           <meta property="og:description" content={post.excerpt}/>
           <meta property="og:url" content= {"https://www.anizzama.com/post/"+post.slug}/>
           <meta property="og:image" content={post.featuredImage.url}/>
-          <meta property="og:type" content="post"/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -42,7 +42,7 @@ else AAAa = "Anizzama - " + post.title;
           <div className="col-span-1 lg:col-span-4 float-left" >
             <div className="relative lg:sticky top-8">
            
-            <PostWidget slug={post.slug} nameConnect={post.nameConnectPost} />
+            <PostWidget slug={post.slug} tags={post.tags.map((tag) => tag.slug)} />
            
             <LinksTo />
             </div>

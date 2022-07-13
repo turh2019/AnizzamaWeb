@@ -34,3 +34,6 @@ export {default as Team} from './page-team/Team';
 
 //Cooperation
 export {default as Cooperation} from './page-cooperation/Cooperation';
+
+//tags
+export {default as TagsList} from './navigation-bar/TagsList';
