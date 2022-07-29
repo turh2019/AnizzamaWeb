@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.anizzama.com/
+Host: https://anizzama.vercel.app/
 
 # Sitemaps
-Sitemap: https://www.anizzama.com/sitemap.xml
+Sitemap: https://anizzama.vercel.app/sitemap.xml
