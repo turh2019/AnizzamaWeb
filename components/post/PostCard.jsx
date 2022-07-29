@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import moment from 'moment';
-import Link from 'next/link';
 
+
+import Link from 'next/link'
 
 
 
@@ -35,24 +36,24 @@ const PostCard = ({ post }) => (
       </div>
     </div>
           <h1 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
-            <Link  target="_blank" href={`/post/${post.slug}`} key ={post.slug}>{post.title}</Link>
+            <Link scroll={true}  target="_blank" href={`/post/${post.slug}`} to="body" key ={post.slug}><a>{post.title}</a></Link>
           </h1>
 
           <p className="text-center text-lg text-white-700 font-normal px-4 lg:px-20 mb-8 rtl:mr-3">
              {post.excerpt}
           </p>
     <div className="text-center">
-      <a target="_blank" href={`/post/${post.slug}`}>
-      <Link target="_blank" href={`/post/${post.slug}`}  to={`/post/${post.slug}`} >
+     
+      <Link scroll={true}  to=""  target="_blank" href={`/post/${post.slug}`}  >
         <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">להמשיך לקרוא</span>
       </Link>
-      </a>
+      
     </div>
     
         <div className=' mt-5 flex flex-wrap items-stretch flex-row-reverse justify-center ' > 
                 {post.tags.map((tag) => (
-                      <span className='py-1   '>
-                           <a  href={`/tags/${tag.slug}`} to className=' text-center shadow-size-[15px]  font-bold text-[11px]  out hadow-full shadow-[#3E2E88] cursor-pointer transition duration-500 ease transform hover:-translate-y-1  rounded-full  mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
+                      <span className='py-1 transition duration-500 ease transform hover:-translate-y-1 text-center'>
+                           <a  href={`/tag/${tag.slug}`} to className=' shadow-size-[15px] font-bold text-[12px] out hadow-full shadow-[#3E2E88] cursor-pointer rounded-full mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
                               {tag.label } 
                            </a>
                       </span>

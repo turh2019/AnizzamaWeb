@@ -3,30 +3,36 @@ import Link from 'next/link';
 
 
 
-const Dropdown = ({options , defaultOption}) => {
+const Dropdown = ({options , defaultOption ,classNameSpan_1 ,classNameSpan_2,SetOnClick}) => {
     var [isOpen,setIsOpem] = useState(false)
-    
+  
+    console.log({options})
   return (
-    
-    <span className=' text-white mt-5 lg:p-0' onReset={e=>setIsOpem(false)} onClick ={e=>setIsOpem(!isOpen)}>
-      <span className='pb-4  lg:border-b-4  lg:border-[#5344C1]'>
-          <span className='mx-3  border-4 border-indigo-200  border-y-indigo-500 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5  cursor-pointer   '  >
+    <>
+   
+    <span className=' text-white mt-5 lg:p-0' onReset={e=>setIsOpem(false)} onPointerLeave ={e=>setIsOpem(false)} onPointerEnter ={e=>setIsOpem(true)} >
+      <span className= {classNameSpan_1}>
+          <span className= {classNameSpan_2}  >
                   {defaultOption}
           </span>
         </span>
         {isOpen ?
-        <span  className='grid grid-flow-row-dense gap-2 place-items-center flex flex-wrap  bg-[#261D78] shadow-lg rounded-lg mt-5 '>
+        <span className='transition delay-150 duration-300 ease-in-out grid grid-flow-row-dense gap-2 place-items-center flex   bg-[#261D78] shadow-lg rounded-lg mt-5 '>
         {options.map((option,index) =>(
-             <span key={index} className =" text-sm hover:bg-[#382C8B] cursor-pointer text-l rounded-full"  onClick ={e=>setIsOpem(!isOpen)}>
-                <Link   href={option.href}  target="_blank" smooth > 
-                      {option.OptionName}    
-                </Link>
-            </span>     
+          <>
+          {console.log(option)}
+          <span key={index} className ="transition duration-500 ease transform hover:-translate-x-1 px-1 text-sm hover:bg-[#382C8B] cursor-pointer text-l rounded-full"  onClick ={e=>setIsOpem(!isOpen)}>
+          <a href={`${option?.href}#`}  target="_blank" smooth onClick={e=>(SetOnClick? SetOnClick(option?.onclick):"")} > 
+                {option.OptionName}    
+          </a>
+        </span>   
+        </>
         ))}
 
 
-        </span> :""}
+        </span  > :""}
     </span>
+    </>
   )
 }
 

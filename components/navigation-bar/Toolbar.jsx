@@ -26,6 +26,11 @@ const OptionsMore =[
 
 ]
 
+const stayles ={
+    classNameSpan_1 : 'pb-4  lg:border-b-4  lg:border-[#5344C1]',
+    classNameSpan_2 : 'mx-3  border-4 border-indigo-200  border-y-indigo-500 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 focus:ring-offset-2  cursor-pointer  ',
+}
+ 
 
 
 const Toolbar = (type)  => {
@@ -79,10 +84,10 @@ const Toolbar = (type)  => {
     
     return (
         <>
-        <div className='  pb-3   p-6 grid grid-cols-1 gap-4  place-items-center '>
+        <div className='pb-3 p-6 grid grid-cols-1 gap-4 place-items-center '>
             <div className='place-self-end flex flex-wrap'>   
-            <Dropdown defaultOption={"עוד"} options={OptionsMore} />
-            <Dropdown defaultOption={"פנאי"} options={OptionsFun(handleRandomPages(),handleRandomPost())} />
+            <Dropdown  defaultOption={"עוד"} options={OptionsMore} classNameSpan_1={stayles.classNameSpan_1} classNameSpan_2={stayles.classNameSpan_2} />
+            <Dropdown  defaultOption={"פנאי"} options={OptionsFun(handleRandomPages(),handleRandomPost())} classNameSpan_1={stayles.classNameSpan_1} classNameSpan_2={stayles.classNameSpan_2}/>
            
                 <div className='my-2 gap-5 mb-8 '>
                     <a  target="_blank" key={`/pages/anime`} href={`/pages/anime`} className ="mt-5 ">
@@ -95,7 +100,7 @@ const Toolbar = (type)  => {
                         </Link>
                     </a>      
                 </div>
-                <Dropdown defaultOption={"עלינו"} options={OptionsAbout} />
+                <Dropdown defaultOption={"עלינו"} options={OptionsAbout}  classNameSpan_1={stayles.classNameSpan_1} classNameSpan_2={stayles.classNameSpan_2}/>
 
                 <div className='my-5 gap-5 mb-8'>
                 <a target="_blank" key="home" href={`/`} className=' '>

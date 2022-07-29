@@ -22,10 +22,7 @@ const TeamPage = ({post, ep,slugs}) => {
  var title_ = post.title;
 
 
- if( post.linkVideo.length >0)
-    post.linkVideo.map((link_, index ) => index == ep -1 ? link = link_ :"" )
-  if( post.summary.length >0)
-    post.summary.map((sum, index ) => index == ep -1 ?  summary_ = sum:"" )
+
 
     if(ep)
     {
@@ -68,8 +65,8 @@ const TeamPage = ({post, ep,slugs}) => {
              <meta property="og:image" content={post.featuredImage.url}/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-8 ">
-          <PageDetail post ={post} type={"sad"}  link = {link} ep ={ep} summary_ ={summary_}/>
+          <div className="col-span-1 lg:col-span-8 " id="body">
+          <PageDetail post ={post} type={"sad"}  ep ={ep} />
              <Author  author={post.author} />
 
             <CommentsFrom slug={post.slug} type="page" selected={selected}  Setselected={Setselected}/>

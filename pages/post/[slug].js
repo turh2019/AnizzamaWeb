@@ -32,7 +32,10 @@ else AAAa = "Anizzama - " + post.title;
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
            
-           <PostDetail post={post} />
+           <div id ="body">
+              <PostDetail post={post}  />
+           </div>
+           
 
              <Author  author={post.author} />
 

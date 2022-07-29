@@ -6,7 +6,7 @@ import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loade
 import { getPageFormat, getpageDetails } from '../../services/services';
 
 
-const OnaPage = ({post, ep,slugs,name}) => {
+const OnaPage = ({page, ep,slugs}) => {
   var [selected, Setselected] = useState("")
 
   const router =useRouter();
@@ -14,26 +14,21 @@ const OnaPage = ({post, ep,slugs,name}) => {
     return <Loader />
   }
 
- var link = null//  קישור לפרק
- var summary_ = null //  תקציר
+
  var description ="הסדרה "; // השם של הסדרה ואיזה מספר פרק
  var ogDescription =""; // תקציר של הפרק
- post.search.map((item)=> ( description != "הסדרה "? description = description +"/"+ item: description =  description + item));
+ page.search.map((item)=> ( description != "הסדרה "? description = description +"/"+ item: description =  description + item));
  description  = description +" לצפייה והורדה ישירה עם כתוביות בעברית באיכות גבוהה!"
- var title_ = post.title;
+ var title_ = page.title;
 
 
- if( post.linkVideo.length >0)
-    post.linkVideo.map((link_, index ) => index == ep -1 ? link = link_ :"" )
-  if( post.summary.length >0)
-    post.summary.map((sum, index ) => index == ep -1 ?  summary_ = sum:"" )
 
     if(ep)
     {
-      title_ =post.title + " פרק " + ep;
+      title_ =page.title + " פרק " + ep;
       description = description + " פרק " + ep + "!";
-      if(summary_)
-      summary_.raw.children.map((typeObj, index) => {
+      if(ep.summaryEp.raw.children != "")
+      ep.summaryEp.raw.children.map((typeObj, index) => {
         typeObj.children.map((item, itemindex) => 
         ogDescription = ogDescription + item.text
       )});
@@ -41,9 +36,9 @@ const OnaPage = ({post, ep,slugs,name}) => {
       ogDescription = "לפרק זה אין תקציר זמין."
     }
     else{
-      title_ = "Anizzama - " + post.title;
-      if(post.summaryAnime ){
-        post.summaryAnime.raw.children.map((typeObj, index) => {
+      title_ = "Anizzama - " + page.title;
+      if(page.summaryAnime ){
+        page.summaryAnime.raw.children.map((typeObj, index) => {
           typeObj.children.map((item, itemindex) => 
           ogDescription = ogDescription + item.text
         )});
@@ -59,21 +54,21 @@ const OnaPage = ({post, ep,slugs,name}) => {
       <div className="container mx-auto px-10 mb-8" >
       <Head>
       <title>{title_}</title>
-          <link rel="canonical" href={"https://www.anizzama.com/ona/"+name}/>
+          <link rel="canonical" href={"https://www.anizzama.com/ona/"+page.title}/>
           <meta property="og:title" content={title_}/>
           <meta property="og:description" content={ogDescription}/>
           <meta property="description" content={description}/>
           <meta property="og:url" content= {"https://www.anizzama.com/ona/"+slugs.slug}/>
-          <meta property="og:image" content={post.featuredImage.url}/>
+          <meta property="og:image" content={page.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-8 ">
-          <PageDetail post ={post} type={"sad"}  link = {link} ep ={ep} summary_ ={summary_}/>
-             <Author  author={post.author} />
+          <div className="col-span-1 lg:col-span-8 " id ="body">
+          <PageDetail post ={page} type={"sad"}  link = {link} ep ={ep} summary_ ={summary_}/>
+             <Author  author={page.author} />
 
-            <CommentsFrom slug={post.slug} type="page" selected={selected}  Setselected={Setselected}/>
-            <Comments slug={post.slug} from="pages" selected={selected}  Setselected={Setselected}  />
+            <CommentsFrom slug={page.slug} type="page" selected={selected}  Setselected={Setselected}/>
+            <Comments slug={page.slug} from="pages" selected={selected}  Setselected={Setselected}  />
           </div>
           <div className="col-span-1 lg:col-span-4 float-left" >
             <div className="relative lg:sticky top-8">
@@ -95,31 +90,27 @@ export default OnaPage;
 export async function getStaticProps({ params }) {
 
   var pieces = params.slug.split("-");
+ 
+  var ep = null;
+  var isit = false;
+  var page =null ;
+  pieces.filter((val) =>  {if(val == "ep"){ isit  = true} })
 
-  
-  var p_ ="";
-  var ep_ = 0
-  var isfound= false;
-  pieces.map((p,index)=>{
- 
-    p != "episode"  && p !="link" && isfound == false  ? 
-    p_!=""?
-    p_ = p_ +"-" + p:
-    p_ =  p
-    :isfound =true
-    index ==  pieces.length-1 && isfound == true?
-    ep_ = p:""
-  })
-  
- 
-  console.log({ep_})
-  const data = await getpageDetails(p_)
+
+  if( isit == false)
+  {
+    page =  await getpageDetails(params.slug)
+  }
+  else{
+    ep = await getEpDetails(params.slug)
+    page =  await getpageDetails(ep.page.slug)
+  }
+
   return {
     props: {
-      post: data,
-      ep : ep_,
+      page: page,
+      ep : ep,
       slugs: params,
-      name: p_
     },
   };
 }
@@ -129,22 +120,24 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const posts = await getPageFormat('ona');
 
-  const paths = posts.map((p,index)=>{
-    
-    const paths_ = p.node.linkVideo.map((link,index)=>{
-    
+  const paths = posts.filter((p,index)=>{
+    if(p.node.format == "ona"){
+      return p;
+    }
+   
+  }).map((p)=>{
+    const paths_ = p.node.eps.map((ep,index)=>{
       return {
-        params:{slug: `${p.node.slug}-episode-${index + 1}`},
+        params:{slug: `${ep.slug}`},
        
       };
     })
-
     return {
       params:{slug: `${p.node.slug}`},
      
     };
   })
-
+ 
   return{
     paths,
     fallback: true,

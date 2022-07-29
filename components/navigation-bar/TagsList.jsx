@@ -17,7 +17,7 @@ function TagsList() {
             <div>
                 <div className='  grid  grid-flow-col auto-cols-max grid-flow-row-dense  grid-cols-3   ' > 
                     {tags.map((tag) => (
-                            <a  href={`/tags/${tag.slug}`} to className='break-ward text-center   shadow-size-[15px] rounded-lg   font-bold  text-[10px] p-1 px-2 out hadow-lg shadow-[#3E2E88] cursor-pointer transition duration-500 ease transform hover:-translate-y-1 px-1 rounded-lg  mb-4 ml-4  bg-[#3E2E88] '>
+                            <a  href={`/tag/${tag.slug}`} to className='break-ward text-center   shadow-size-[15px] rounded-lg   font-bold  text-[10px] p-1 px-2 out hadow-lg shadow-[#3E2E88] cursor-pointer transition duration-500 ease transform hover:-translate-y-1 px-1 rounded-lg  mb-4 ml-4  bg-[#3E2E88] '>
                                 {tag.label } 
                                 <span className=' ml-1 text-[#FFFC22] font-bold text-[10px]'>
                                     - ({tag.posts.length})

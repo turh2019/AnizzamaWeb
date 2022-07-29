@@ -10,8 +10,6 @@ export const getPosts = async () => {
       
       edges {
         node {
-         
-          
           author {
             bio
             name
@@ -72,7 +70,7 @@ export const getPage = async () => {
           format
           title
           excerpt
-          linkVideoMega
+         
           featuredImage {
             url
           }
@@ -123,7 +121,7 @@ export const getPageFormat = async (slug) => {
           format
           title
           excerpt
-          linkVideoMega
+         
           featuredImage {
             url
           }
@@ -138,7 +136,18 @@ export const getPageFormat = async (slug) => {
             name
             slug
           }
-          linkVideo
+          
+
+          eps {
+            nameEp
+            epNum
+            slug
+            
+              linkVideo {
+                link
+                nameFormat
+            }
+          }
         }
       }
     }
@@ -285,7 +294,7 @@ export const getPostDetails = async (slug) => {
       post(where: {slug: $slug}) {
         title
         excerpt
-        linkVideo 
+         
         featuredImage {
           url
         }
@@ -301,7 +310,7 @@ export const getPostDetails = async (slug) => {
           label
           slug
         }
-
+        linkVideo
         tags {
           label
           slug
@@ -336,12 +345,7 @@ export const getpageDetails = async (slug) => {
         }
 
         format
-        linkVideo 
-        linkVideoMega
-        featuredImage {
-          url
-        }
-        
+
         wallpaper{
           url
         }
@@ -353,7 +357,22 @@ export const getpageDetails = async (slug) => {
             url
           }
         }
-
+        featuredImage{
+          url
+        }
+        eps {
+          linkVideo {
+            link
+            nameFormat
+          }
+          nameEp
+          epNum
+          slug
+          summaryEp {
+            raw
+          }
+       
+        }
         
         createdAt
         time
@@ -373,6 +392,36 @@ export const getpageDetails = async (slug) => {
 
   return result.page;
 };
+
+export const getEpDetails = async (slug) => {
+  const query = gql`
+    query GetpageDetails($slug : String!) {
+      ep(where: {slug: $slug}) {
+          epNum
+          
+          nameEp
+          slug
+          summaryEp {
+           raw
+          }
+
+          page {
+            slug
+          }
+
+          linkVideo {
+              link
+              nameFormat
+          }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.ep;
+};
+
 
 export const getSimilarPosts = async (tag,  slug) => {
 

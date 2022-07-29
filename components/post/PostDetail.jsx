@@ -95,7 +95,7 @@ const PostDetail = ({ post }) => {
           </div>
           <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center ' >
               <div className=''> 
-                  {post.linkVideo.map((linkEp,index)=>(
+                  {post?.linkVideo?.map((linkEp,index)=>(
                       <span className ="cursor-pointer " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
                          <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B]  bg-[#4864F6] text-lg font-medium rounded-full text-white  px-5 py-3 cursor-pointer ml-3 mt-3">   קישור מספר  {index+1}  </button>
                       </span>  
@@ -104,8 +104,8 @@ const PostDetail = ({ post }) => {
           </div>
           <div className=' flex flex-wrap items-stretch flex-row-reverse justify-center ' > 
                 {post.tags.map((tag) => (
-                      <span className='py-1   '>
-                           <a  href={`/tags/${tag.slug}`} to className=' text-center shadow-size-[15px]  font-bold text-[11px]  out hadow-full shadow-[#3E2E88] cursor-pointer transition duration-500 ease transform hover:-translate-y-1  rounded-full  mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
+                      <span className='py-1 cursor-pointer transition duration-500 ease transform hover:-translate-y-1 '>
+                           <a  href={`/tag/${tag.slug}`} to className=' text-center shadow-size-[15px]  font-bold text-[12px]  out hadow-full shadow-[#3E2E88] rounded-full  mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
                               {tag.label } 
                            </a>
                       </span>
