@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 
 import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
-import { getPageFormat, getpageDetails } from '../../services/services';
+import { getPageFormat,getEpDetails, getpageDetails } from '../../services/services';
 
 
 const MoviePage = ({page,ep,slugs}) => {
