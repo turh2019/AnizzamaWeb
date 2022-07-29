@@ -12,7 +12,7 @@ const PostWidget = ({ tags, slug }) => {
   var  randomNum_1  = -1;
   var  randomNum_2 = 0;
   var  randomNum_3 = 0;
-  console.log({tags})
+ 
   useEffect(() => {
     if (slug) {
      

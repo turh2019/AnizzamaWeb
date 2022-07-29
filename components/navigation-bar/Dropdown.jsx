@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Dropdown = ({options , defaultOption ,classNameSpan_1 ,classNameSpan_2,SetOnClick}) => {
     var [isOpen,setIsOpem] = useState(false)
   
-    console.log({options})
+   
   return (
     <>
    
