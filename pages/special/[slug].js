@@ -95,7 +95,7 @@ export async function getStaticProps({ params }) {
   var ep = null;
   var isit = false;
   var page =null ;
-  pieces.filter((val) =>  {if(val == "ep"){ isit  = true} })
+  pieces.filter((val) =>  {if(val == "episode"){ isit  = true} })
 
 
   if( isit == false)
