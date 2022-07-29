@@ -148,7 +148,7 @@ const PageDetail = ({ post , ep }) => {
                   {post.eps.map((ep,index)=>(
                      
                         <span className ="cursor-pointer">
-                           <Link  target="_blank" href={`/${post.format}/${ep.slug}#watching`} key ={ep.slug} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                           <Link  target="_blank" href={`/${post.format}/${ep.slug}`} key ={ep.slug} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
                                 <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{ep.epNum} </h1>
                            </Link>
                       </span>       
