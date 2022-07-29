@@ -62,7 +62,7 @@ const MoviePage = ({page,ep,slugs}) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 "  >
 
-             <PageDetail post ={page} type={"sad"}  link = {link} ep ={ep} summary_ ={summary_}/>
+             <PageDetail post ={page} type={"sad"}  ep ={ep} />
              <Author  author={page.author} />
 
             <CommentsFrom slug={page.slug} type="page" selected={selected}  Setselected={Setselected}/>
