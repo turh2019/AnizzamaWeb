@@ -22,7 +22,7 @@ const Dropdown = ({options , defaultOption ,classNameSpan_1 ,classNameSpan_2,Set
           <>
           {console.log(option)}
           <span key={index} className ="transition duration-500 ease transform hover:-translate-x-1 px-1 text-sm hover:bg-[#382C8B] cursor-pointer text-l rounded-full"  onClick ={e=>setIsOpem(!isOpen)}>
-          <a href={`${option?.href}#`}  target="_blank" smooth onClick={e=>(SetOnClick? SetOnClick(option?.onclick):"")} > 
+          <a href={`${option?.href}`}   target={option?.target} smooth onClick={e=>(SetOnClick? SetOnClick(option?.onclick):"")} > 
                 {option.OptionName}    
           </a>
         </span>   

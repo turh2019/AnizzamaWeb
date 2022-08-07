@@ -38,7 +38,7 @@ const Pagespage = ({ Pages , params }) => {
       return (
         <div className="container mx-auto px-10 mb-8" >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="col-span-1 lg:col-span-8" id="body">
+        <div className="col-span-1 lg:col-span-8" >
         <Head>
         <title>{titleA}</title>
           <meta name="description" content={descriptionA}/>
@@ -56,7 +56,7 @@ const Pagespage = ({ Pages , params }) => {
        
          
       </div>
-        <div className="col-span-1 lg:col-span-4 float-left">
+        <div className="col-span-1 lg:col-span-4 float-left" id="body">
           <div className="relative top-8 ">
         
             <PostWidget />

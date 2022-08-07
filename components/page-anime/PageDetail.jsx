@@ -19,6 +19,8 @@ const PageDetail = ({ post , ep }) => {
   const OptionsMore =  ep?.linkVideo?.map((link,index)=>(
    {OptionName:link.nameFormat , href:null , to:``,onclick:link.link}
   ))
+
+  console.log({post})
   const [watching,setWatching] = useState(false);
   const [open,SetOpen] = useState(false);
   var [OnClick,SetOnClick] = useState("")
@@ -81,7 +83,9 @@ const PageDetail = ({ post , ep }) => {
    
   return (
     <>
-      <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3 "dir="rtl">
+    <div >
+
+      <div className="bg-[#261D78] text-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 rtl:mr-3 "dir="rtl" id="body" >
         <div className="relative  shadow-md mb-6  lg:scale-100 scale-75">
           <img src={post.wallpaper.url} alt="פאן ארט של הסדרה." 
           className="object-top h-50 w-50 object-cover shadow-lg rounded-t-lg lg:rounded-lg border-l-2 border-b-2  border-[#706AD9] content-center  " />
@@ -139,20 +143,34 @@ const PageDetail = ({ post , ep }) => {
                   return getContentFragment(index, children, typeObj, typeObj.type);
               })}
           </div>
+          {post?.seasons?.length > 1?
+          <div className='grid grid-flow-row auto-rows-max  flex justify-left pb-5 border-b-2 place-content-start  '  >
+              <div className='flex  flex-wrap basis-1/2 place-content-center px-2 flex justify-left '> 
+             
+                  {post.seasons_.map((season,index)=>(
+                        <span className ="cursor-pointer flex justify-left" >
+                          <Link  target="_blank" href={`/${post.format}/${season.seasonSlug}#body`} key ={index + season.nameSeason} className="transition duration-700 text-center color-white  cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                                {season.seasonSlug == post.slug?   <h1 className="  mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3 transition duration-500 ease transform hover:-translate-y-1">{season.seasonShowName} </h1>:  <h1 className=" transition duration-500 ease transform hover:-translate-y-1 my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{season.nameSeason} </h1>}
+                          </Link>
+                        </span>         
+                  ))} 
+            </div>
+          </div>:""}
           
-     
-          
-          <div className='grid grid-flow-row auto-rows-max  py-5 flex justify-canter  mt-3 ' >
+          <div className='grid grid-flow-row auto-rows-max  py-3 flex justify-canter  ' >
               <div className='flex  flex-wrap basis-1/2 place-content-center   px-2 py-2'> 
               
-                  {post.eps.map((ep,index)=>(
-                     
-                        <span className ="cursor-pointer">
-                           <Link  target="_blank" href={`/${post.format}/${ep.slug}`} key ={ep.slug} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
-                                <h1 className="focus:bg-[#382C8B]  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{ep.epNum} </h1>
-                           </Link>
-                      </span>       
-                            
+                  {post.seasons_.map((season,index)=>(
+                     season.seasonSlug == post.slug? 
+                        season.eps.map((ep_,index)=>(
+
+                            <span className ="cursor-pointer">
+                           
+                                  <Link  target="_blank" href={`/${post.format}/${ep_.slug}#watching`} key ={index + ep_.epNum} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                                      {ep?.slug == ep_?.slug ? <h1 className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{ep_.epNum} </h1>:<h1 className="  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{ep_.epNum} </h1>} 
+                                  </Link>
+                              </span>   
+                        )):""
                   ))}
             </div>
             
@@ -195,7 +213,7 @@ const PageDetail = ({ post , ep }) => {
               </div>
           </div>
       :""}
-
+  </div>
     </>
   );
 };

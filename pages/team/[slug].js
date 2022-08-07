@@ -54,7 +54,7 @@ const TeamPage = ({post, ep,slugs}) => {
            //  <meta property="og:description" content="עמוד הדרושים; בעמוד זה תוכלו להבחן ולראות את מגוון התפקידים בפאנסאב."/>
   return (
     <>
-      <div className="container mx-auto px-10 mb-8" >
+      <div className="container mx-auto px-10 mb-8"  id="body">
       <Head>
             <title>{titleA}</title>
              <meta name="description" content={descriptionA}/>
@@ -64,8 +64,8 @@ const TeamPage = ({post, ep,slugs}) => {
              <meta property="og:site_name" content="Anizzama"/>
              <meta property="og:image" content={post.featuredImage.url}/>
         </Head>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-8 " id="body">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12" >
+          <div className="col-span-1 lg:col-span-8 ">
           <PageDetail post ={post} type={"sad"}  ep ={ep} />
              <Author  author={post.author} />
 
@@ -126,14 +126,6 @@ export async function getStaticPaths() {
 
   const paths = posts.map((p,index)=>{
     
-    const paths_ = p.node.linkVideo.map((link,index)=>{
-    
-      return {
-        params:{slug: `${p.node.slug}-episode-${index + 1}`},
-       
-      };
-    })
-
     return {
       params:{slug: `${p.node.slug}`},
      

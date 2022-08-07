@@ -1,9 +1,9 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect ,useRef}  from 'react';
 import { useRouter } from 'next/router';
 import  Head  from 'next/head';
 
 import { PageDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
-import { getPageFormat,getEpDetails, getpageDetails } from '../../services/services';
+import { getPageFormat, getEpDetails,getpageDetails } from '../../services/services';
 
 
 const MoviePage = ({page,ep,slugs}) => {
@@ -13,7 +13,7 @@ const MoviePage = ({page,ep,slugs}) => {
  if(router.isFallback){
   return <Loader />
  }
- 
+
 
  var description ="הסרט "; // השם של הסרט ואיזה מספר לינק
  var ogDescription =""; // תקציר של הסרט
@@ -26,6 +26,7 @@ const MoviePage = ({page,ep,slugs}) => {
    
   if(ep)
   {
+   
     if(ep.summaryEp)
     ep.summaryEp.raw.children.map((typeObj, index) => {
       typeObj.children.map((item, itemindex) => 
@@ -35,6 +36,7 @@ const MoviePage = ({page,ep,slugs}) => {
     ogDescription ="לסרט זה אין תקציר זמין."
 
   }else{
+    
     if(page.summaryAnime)
     page.summaryAnime.raw.children.map((typeObj, index) => {
       typeObj.children.map((item, itemindex) => 
@@ -46,9 +48,13 @@ const MoviePage = ({page,ep,slugs}) => {
   };
   
 
+
+
+
   return (
     <>
-      <div className="container mx-auto px-10 mb-8"  id ="body" >
+    
+      <div className="container mx-auto px-10 mb-8"   >
       <Head>
       <title>{title_}</title>
           <link rel="canonical" href={"https://www.anizzama.com/movie/"+page.title}/>
@@ -61,7 +67,7 @@ const MoviePage = ({page,ep,slugs}) => {
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 "  >
-
+            
              <PageDetail post ={page} type={"sad"}  ep ={ep} />
              <Author  author={page.author} />
 
@@ -100,7 +106,8 @@ export async function getStaticProps({ params }) {
   }
   else{
     ep = await getEpDetails(params.slug)
-    page =  await getpageDetails(ep.page.slug)
+    console.log({ep})
+    page =  await getpageDetails(ep.seasons.seasonSlug)
   }
 
   return {
@@ -122,11 +129,13 @@ export async function getStaticPaths() {
     }
    
   }).map((p)=>{
-    const paths_ = p.node.eps.map((ep,index)=>{
-      return {
-        params:{slug: `${ep.slug}`},
-       
-      };
+    const paths_ = p.node.seasons_.map((season,index)=>{
+      const paths_ = season.eps.map((ep,index)=>{
+        return {
+          params:{slug: `${ep.slug}`},
+         
+        };
+      })
     })
     return {
       params:{slug: `${p.node.slug}`},

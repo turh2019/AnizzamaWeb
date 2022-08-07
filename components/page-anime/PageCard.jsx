@@ -42,7 +42,7 @@ const PostCard = ({ post ,type }) => (
     </div>:""}
 
           <h1 className="transition duration-700 text-center color-white  mb-2 cursor-pointer hover:text-[#4864F6] text-xl lg:text-2xl font-semibold  ">
-            <Link target="_blank" to={`/${type}/${post.slug}`} href={`/${type}/${post.slug}`}  >
+            <Link target="_blank" to={`/${type}/${post.slug}#body`} href={`/${type}/${post.slug}#body`}  >
               <span className="" >{post.title}</span>
             </Link>
           </h1>
@@ -55,8 +55,8 @@ const PostCard = ({ post ,type }) => (
     
 
     <div className="text-center sticky " target="_blank"  dir="rtl" >
-      <a href={`/${type}/${post.slug}`} target="_blank" className=' cursor-pointer' >
-        <Link target="_blank" to={`/${type}/${post.slug}`} href={`/${type}/${post.slug}`}  >
+      <a href={`/${type}/${post.slug}#body`} target="_blank" className=' cursor-pointer' >
+        <Link target="_blank" to={`/${type}/${post.slug}#body`} href={`/${type}/${post.slug}#body`}  >
           <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-3 py-1 lg:px-8 lg:py-3 cursor-pointer" >לדף הסדרה</span>
         </Link>
       </a>

@@ -6,13 +6,13 @@ import Dropdown from './Dropdown';
 
 
 const OptionsAbout =[
-    {OptionName:"דרושים", href:`/team/jobs`, to:``},
-    {OptionName:"אודות", href:`/team/about`, to:``},
-    {OptionName:"צוות", href:`/pages/team`, to:``},
+    {OptionName:"דרושים", href:`/team/jobs#body`, to:``,target:``},
+    {OptionName:"אודות", href:`/team/about#body`, to:``,target:``},
+    {OptionName:"צוות", href:`/pages/team#body`, to:``,target:``},
 ]
 const OptionsFun = (randomSeries, randomPost) => [
-    {OptionName:"סדרה רנדומלית", href:`/series/` + randomSeries.slug, to:``},
-    {OptionName:"פוסט רנדומלי", href:`/post/` + randomPost.slug, to:``},
+    {OptionName:"סדרה רנדומלית", href:`/series/` + randomSeries.slug +`#body`, to:``,target:``},
+    {OptionName:"פוסט רנדומלי", href:`/post/` + randomPost.slug +`#body`, to:``,target:``},
     //{OptionName:"המלצות", href:`/page/`},
     //{OptionName:"סקרים", href:`/page/`},
 ]
@@ -21,8 +21,8 @@ const OptionsFun = (randomSeries, randomPost) => [
 const OptionsMore =[
    // {OptionName:"עידכונים", href:`/page/`},
    // {OptionName:'לו"ז', href:`/page/`},
-    {OptionName:'שת"פ', href:`/pages/cooperation` , to:``},
-    {OptionName:'תגים', href:`/pages/tags `, to:`tags`}
+    {OptionName:'שת"פ', href:`/pages/cooperation#body` , to:``,target:``},
+    {OptionName:'תגים', href:`/pages/tags#body `, to:`tags`,target:``}
 
 ]
 
@@ -84,14 +84,14 @@ const Toolbar = (type)  => {
     
     return (
         <>
-        <div className='pb-3 p-6 grid grid-cols-1 gap-4 place-items-center '>
+        <div className='pb-3 p-6 grid grid-cols-1 gap-4 place-items-center ' id ="head">
             <div className='place-self-end flex flex-wrap'>   
             <Dropdown  defaultOption={"עוד"} options={OptionsMore} classNameSpan_1={stayles.classNameSpan_1} classNameSpan_2={stayles.classNameSpan_2} />
             <Dropdown  defaultOption={"פנאי"} options={OptionsFun(handleRandomPages(),handleRandomPost())} classNameSpan_1={stayles.classNameSpan_1} classNameSpan_2={stayles.classNameSpan_2}/>
            
                 <div className='my-2 gap-5 mb-8 '>
-                    <a  target="_blank" key={`/pages/anime`} href={`/pages/anime`} className ="mt-5 ">
-                        <Link target="_blank"  href={`/pages/anime`}>
+                    <a  target="_blank" key={`/pages/anime`} href={`/pages/anime#head`} className ="mt-5 ">
+                        <Link target="_blank"  href={`/pages/anime#head`}>
                             <span className='  pb-4  lg:border-b-4  lg:border-[#5344C1] '>
                                 <span className='mx-3 mt-3 border-4 border-indigo-200  border-y-indigo-500 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5  cursor-pointer  ' >
                                      אנימות
@@ -103,8 +103,8 @@ const Toolbar = (type)  => {
                 <Dropdown defaultOption={"עלינו"} options={OptionsAbout}  classNameSpan_1={stayles.classNameSpan_1} classNameSpan_2={stayles.classNameSpan_2}/>
 
                 <div className='my-5 gap-5 mb-8'>
-                <a target="_blank" key="home" href={`/`} className=' '>
-                        <Link target="_blank" key="home" href={`/`}>
+                <a target="_blank" key="home" href={`/#head`} className=' '>
+                        <Link target="_blank" key="home" href={`/#head`}>
                             <span className='pb-4  lg:border-b-4  lg:border-[#5344C1] '>
                                 <span className='mx-3  border-4 border-indigo-200  border-y-indigo-500 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5  cursor-pointer   ' >
                                     בית

@@ -85,7 +85,7 @@ export const getPage = async () => {
             name
             slug
           }
-          linkVideo
+          
         }
       }
     }
@@ -138,16 +138,21 @@ export const getPageFormat = async (slug) => {
           }
           
 
-          eps {
-            nameEp
-            epNum
-            slug
-            
-              linkVideo {
-                link
-                nameFormat
+          seasons_ {
+              nameSeason
+             
+              seasonSlug
+              eps{
+                nameEp
+                    epNum
+                    slug
+                    
+                      linkVideo {
+                        link
+                        nameFormat
+                    }
+              }
             }
-          }
         }
       }
     }
@@ -294,7 +299,7 @@ export const getPostDetails = async (slug) => {
       post(where: {slug: $slug}) {
         title
         excerpt
-         
+        linkVideo
         featuredImage {
           url
         }
@@ -310,7 +315,7 @@ export const getPostDetails = async (slug) => {
           label
           slug
         }
-        linkVideo
+        
         tags {
           label
           slug
@@ -336,9 +341,7 @@ export const getpageDetails = async (slug) => {
       page(where: {slug: $slug}) {
         title
         excerpt
-        summary {
-          raw
-        }
+
 
         summaryAnime{
           raw
@@ -360,18 +363,21 @@ export const getpageDetails = async (slug) => {
         featuredImage{
           url
         }
-        eps {
-          linkVideo {
-            link
-            nameFormat
+        seasons_ {
+          nameSeason
+          seasonShowName
+          
+          seasonSlug
+          eps{
+            nameEp
+                epNum
+                slug
+                
+                  linkVideo {
+                    link
+                    nameFormat
+                }
           }
-          nameEp
-          epNum
-          slug
-          summaryEp {
-            raw
-          }
-       
         }
         
         createdAt
@@ -405,13 +411,12 @@ export const getEpDetails = async (slug) => {
            raw
           }
 
-          page {
-            slug
-          }
-
           linkVideo {
               link
               nameFormat
+          }
+          seasons {
+            seasonSlug
           }
       }
     }
@@ -504,7 +509,7 @@ export const getCategoryPost = async (slug) => {
             createdAt
             slug
             title
-            linkVideo 
+             
             excerpt
             featuredImage {
               url
@@ -542,7 +547,7 @@ export const getTagsPost = async (slug) => {
             createdAt
             slug
             title
-            linkVideo 
+             
             excerpt
             featuredImage {
               url
@@ -591,12 +596,12 @@ export const getPagesPage = async (slug) => {
             wallpaper{
               url
             }
-
+            itsShow
             createdAt
             time
             slug
             title
-            linkVideo 
+             
             excerpt
             featuredImage {
               url
@@ -845,7 +850,7 @@ export const GetPageCatgory = async (slug) => {
             time
             slug
             title
-            linkVideo 
+             
             excerpt
             featuredImage {
               url

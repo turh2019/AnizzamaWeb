@@ -182,18 +182,21 @@ const CategoriesSearch = ({posts}) => {
                        
                     }}).map((val,key)=>
                     (
+                        val.node.itsShow?
                         <span className='flex items-stretch'>
                         <PageCard key={key} post={val.node}  type={val.node.format} />
-                        </span> 
+                        </span> :""
                     ))}
                    
                     
              </div>:
              <div className='grid grid-cols-2 lg:grid-cols-3 gap-2 '>
                     {posts.map((post, index) => (
+                         post.node.itsShow?
                         <span className='flex items-stretch'>
                             <PageCard key={index} post={post.node}  type={post.node.format}/>
                         </span>   
+                        :""
                     ))}  
               </div>
               }

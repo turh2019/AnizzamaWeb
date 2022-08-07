@@ -15,7 +15,7 @@ const tagPost = ({ posts }) => {
       
   <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
     <div className="col-span-1 lg:col-span-8">
-        <div className="lg:col-span-8 col-span-1" id="body">
+        <div className="lg:col-span-8 col-span-1">
         {posts.map((post, index) => (
                 <span className='flex items-stretch'>
                     <PostCard key={index} post={post.node}  />

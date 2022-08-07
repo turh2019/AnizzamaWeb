@@ -67,7 +67,7 @@ const SeriesPage = ({page, ep,slugs}) => {
           <meta property="og:image" content={page.featuredImage.url}/>
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12"id ="body">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 " >
             <PageDetail post ={page} type={"sad"} ep ={ep} />
              <Author  author={page.author} />
@@ -135,11 +135,13 @@ export async function getStaticPaths() {
     }
    
   }).map((p)=>{
-    const paths_ = p.node.eps.map((ep,index)=>{
-      return {
-        params:{slug: `${ep.slug}`},
-       
-      };
+    const paths_ = p.node.seasons_.map((season,index)=>{
+      const paths_ = season.eps.map((ep,index)=>{
+        return {
+          params:{slug: `${ep.slug}`},
+         
+        };
+      })
     })
     return {
       params:{slug: `${p.node.slug}`},

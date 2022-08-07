@@ -96,9 +96,12 @@ const PostDetail = ({ post }) => {
           <div className='grid grid-flow-row auto-rows-max  py-5 place-content-center ' >
               <div className=''> 
                   {post?.linkVideo?.map((linkEp,index)=>(
-                      <span className ="cursor-pointer " onClick={(e)=>{setWatching(true); setlink(linkEp)}}>
+                    <a  to="watching">
+                      <span className ="cursor-pointer " onClick={(e)=>{setWatching(true); setlink(linkEp)}} >
                          <button type="button"  className="focus:bg-[#382C8B] transition duration-500 ease hover:bg-[#382C8B]  bg-[#4864F6] text-lg font-medium rounded-full text-white  px-5 py-3 cursor-pointer ml-3 mt-3">   קישור מספר  {index+1}  </button>
                       </span>  
+                    </a>
+
                   ))}
             </div>
           </div>
@@ -114,7 +117,7 @@ const PostDetail = ({ post }) => {
         </div>
       </div>
       {watching== true?
-        <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
+        <div className='bg-[#4864F6] box-decoration-slice box-content p-4    rounded-lg border-x-[#4864F6]-500 drop-shadow-xl' id ="watching">
             <iframe src={linkto} allowfullscreen="true"  allow="autoplay" className='w-full h-full aspect-video bg-red  border-4  border-opacity-25 border-black rounded-lg'  playIcon={<button>Play</button>}></iframe>               
         </div>:""}
     </>

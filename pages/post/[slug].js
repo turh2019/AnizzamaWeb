@@ -9,16 +9,26 @@ import { getPosts, getPostDetails } from '../../services/services';
 const PostDetails = ({post}) => {
   var [selected, Setselected] = useState("")
 
+  
  const router =useRouter();
  if(router.isFallback){
   return <Loader />
  }
+
+
+
+
+
  console.log({post})
  var AAAa;
 if(post.title.toLowerCase().includes("anizzama") || post.title.includes("אניזאמה")) AAAa = post.title;
 else AAAa = "Anizzama - " + post.title;
+
+
   return (
     <>
+  
+     
       <div className="container mx-auto px-10 mb-8" >
       <Head>
       <title>{post.title}</title>
@@ -30,14 +40,12 @@ else AAAa = "Anizzama - " + post.title;
           <meta property="og:site_name" content="Anizzama"/>
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="col-span-1 lg:col-span-8">
-           
-           <div id ="body">
-              <PostDetail post={post}  />
-           </div>
-           
-
-             <Author  author={post.author} />
+          <div className="col-span-1 lg:col-span-8" >
+          <section id='body'>
+               <PostDetail post={post}  />
+          </section>
+            
+              <Author  author={post.author} />
 
             <CommentsFrom slug={post.slug} type="" selected={selected}  Setselected={Setselected}/>
             <Comments slug={post.slug} from="post" selected={selected}  Setselected={Setselected}  />
