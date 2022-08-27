@@ -109,7 +109,7 @@ export async function getStaticProps({ params }) {
   }
   else{
     ep = await getEpDetails(params.slug)
-    page =  await getpageDetails(ep.page.slug)
+   page =  await getpageDetails(ep.seasons.seasonSlug)
   }
 
   return {
