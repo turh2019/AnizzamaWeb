@@ -33,6 +33,29 @@ import makeAnimated from 'react-select/animated';
         value:"ona"
       }
     ]
+
+    const  fansub=[
+        {
+          label:"Anizzama",
+          value:"Anizzama"
+        }
+    ]
+
+    const ProjectStatus=[
+        {
+          label:"finished",
+          value:"גמור"
+        },
+        {
+            label:"frozen",
+            value:"קפוא"
+        },
+        {
+            label:"planned",
+            value:"מתוכנן"
+        }
+    ]
+      
     
 const animatedComponents = makeAnimated();
 const CategoriesSearch = ({posts}) => {
@@ -40,7 +63,9 @@ const CategoriesSearch = ({posts}) => {
     var num2 =0;
     const [Catgoryot, setCatgoryot] = useState([])
     const [formt, setformt] = useState("")
+    const [ProjectStatus, SetProjectStatus] = useState("")
     var  x = "";
+  
 
     useEffect(() =>{
         getCategories()
@@ -54,26 +79,55 @@ const CategoriesSearch = ({posts}) => {
  
     
     var [displayvalue,getvalue] =useState();
-    var DdiHandel = (e) =>{
+    var [Fansub,GetFansub] =useState();
+    var CatgoryottHandel = (e) =>{
         
         getvalue(Array.isArray(e)?e.map(x => x.label):[]);
       
     }
+
+    var FansubHandel = (e) =>{
+        
+        GetFansub(Array.isArray(e)?e.map(x => x.label):[]);
+      
+    }
+  
   
       
      
     return (
        <div className='mt-3 p-4 lg:p-0 text-white  ' >
-            <div className=' lg:grid grid-cols-4 mx-4  gap-4' dir="rtl">
+            <div className=' lg:grid lg:grid-cols-4 mx-4  lg:grid-cols-2 gap-4' dir="rtl">
                 <div className=' p-2 pb-7  text-withe-4'>
                     <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
                     {"קטגוריות "}
                     </center>
                     <div className='cursor-pointer'>
-                        <Select styles="mt-3 p-4 lg:p-0 text-white"  placeholder="בחר/י..."  autoFocus={true} hideSelectedOptions={false}  tabSelectsValue={true} isRtl={true} components={animatedComponents}  isMulti options={Catgoryot} onChange={DdiHandel} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={false}></Select>
+                        <Select styles="mt-3 p-4 lg:p-0 text-white"  placeholder="בחר/י..."  autoFocus={true} hideSelectedOptions={false}  tabSelectsValue={true} isRtl={true} components={animatedComponents}  isMulti options={Catgoryot} onChange={CatgoryottHandel} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={false}></Select>
                     </div>
                  
                 </div>
+
+                <div className=' p-2 pb-7  text-withe-4'>
+                    <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
+                    {"פאנסאבים"}
+                    </center>
+                    <div className='cursor-pointer'>
+                        <Select styles="mt-3 p-4 lg:p-0 text-white"  placeholder="בחר/י..."  autoFocus={true} hideSelectedOptions={false}  tabSelectsValue={true} isRtl={true} components={animatedComponents}  isMulti options={fansub} onChange={FansubHandel} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={false}></Select>
+                    </div>
+                 
+                </div>
+
+                <div className=' p-2 pb-7  text-withe-4'>
+                    <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
+                    {"מצב פרויקט "}
+                    </center>
+                    <div className='cursor-pointer'>
+                    <Select  placeholder="בחר/י..." isRtl={true} components={animatedComponents}  isClearable={true} options={formts} onChange={(e)=>(SetProjectStatus(e?e.label:""))} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={true}></Select>
+                    </div>
+                 
+                </div>
+
 
                 <div className=' p-2 pb-7  text-withe px-4'>
                     <center className="font-bold text-2xl  pb-2 text-withe text-opacity-50  will-change-scroll hover:will-change-scroll ">
@@ -108,13 +162,22 @@ const CategoriesSearch = ({posts}) => {
                                         
                             ))
                             :""}
+
+                            {Fansub ? 
+                            Fansub.map((G)=>(
+                                <span key={G} className='ml-5 p-1 bg-sky-500 shadow-lg shadow-sky-500/40 text-withe rounded-lg px-2 font-bold mb-4  text-md  ' >
+                                    {G}
+                                    
+                                </span>
+                            ))
+                            :""}
                         </div>
                 </div>      
             </div>
      
             
         
-          {displayvalue && displayvalue!="" ||formt&&formt !="" ? 
+          {displayvalue && displayvalue!="" ||formt&&formt !="" || Fansub && Fansub != "" ? 
              <div className=' grid grid-cols-3 gap-2 py-5'>
                    
                     
@@ -180,7 +243,46 @@ const CategoriesSearch = ({posts}) => {
                             return null
                         }
                        
-                    }}).map((val,key)=>
+                    }}).filter((val) =>{
+                        if(!Fansub || Fansub == "")
+                        {
+                           
+                            return val
+                        }else{
+
+
+                            num1 =0
+                            num2 =0
+                            val.node.fansub.map((C)=>{
+                                
+                                Fansub.map((G,i)=>
+                                {
+                                  
+                                    num1 =i+1
+                                    if(C ==G){
+                                        
+                                        num2= num2 +1;
+                                    
+                                        
+                                    }
+                                })
+                                
+                                
+                      
+                           
+                        }) 
+                        console.log(num2 == num1 )
+                        if(num2 == num1 && num2 !=0 )
+                        {
+                            return val
+                        }else{
+                            return null
+                        }
+                    
+                    }
+                        
+
+                    }).map((val,key)=>
                     (
                         val.node.itsShow?
                         <span className='flex items-stretch'>

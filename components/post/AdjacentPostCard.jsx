@@ -12,7 +12,7 @@ const AdjacentPostCard = ({ post, position }) => (
       <p className="text-white text-shadow font-semibold text-2xl text-center">{post.title}</p>
    
     </div>
-    <Link href={`/post/${post.slug}#body`}>a<span className="z-10 cursor-pointer absolute w-full h-full" /></Link>
+    <Link href={`/post/${post.slug}`}>a<span className="z-10 cursor-pointer absolute w-full h-full" /></Link>
     {position === 'LEFT' && (
       <div className=" absolute arrow-btn bottom-5 text-center py-3 cursor-pointer bg-pink-600 left-10 rounded-full">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white w-full " fill="none" viewBox="0 0 24 24" stroke="currentColor">

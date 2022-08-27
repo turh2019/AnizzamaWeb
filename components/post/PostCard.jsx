@@ -36,7 +36,7 @@ const PostCard = ({ post }) => (
       </div>
     </div>
           <h1 className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  ">
-            <Link scroll={true} to={"body"}   activeClassName="active" href={`/post/${post.slug}#body`}  key ={post.slug}>{post.title}</Link>
+            <Link scroll={true} to={"body"}   activeClassName="active" href={`/post/${post.slug}`}  key ={post.slug}>{post.title}</Link>
           </h1>
 
           <p className="text-center text-lg text-white-700 font-normal px-4 lg:px-20 mb-8 rtl:mr-3">
@@ -44,7 +44,7 @@ const PostCard = ({ post }) => (
           </p>
     <div className="text-center">
      
-      <Link scroll={true}  to=""  target="_blank" href={`/post/${post.slug}#body`}  >
+      <Link scroll={true}  to=""  target="_blank" href={`/post/${post.slug}`}  >
         <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-[#3E2E88] text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">להמשיך לקרוא</span>
       </Link>
       
@@ -53,7 +53,7 @@ const PostCard = ({ post }) => (
         <div className=' mt-5 flex flex-wrap items-stretch flex-row-reverse justify-center ' > 
                 {post.tags.map((tag) => (
                       <span className='py-1 transition duration-500 ease transform hover:-translate-y-1 text-center'>
-                           <a  href={`/tag/${tag.slug}#body`} to className=' shadow-size-[15px] font-bold text-[12px] out hadow-full shadow-[#3E2E88] cursor-pointer rounded-full mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
+                           <a  href={`/tag/${tag.slug}`} to className=' shadow-size-[15px] font-bold text-[12px] out hadow-full shadow-[#3E2E88] cursor-pointer rounded-full mb-4 ml-2 bg-[#3E2E88] p-1 px-3 '>
                               {tag.label } 
                            </a>
                       </span>

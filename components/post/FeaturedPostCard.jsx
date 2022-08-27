@@ -6,8 +6,8 @@ import Link from 'next/link';
 const FeaturedPostCard = ({ post }) => (
 <>
 
-  <a target="_blank" href={`/post/${post.slug}#body`} >
-  <Link target="_blank"  href={`/post/${post.slug}#body`}>
+  <a target="_blank" href={`/post/${post.slug}`} >
+  <Link target="_blank"  href={`/post/${post.slug}`}>
   <div className="mx-8  h-60 translate-x-5 place-self-center flex justify-center lg:mr-0 lg-translate-x-0 -translate-x-1 mr-6 cursor-pointer ">
 
     <div className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-80 h-80 m" style={{ backgroundImage: `url('${post.featuredImage.url}')` }} />

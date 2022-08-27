@@ -149,7 +149,7 @@ const PageDetail = ({ post , ep }) => {
              
                   {post.seasons_.map((season,index)=>(
                         <span className ="cursor-pointer flex justify-left" >
-                          <Link  target="_blank" href={`/${post.format}/${season.seasonSlug}#body`} key ={index + season.nameSeason} className="transition duration-700 text-center color-white  cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                          <Link  target="_blank" href={`/${post.format}/${season.seasonSlug}`} key ={index + season.nameSeason} className="transition duration-700 text-center color-white  cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
                                 {season.seasonSlug == post.slug?   <h1 className="  mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3 transition duration-500 ease transform hover:-translate-y-1">{season.seasonShowName} </h1>:  <h1 className=" transition duration-500 ease transform hover:-translate-y-1 my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{season.nameSeason} </h1>}
                           </Link>
                         </span>         
@@ -166,7 +166,7 @@ const PageDetail = ({ post , ep }) => {
 
                             <span className ="cursor-pointer">
                            
-                                  <Link  target="_blank" href={`/${post.format}/${ep_.slug}#watching`} key ={index + ep_.epNum} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
+                                  <Link  target="_blank" href={`/${post.format}/${ep_.slug}`} key ={index + ep_.epNum} className="transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
                                       {ep?.slug == ep_?.slug ? <h1 className=" my-5 mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{ep_.epNum} </h1>:<h1 className="  my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{ep_.epNum} </h1>} 
                                   </Link>
                               </span>   

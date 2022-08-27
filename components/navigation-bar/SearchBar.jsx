@@ -48,12 +48,12 @@ const SearchBar = () => {
                     {
                         itsfound ="true";
                             return <div className=" mt-5 transition duration-700 text-center color-white  mb-8 cursor-pointer hover:text-[#4864F6]  font-semibold  "> 
-                             <a target="_blank" href={`/page/${val.node.slug}#body`}>
+                             <a target="_blank" href={`/page/${val.node.slug}`}>
                             
                             <div className='flex   mb-2 text-white  mb-4 text-white px-4  '>
                            
-                                     <Link target="_blank" key={key} href={`/page/${val.node.slug}#body`} ><p className=' flex-grow w-20 flex justify-center text-center transition duration-700 text-center color-white   hover:text-[#4864F6]   ' >{val.node.title}</p></Link>
-                                     <Link target="_blank" href={`/page/${val.node.slug}#body`} className="text-md  cursor-pointer " key={val.node.title}>
+                                     <Link target="_blank" key={key} href={`/page/${val.node.slug}`} ><p className=' flex-grow w-20 flex justify-center text-center transition duration-700 text-center color-white   hover:text-[#4864F6]   ' >{val.node.title}</p></Link>
+                                     <Link target="_blank" href={`/page/${val.node.slug}`} className="text-md  cursor-pointer " key={val.node.title}>
                                         <Image
                                             alt={val.node.title}
                                             
