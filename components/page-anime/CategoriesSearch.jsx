@@ -38,6 +38,14 @@ import makeAnimated from 'react-select/animated';
         {
           label:"Anizzama",
           value:"Anizzama"
+        },
+        {
+            label:"FireSub",
+            value:"FireSub"
+        },
+        {
+            label:"unknown",
+            value:"unknown"
         }
     ]
 
@@ -53,6 +61,14 @@ import makeAnimated from 'react-select/animated';
         {
             label:"planned",
             value:"מתוכנן"
+        },
+        {
+            label:"abandoned",
+            value:"נזרק"
+        },
+        {
+            label:"active",
+            value:"פעיל"
         }
     ]
       
@@ -63,7 +79,7 @@ const CategoriesSearch = ({posts}) => {
     var num2 =0;
     const [Catgoryot, setCatgoryot] = useState([])
     const [formt, setformt] = useState("")
-    const [ProjectStatus, SetProjectStatus] = useState("")
+    const [projectStatus, SetProjectStatus] = useState("")
     var  x = "";
   
 
@@ -123,7 +139,7 @@ const CategoriesSearch = ({posts}) => {
                     {"מצב פרויקט "}
                     </center>
                     <div className='cursor-pointer'>
-                    <Select  placeholder="בחר/י..." isRtl={true} components={animatedComponents}  isClearable={true} options={formts} onChange={(e)=>(SetProjectStatus(e?e.label:""))} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={true}></Select>
+                    <Select  placeholder="בחר/י..." isRtl={true} components={animatedComponents}  isClearable={true} options={ProjectStatus} onChange={(e)=>(SetProjectStatus(e?e.label:""))} className ="hover:px-4 px-8 h-30 w-60 text-sky-600  font-bold  shadow-2xl   ease-in duration-300 accent-pink-500  scroll-ml-6" closeMenuOnSelect={true}></Select>
                     </div>
                  
                 </div>
@@ -171,13 +187,20 @@ const CategoriesSearch = ({posts}) => {
                                 </span>
                             ))
                             :""}
+
+                        {projectStatus ? 
+                                <span key={projectStatus} className='ml-5 p-1 bg-sky-500 shadow-lg shadow-sky-500/40 text-withe rounded-lg px-2 font-bold mb-4  text-md  ' >
+                                    {projectStatus}
+                                    
+                                </span>
+                            :""}
                         </div>
                 </div>      
             </div>
      
             
         
-          {displayvalue && displayvalue!="" ||formt&&formt !="" || Fansub && Fansub != "" ? 
+          
              <div className=' grid grid-cols-3 gap-2 py-5'>
                    
                     
@@ -253,7 +276,7 @@ const CategoriesSearch = ({posts}) => {
 
                             num1 =0
                             num2 =0
-                            val.node.fansub.map((C)=>{
+                            val?.node?.fansub.map((C)=>{
                                 
                                 Fansub.map((G,i)=>
                                 {
@@ -265,7 +288,7 @@ const CategoriesSearch = ({posts}) => {
                                     
                                         
                                     }
-                                })
+                            })
                                 
                                 
                       
@@ -279,9 +302,24 @@ const CategoriesSearch = ({posts}) => {
                             return null
                         }
                     
-                    }
+                    }}).filter((val) =>{
                         
+                        if(!projectStatus || projectStatus == "")
+                        {
+                           
+                            return val
 
+                        }
+                        else if( val?.node?.projectStatus == projectStatus )
+                        {
+                           return val;     
+                        }
+                        else
+                        {
+                           
+                            return null
+                        }
+                        
                     }).map((val,key)=>
                     (
                         val.node.itsShow?
@@ -291,17 +329,7 @@ const CategoriesSearch = ({posts}) => {
                     ))}
                    
                     
-             </div>:
-             <div className='grid grid-cols-2 lg:grid-cols-3 gap-2 '>
-                    {posts.map((post, index) => (
-                         post.node.itsShow?
-                        <span className='flex items-stretch'>
-                            <PageCard key={index} post={post.node}  type={post.node.format}/>
-                        </span>   
-                        :""
-                    ))}  
-              </div>
-              }
+             </div>
               </div>
               
              

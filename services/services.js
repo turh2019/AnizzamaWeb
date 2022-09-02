@@ -342,13 +342,13 @@ export const getpageDetails = async (slug) => {
         title
         excerpt
 
-
+        format
+        projectStatus
         summaryAnime{
           raw
         }
 
-        format
-
+      
         wallpaper{
           url
         }
@@ -603,6 +603,7 @@ export const getPagesPage = async (slug) => {
             title
              
             excerpt
+            
             featuredImage {
               url
             }
@@ -615,7 +616,10 @@ export const getPagesPage = async (slug) => {
               label
               slug
             }
+          
+            projectStatus
             format
+            fansub
           }
         }
       }
