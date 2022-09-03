@@ -487,47 +487,11 @@ export const getAdjacentPosts = async (createdAt, slug) => {
   return { next: result.next[0], previous: result.previous[0] };
 };
 
-export const getCategoryPost = async (slug) => {
-  const query = gql`
-    query GetCategoryPost() {
-      postsConnection() {
-        edges {
-          cursor
-          node {
-            author {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-             
-            excerpt
-            featuredImage {
-              url
-            }
-            categories {
-              label
-             
-            }
-          }
-        }
-      }
-    }
-  `;
 
-  const result = await request(graphqlAPI, query);
-
-  return result.postsConnection.edges;
-};
 
 export const getTagsPost = async (slug) => {
   const query = gql`
-    query GetCategoryPost($slug: String!) {
+    query getTagsPost($slug: String!) {
       postsConnection( orderBy: createdAt_DESC) {
         edges {
           cursor
@@ -632,7 +596,7 @@ export const getPagesPage = async (slug) => {
 
 export const getFeaturedPosts = async () => {
   const query = gql`
-    query GetCategoryPost() {
+    query getFeaturedPosts() {
       posts(where: {featuredPost: true}) {
         author {
           name
