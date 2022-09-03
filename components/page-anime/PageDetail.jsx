@@ -143,14 +143,14 @@ const PageDetail = ({ post , ep }) => {
                   return getContentFragment(index, children, typeObj, typeObj.type);
               })}
           </div>
-          {post?.seasons?.length > 1?
+           {post.seasons_.length > 0?
           <div className='grid grid-flow-row auto-rows-max  flex justify-left pb-5 border-b-2 place-content-start  '  >
               <div className='flex  flex-wrap basis-1/2 place-content-center px-2 flex justify-left '> 
              
-                  {post.seasons_.map((season,index)=>(
+              {post.seasons_.map((season,index)=>(
                         <span className ="cursor-pointer flex justify-left" >
                           <Link  target="_blank" href={`/${post.format}/${season.seasonSlug}`} key ={index + season.nameSeason} className="transition duration-700 text-center color-white  cursor-pointer hover:text-[#4864F6] text-3xl font-semibold  " >
-                                {season.seasonSlug == post.slug?   <h1 className="  mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3 transition duration-500 ease transform hover:-translate-y-1">{season.seasonShowName} </h1>:  <h1 className=" transition duration-500 ease transform hover:-translate-y-1 my-5 mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{season.nameSeason} </h1>}
+                                {season.seasonSlug == post.slug?   <h1 className="  mx-1 transition duration-500 ease hover:bg-[#382C8B] inline-block bg-[#4864F6] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3 transition duration-500 ease transform hover:-translate-y-1">{season.seasonShowName} </h1>:  <h1 className=" transition duration-500 ease transform hover:-translate-y-1  mx-1 transition duration-500 ease hover:bg-[#4864F6] inline-block bg-[#382C8B] text-lg font-medium rounded-full text-white px-5 py-3 cursor-pointer ml-3 mt-3">{season.nameSeason} </h1>}
                           </Link>
                         </span>         
                   ))} 
