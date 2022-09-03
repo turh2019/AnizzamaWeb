@@ -492,7 +492,7 @@ export const getAdjacentPosts = async (createdAt, slug) => {
 export const getTagsPost = async (slug) => {
   const query = gql`
     query getTagsPost($slug: String!) {
-      postsConnection( orderBy: createdAt_DESC) {
+      postsConnection(where: {tags_some: {slug: $slug}} , orderBy: createdAt_DESC) {
         edges {
           cursor
           node {
@@ -512,10 +512,7 @@ export const getTagsPost = async (slug) => {
             featuredImage {
               url
             }
-            categories {
-              label
-            
-            }
+
 
             tags {
               label
