@@ -21,7 +21,35 @@ function CommentsToComments({slug,id,from,selected,Setselected}) {
      
     }, [])
  
-    
+    const [displayvalue,getvalue] =useState([]);
+
+    const addItem = (y) =>{
+        getvalue([...displayvalue,{
+            id:y,
+            value:y
+        }])
+    }
+    var ClicktHandel = (e,y) =>{
+        
+        var check= false;
+       e.map(x => {
+        if(x.value == y)
+        {
+             check = true
+             console.log("somting")
+        }
+        })
+        if(check == false)
+        addItem(y);
+        else
+        ClicktHandel_(e,y)
+    }
+
+    var ClicktHandel_ = (e,y) =>{
+        
+        getvalue(e.filter(x => (x.value!= y? x:null)));
+      
+    }
     return (
         <div className='bg-[#261D78] pl-5 ml-6'  dir="rtl" >
            
@@ -44,12 +72,12 @@ function CommentsToComments({slug,id,from,selected,Setselected}) {
                    
                   
                     </div>
-                    {cooment.comments.length !=0 ?  <button className='hover:text-white  ' onClick={ (e)=>( setclick(!click) )}>{click ? "see less": "see more"}</button>:"" }
+                    {cooment.comments.length !=0 ?  <button className='hover:text-white ' key={cooment.id} onClick={ (e)=>( ClicktHandel(displayvalue,cooment.id) )}> {displayvalue.filter((p)=> { if(p.value == cooment.id) return p.value; else return null}).map((p)=>(  p.value)) != cooment.id?"see more":"see less"  }</button>:"" }
                         <div className='my-4'>
                             {cooment.comments.map((C)=>(
-                                    click ?
-                                    <CommentsToComments key={C.id} slug={slug} id={C.id} from={from} selected ={selected} Setselected ={Setselected}/>:
-                                    ""
+                                    
+                                    displayvalue.filter((p)=> { if(p.value == cooment.id) return p.value; else return null}).map((p)=>(  p.value)) ==  cooment.id?<CommentsToComments key={C.id} slug={slug} id={C.id} from={from} selected ={selected} Setselected ={Setselected}/>:""
+                                    
                                     
                             ))}     
                       

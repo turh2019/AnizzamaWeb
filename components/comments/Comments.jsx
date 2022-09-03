@@ -95,17 +95,13 @@ function Comments({slug,from,selected,Setselected }) {
                           
                           
                           </div>
-                         
-                          {cooment.comments.length !=0 ?  <button className='hover:text-white ' key={index1} onClick={ (e)=>( ClicktHandel(displayvalue,cooment.id) )}> a </button>:"" }
+                          
+                          {cooment.comments.length !=0 ?  <button className='hover:text-white ' key={index1} onClick={ (e)=>( ClicktHandel(displayvalue,cooment.id) )}> {displayvalue.filter((p)=> { if(p.value == cooment.id) return p.value; else return null}).map((p)=>(  p.value))  != cooment.id? "see more":"see less"  }</button>:"" }
                           <div className='ml-6  '>
                                     {cooment.comments.map((C,index)=>(
                                             
-                                            click && C.id ?
-                                            <CommentsToComments  key={index}  slug={slug} id={C.id} from={from} selected={selected} Setselected={Setselected} />:
-                                            ""
-                                            
-                                            
-                                    ))}     
+                                            displayvalue.filter((p)=> { if(p.value == cooment.id) return p.value; else return null}).map((p)=>(  p.value)) ==  cooment.id?<CommentsToComments  key={index}  slug={slug} id={C.id} from={from} selected={selected} Setselected={Setselected} />:""
+                                     ))}     
                                 </div>
                                
                             </div>
