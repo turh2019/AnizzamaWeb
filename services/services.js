@@ -32,7 +32,7 @@ export const getPosts = async () => {
           }
           categories {
             label
-            slug
+            
           }
         }
       }
@@ -79,7 +79,7 @@ export const getPage = async () => {
           }
           category {
             label
-            slug
+           
           }
           pages_ {
             name
@@ -130,7 +130,7 @@ export const getPageFormat = async (slug) => {
           }
           category {
             label
-            slug
+          
           }
           pages_ {
             name
@@ -168,9 +168,8 @@ export const getCategories = async () => {
   const query = gql`
     query GetGategories {
         categories(orderBy: label_ASC) {
-          label
           value
-          slug
+          label
         }
     }
   `;
@@ -313,7 +312,7 @@ export const getPostDetails = async (slug) => {
 
         categories {
           label
-          slug
+         
         }
         
         tags {
@@ -493,7 +492,7 @@ export const getAdjacentPosts = async (createdAt, slug) => {
 
 export const getCategoryPost = async (slug) => {
   const query = gql`
-    query GetCategoryPost($slug: String!) {
+    query GetCategoryPost() {
       postsConnection(where: {categories_some: {slug: $slug}}) {
         edges {
           cursor
@@ -516,7 +515,7 @@ export const getCategoryPost = async (slug) => {
             }
             categories {
               label
-              slug
+             
             }
           }
         }
@@ -524,7 +523,7 @@ export const getCategoryPost = async (slug) => {
     }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
+  const result = await request(graphqlAPI, query);
 
   return result.postsConnection.edges;
 };
@@ -614,7 +613,7 @@ export const getPagesPage = async (slug) => {
             }
             category {
               label
-              slug
+              
             }
           
             projectStatus
@@ -837,7 +836,7 @@ export const GetPageCatgory = async (slug) => {
   const slugs = "Comedy Drama";
   const query = gql`
     query GetPagesPage($slug: String!) {
-      page_Connection(where: {category_some: {slug: $slug}}, orderBy: slug_ASC) {
+      page_Connection( orderBy: slug_ASC) {
         edges {
           cursor
           
@@ -865,7 +864,7 @@ export const GetPageCatgory = async (slug) => {
             }
             category {
               label
-              slug
+             
             }
           }
         }
