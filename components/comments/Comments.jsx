@@ -29,8 +29,42 @@ function Comments({slug,from,selected,Setselected }) {
 
      
     }, [])
+
+    const [displayvalue,getvalue] =useState([]);
+
+    const addItem = (y) =>{
+        getvalue([...displayvalue,{
+            id:y,
+            value:y
+        }])
+    }
+    var ClicktHandel = (e,y) =>{
+        
+        var check= false;
+       e.map(x => {
+        if(x.value == y)
+        {
+             check = true
+             console.log("somting")
+        }
+        })
+        if(check == false)
+        addItem(y);
+        else
+        ClicktHandel_(e,y)
+    }
+
+    var ClicktHandel_ = (e,y) =>{
+        
+        getvalue(e.filter(x => (x.value!= y? x:null)));
+      
+    }
+
+
     return (
         <div className='bg-[#261D78] ' dir="rtl" >
+            
+      
             {comments.length>0 && (
                
                 <div className=' shadow-lg rounded-lg p-8 pb-12 mb-8'>
@@ -62,11 +96,11 @@ function Comments({slug,from,selected,Setselected }) {
                           
                           </div>
                          
-                          {cooment.comments.length !=0 ?  <button className='hover:text-white ' key={index1} onClick={ (e)=>( setclick(!click) )}>{click ? "see less": "see more"} </button>:"" }
+                          {cooment.comments.length !=0 ?  <button className='hover:text-white ' key={index1} onClick={ (e)=>( ClicktHandel(displayvalue,cooment.id) )}> a </button>:"" }
                           <div className='ml-6  '>
                                     {cooment.comments.map((C,index)=>(
                                             
-                                            click ?
+                                            click && C.id ?
                                             <CommentsToComments  key={index}  slug={slug} id={C.id} from={from} selected={selected} Setselected={Setselected} />:
                                             ""
                                             
@@ -82,6 +116,8 @@ function Comments({slug,from,selected,Setselected }) {
                       
                 </div>
             )}
+
+            
         </div>
     )
     
