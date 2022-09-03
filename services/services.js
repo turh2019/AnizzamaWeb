@@ -77,10 +77,7 @@ export const getPage = async () => {
           smallFeaturedImage {
             url
           }
-          category {
-            label
-           
-          }
+       
           pages_ {
             name
             slug
@@ -493,7 +490,7 @@ export const getAdjacentPosts = async (createdAt, slug) => {
 export const getCategoryPost = async (slug) => {
   const query = gql`
     query GetCategoryPost() {
-      postsConnection(where: {categories_some: {slug: $slug}}) {
+      postsConnection() {
         edges {
           cursor
           node {
@@ -531,7 +528,7 @@ export const getCategoryPost = async (slug) => {
 export const getTagsPost = async (slug) => {
   const query = gql`
     query GetCategoryPost($slug: String!) {
-      postsConnection(where: {tags_some: {slug: $slug}} , orderBy: createdAt_DESC) {
+      postsConnection( orderBy: createdAt_DESC) {
         edges {
           cursor
           node {
@@ -553,7 +550,7 @@ export const getTagsPost = async (slug) => {
             }
             categories {
               label
-              slug
+            
             }
 
             tags {
