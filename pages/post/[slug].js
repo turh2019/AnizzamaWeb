@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import  Head  from 'next/head';
-import { PostDetail,Categories, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo,Toolbar} from '../../components/getComponents';
+import { PostDetail, PostWidget, Author, Comments, CommentsFrom,Loader ,LinksTo} from '../../components/getComponents';
 import { getPosts, getPostDetails } from '../../services/services';
 
 

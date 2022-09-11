@@ -23,7 +23,7 @@ const SearchBar = () => {
                 <div className=" rounded-lg text-white text-right   inline-block block ">
                         <div className="relative translate-y-3 absolute pointer-events-none focus:pointer-events-auto py-1 px-1 bg-red ">
                             <svg className="absolute inset-y-0 right-1 w-16 text-white h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                             </svg>
                         </div >
                         <input type="text" placeholder='חיפוש ' onChange={event =>{SetSearcTerm(event.target.value)}} className='px-7 resize rounded-md pt-1 focus:ring-2 focus:ring-white bg-[#4864F6] text-white caret-pink-500  outline-none w-full  '/>

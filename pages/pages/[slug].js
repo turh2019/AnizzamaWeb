@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { useRouter } from 'next/router';
 import  Head  from 'next/head';
-import { getPages, getPagesPage,getCategories} from '../../services/services';
+import { getPages, getPagesPage} from '../../services/services';
 import { Loader,LinksTo,PostWidget ,CategoriesSearch,Team,Cooperation,TagsList} from '../../components/getComponents';
 
 const Pagespage = ({ Pages , params }) => {

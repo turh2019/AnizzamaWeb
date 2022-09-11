@@ -205,7 +205,7 @@ const PageDetail = ({ post , ep }) => {
              
             <div className='bg-[#382C8B] box-decoration-slice box-content p-4 mt-4   rounded-lg border-x-[#4864F6]-500 drop-shadow-xl'>
               <div className='text-right rtl:mr-3 text-white '> 
-                 { ep.summaryEp.raw.children.map((typeObj, index) => {
+                 { ep?.summaryEp?.raw?.children.map((typeObj, index) => {
                         const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                           return getContentFragment(index, children, typeObj, typeObj.type);
                       }) }
