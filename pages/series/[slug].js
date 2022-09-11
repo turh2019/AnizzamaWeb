@@ -32,8 +32,8 @@ const SeriesPage = ({page, ep,slugs}) => {
       title_ =page.title + " פרק " + ep.name;
       description = description + " פרק " + ep + "!";
 
-      if(ep.summaryEp.raw.children != "")
-      ep.summaryEp.raw.children.map((typeObj, index) => {
+      if(ep?.summaryEp?.raw.children != "")
+      ep?.summaryEp?.raw?.children.map((typeObj, index) => {
         typeObj.children.map((item, itemindex) => 
         ogDescription = ogDescription + item.text
       )});
