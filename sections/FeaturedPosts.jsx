@@ -17,12 +17,19 @@ const FeaturedPosts = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
+
+
+
+
   useEffect(() => {
     getFeaturedPosts().then((result) => {
       setFeaturedPosts(result);
       setDataLoaded(true);
     });
   }, []);
+
+
+
 
   const customLeftArrow = (
     <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full text-center">
@@ -41,14 +48,20 @@ const FeaturedPosts = () => {
   );
 
   return (
-    <div className="mb-10 ">
-      <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass="flex justify-center ">
+    
+    <div className=" ">
+   
+    
+
+      <Carousel infinite autoPlay autoPlaySpeed={4000}   customLeftArrow={customLeftArrow} customRightArrow={customRightArrow}  responsive={responsive} itemClass="flex justify-center ">
         {dataLoaded && featuredPosts.map((post, index) => (
           <FeaturedPostCard key={index} post={post} />
         ))}
       </Carousel>
     </div>
+
   );
+
 };
 
 export default FeaturedPosts;

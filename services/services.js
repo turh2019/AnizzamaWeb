@@ -94,11 +94,11 @@ export const getPage = async () => {
   return result.page_Connection.edges;
 };
 
-export const getPageFormat = async (slug) => {
+export const getPageFormat = async () => {
   
   const query = gql`
-  query MyQuery($slug : Format!) {
-    page_Connection(orderBy: createdAt_DESC, where: {format: $slug}) {
+  query MyQuery() {
+    page_Connection(orderBy: createdAt_DESC) {
       edges {
         node {
           search
@@ -137,16 +137,15 @@ export const getPageFormat = async (slug) => {
 
           seasons_ {
               nameSeason
-             
               seasonSlug
               eps{
                 nameEp
                     epNum
-                    slug
-                    
+                    epSlug
                       linkVideo {
                         link
                         nameFormat
+                        
                     }
               }
             }
@@ -156,7 +155,7 @@ export const getPageFormat = async (slug) => {
   }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
+  const result = await request(graphqlAPI, query);
   
   return result.page_Connection.edges;
 };
@@ -367,8 +366,8 @@ export const getpageDetails = async (slug) => {
           eps{
             nameEp
                 epNum
-                slug
-                
+                epSlug
+                  id
                   linkVideo {
                     link
                     nameFormat
@@ -379,6 +378,7 @@ export const getpageDetails = async (slug) => {
         createdAt
         time
         slug
+        
         content {
           raw
         }
@@ -395,14 +395,14 @@ export const getpageDetails = async (slug) => {
   return result.page;
 };
 
-export const getEpDetails = async (slug) => {
+export const getEpDetails = async (id) => {
   const query = gql`
-    query GetpageDetails($slug : String!) {
-      ep(where: {slug: $slug}) {
+    query GetpageDetails($id: ID!) {
+      ep(where: {id: $id}) {
           epNum
           
           nameEp
-          slug
+          epSlug
           summaryEp {
            raw
           }
@@ -418,7 +418,7 @@ export const getEpDetails = async (slug) => {
     }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
+  const result = await request(graphqlAPI, query, { id });
 
   return result.ep;
 };
@@ -486,6 +486,9 @@ export const getAdjacentPosts = async (createdAt, slug) => {
 
   return { next: result.next[0], previous: result.previous[0] };
 };
+
+
+
 
 
 
@@ -558,7 +561,7 @@ export const getPagesPage = async (slug) => {
             time
             slug
             title
-             
+            season_
             excerpt
             
             featuredImage {
@@ -588,7 +591,26 @@ export const getPagesPage = async (slug) => {
   return result.page_Connection.edges;
 };
 
+export const getAllItems = async () => {
+  const query = gql`
+  query MyQuery {
+    items {
+      bodyPart
+      cost
+      id
+      name
+      image
+      {
+        url
+      }
+    }
+  }
+  `;
 
+  const result = await request(graphqlAPI, query);
+
+  return result.items;
+};
 
 
 export const getFeaturedPosts = async () => {
@@ -619,7 +641,7 @@ export const getFeaturedPosts = async () => {
 
 export const submitComment = async (obj) => {
  
-  const result = await fetch('/api/comments', {
+  const result = await fetch('/api/comments/comments', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -629,10 +651,133 @@ export const submitComment = async (obj) => {
 
   return result.json();
 };
+
+export const UpdateComment = async (obj) => {
+ 
+  const result = await fetch('/api/comments/Updatecomments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+export const deleteComment = async (obj) => {
+ 
+  const result = await fetch('/api/comments/deleteComment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+
+
+export const publishComment = async (obj) => {
+ 
+  const result = await fetch('/api/comments/publishComment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+
+export const UpdateNotifications = async (obj) => {
+ 
+  const result = await fetch('/api/profile/UpdateNotifications', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+
+export const createAuthor = async (obj) => {
+ 
+  const result = await fetch('/api/profile/createAuthor', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+export const publishAuthor = async (obj) => {
+ 
+  const result = await fetch('/api/profile/publishAuthor', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+export const buyItem = async (obj) => {
+ 
+  const result = await fetch('/api/profile/buyItem', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+export const updateAuthor = async (obj) => {
+ 
+  const result = await fetch('/api/profile/updateAuthor', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+
+export const editWear = async (obj) => {
+ 
+  const result = await fetch('/api/profile/editWear', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
 
 export const submitCommentPage = async (obj) => {
  
-  const result = await fetch('/api/commentsPage', {
+  const result = await fetch('/api/comments/commentsPage', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -643,7 +788,18 @@ export const submitCommentPage = async (obj) => {
   return result.json();
 };
 
+export const submitCommentEp = async (obj) => {
+ 
+  const result = await fetch('/api/comments/commentsEp', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
 
+  return result.json();
+};
 export const getCommentsPages = async (slug) => {
   const query = gql`
     query GetComments($slug:String!) {
@@ -659,11 +815,81 @@ export const getCommentsPages = async (slug) => {
           id
           isBelongs
         }
+        plus{
+          name
+        }
+
+        minus{
+          name
+        }
+        author {
+          name
+          bio
+          photoUrl
+          id
+
+          wear{
+            name
+            id
+            image{
+              url
+            } 
+            bodyPart
+          }
+        }
       }
     }
   `;
 
   const result = await request(graphqlAPI, query, { slug });
+
+  return result.comments;
+
+};
+
+export const getCommentsEps = async (epSlug) => {
+  const query = gql`
+    query GetComments($epSlug:String!) {
+      comments(where: {ep: {epSlug:$epSlug}} , orderBy: createdAt_DESC){
+        name
+        createdAt
+        comment
+        id
+        sendEmail
+        email
+        isBelongs
+        comments {
+          id
+          isBelongs
+        }
+
+        plus{
+          name
+        }
+
+        minus{
+          name
+        }
+        
+        author {
+          name
+          bio
+          photoUrl
+          id
+          wear{
+            name
+            id
+            image{
+              url
+            } 
+            bodyPart
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { epSlug });
 
   return result.comments;
 };
@@ -684,6 +910,28 @@ export const getComments = async (slug) => {
         comments {
           id
           isBelongs
+        }
+        plus{
+          name
+        }
+
+        minus{
+          name
+        }
+        author {
+          name
+          bio
+          photoUrl
+          id
+
+          wear{
+            name
+            id
+            image{
+              url
+            } 
+            bodyPart
+          }
         }
       }
     }
@@ -708,6 +956,29 @@ export const getComment = async (id) => {
         comments {
           id
           isBelongs
+        }
+
+        plus{
+          name
+        }
+
+        minus{
+          name
+        }
+        
+        author {
+          name
+          bio
+          photoUrl
+          id
+          wear{
+            name
+            id
+            image{
+              url
+            } 
+            bodyPart
+          }
         }
       }
     }
@@ -742,6 +1013,33 @@ export const getAllComments = async (id) => {
 
 
 
+export const GetRecommendedPost = async () => {
+  const query = gql`
+    query MyQuery() {
+      posts(
+        where: {featuredPost: true}
+        orderBy: createdAt_DESC
+       
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        featuredSmallImage{
+          url
+        }
+
+        createdAt
+        slug
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
+};
+
+
 export const getRecentPosts = async () => {
   const query = gql`
     query etPostDetails() {
@@ -768,6 +1066,7 @@ export const getRecentPosts = async () => {
 };
 
 
+
 export const getJobs = async () => {
   const query = gql`
   query MyQuery {
@@ -778,7 +1077,7 @@ export const getJobs = async () => {
         photo {
           url
         }
-        isHeLeave
+        profileStatus
       }
     }
   `;
@@ -788,6 +1087,114 @@ export const getJobs = async () => {
 };
 
 
+export const getAllProfiles = async () => {
+  const query = gql`
+  query MyQuery {
+    
+      authors {
+        bio
+        name
+        password
+        email
+        publishedAt
+        photo {
+          url
+        }
+        profileStatus
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+
+  return result.authors;
+};
+
+
+export const GetmyProfileSlug = async (name) => {
+  const query = gql`
+    query GetmyProfile($name : String!) {
+      authors(where: {name: $name}) {
+        bio
+        name
+        password
+        mycoins
+        photoUrl
+        photo {
+          url
+        }
+
+        inventory {
+          name
+          id
+          image{
+            url
+          }
+          bodyPart
+        }
+        numOfNotifications
+        notifications(orderBy: id_DESC){
+          
+            id
+            isHeRead
+            body
+            createdAt
+            link
+           author{
+            name
+            photoUrl
+            wear{
+              name
+              id
+              
+              image{
+                url
+              } 
+              bodyPart
+            }
+          }
+
+        }
+
+        wear{
+          name
+          id
+          image{
+            url
+          } 
+          bodyPart
+        }
+
+        profileStatus
+        id
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { name });
+
+  return result.authors;
+};
+
+
+export const GetmyProfile = async (name,password) => {
+  const query = gql`
+    query GetmyProfile($name : String!, $password: String!) {
+      authors(where: {name: $name,password:$password}) {
+        bio
+        name
+        password
+        photo {
+          url
+        }
+        profileStatus
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { name,password });
+
+  return result.authors;
+};
 
 export const GetPageCatgory = async (slug) => {
   

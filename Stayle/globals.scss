@@ -16,7 +16,7 @@ body {
     height: 100vh;
     //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
     // background: #D3D3D3;
-    background-image: url("../public/bg.webp");
+    
     position: fixed;
     left: 0;
     top: 0;
@@ -61,4 +61,24 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+  width: 11px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: rgba(0, 0, 0, 0.403);
+  border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-thumb{
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(22, 22, 22);
+  border-radius: 5px;
 }
