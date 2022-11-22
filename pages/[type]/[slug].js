@@ -135,7 +135,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const posts = await getPageFormat();
 
-
+  console.log("sad"); 
     const paths =  posts.map((p)=>{
     return {
       params:{slug: `${p.node.slug}`,type: `${p.node.format}`},

@@ -10,7 +10,7 @@ const PostDetail = ({ post }) => {
   const [watching,setWatching] = useState(false);
   const [linkto,setlink] = useState();
   const [oneTime,SetOneTime] = useState(false);
-  c
+  
   const handlePlayVideo = () => {
     vidRef.current.play();
   }

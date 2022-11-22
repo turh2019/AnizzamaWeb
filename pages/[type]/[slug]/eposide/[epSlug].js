@@ -10,7 +10,7 @@ import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scro
 
 const SeriesPage = ({page, ep,slugs}) => {
   var [selected, Setselected] = useState("")
-  const [slug, SetSlug] = useState()
+ 
   const router =useRouter();
   if(router.isFallback){
     return <Loader />
@@ -57,7 +57,7 @@ const SeriesPage = ({page, ep,slugs}) => {
 
   return (
     <>
-  
+    
       <div className="container mx-auto px-10 mb-8" >
       <Head>
       <title>{title_}</title>
@@ -130,26 +130,19 @@ export async function getStaticPaths() {
 
   console.log("sad");
   const posts = await getPageFormat();
-
-  const paths =  posts.map((p)=>{
-    const paths_ = p.node.seasons_.map((season,index)=>{
-      const paths_ = season.eps.map((ep,index)=>{
-      
+  var paths = null ;
+  posts.map((p)=>{
+    p.node.seasons_.map((season,index)=>{
+       paths = season.eps.map((ep,index)=>{
         return {
           params:{slug: `${season.seasonSlug}`,epSlug: `${ep.epSlug}`,type: `${p.node.format}`},
         };
       })
-      return {
-        params:{slug: `${season.seasonSlug}` ,epSlug: `${""}`,type: `${p.node.format}`},
-       
-      };
+
     })
-    return {
-      params:{slug: `${p.node.slug}`,epSlug: `${""}`,type: `${p.node.format}`                                                                                                                                                                                                                                                         },
-     
-    };
+
   })
-  
+  console.log({paths})
   return{
     paths,
     fallback: true,
