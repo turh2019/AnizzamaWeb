@@ -81,15 +81,15 @@ const TopHeader = () => {
             </div>
     
             <div className='flex justify-end flex items-center px-4'>
-              <div> 
+            {profile?.notifications&&    <div> 
                   <span class=" open:scale-100 scale-0  relative " open={profile?.notifications.filter((i) => (i.isHeRead == false  )).length > 0}>
                  
                   <div class="open:scale-100 scale-0 bg-indigo-500 shadow-lg  absolute -right-3 -top-8  shadow-indigo-500/50 rounded-full px-2 text-white " open={profile?.notifications.filter((i) => (i.isHeRead == false  )).length > 0}>{ profile?.notifications.filter((i) => (i.isHeRead == false  )).length} </div>
                      <span class=" open:scale-100 scale-0 open:text-lg  text-[0px]  bg-indigo-500 shadow-lg  animate-ping absolute -right-3 -top-8  shadow-indigo-500/50 rounded-full px-2 text-white"  open={profile?.notifications.filter((i) => (i.isHeRead == false  )).length > 0} >{profile?.notifications.filter((i) => (i.isHeRead == false  )).length}</span>
                   </span>
                   <button className=' text-white hover:scale-110 ' onClick={(e)=>(SetOpenNotifications(!openNotifications), updateindex())}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 fill-[#fde047] stroke-[#1e293b]"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" /></svg></button>
-              </div>
-              <button onClick={(e) => (SetOpenNav(!openNav))}  className='  translate-x-[0] open:translate-x-[135px] scale-100 open:scale-0  transition duration-500 ease  inline-block text-lg font-medium rounded-full text-white pl-1  h-10  cursor-pointer  -z-5' open ={openNav}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg></button>   
+              </div>}
+               <button onClick={(e) => (SetOpenNav(!openNav))}  className='  translate-x-[0] open:translate-x-[135px] scale-100 open:scale-0  transition duration-500 ease  inline-block text-lg font-medium rounded-full text-white pl-1  h-10  cursor-pointer  -z-5' open ={openNav}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg></button>   
             </div>
 
             
