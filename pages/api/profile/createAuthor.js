@@ -14,7 +14,7 @@ export default async function asynchandler(req, res) {
 
     const query = gql`
     mutation createAuthor($name: String!, $email: String!, $password: String!) {
-        createAuthor(data: {name: $name, email: $email, password: $password, isHeInTheTeam: false, photo: {connect: {id: "cl891mq8vpzjp0cn1c3ivx9a7"}}}) { id }
+        createAuthor(data: {name: $name, email: $email, password: $password,mycoins:50}) { id }
     }
   `;
     try {
