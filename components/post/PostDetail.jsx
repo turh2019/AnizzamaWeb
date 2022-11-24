@@ -48,7 +48,7 @@ const PostDetail = ({ post }) => {
         return <h4 key={index} className="text-lg   font-medium	 mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
 
         case 'link'://h4
-        return  <a target="_blank" href={obj.href} className ="transition duration-700 text-center text-linksColor  mb-8 cursor-pointer hover:text-cover_color"><Link  target="_blank" key={index} href={obj.href} ><span >{obj.title}</span></Link></a>;
+        return  <a target="_blank" href={obj.href} className ="transition duration-700 text-center text-linksColor  mb-8 cursor-pointer hover:text-cover_color"> <span >{obj.title}</span></a>;
 
       case 'image': //img
         return (
