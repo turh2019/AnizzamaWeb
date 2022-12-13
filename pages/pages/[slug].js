@@ -16,12 +16,7 @@ const Pagespage = ({ Pages , params }) => {
 
  
 
- useEffect(() => {
-   router.events.on('routeChangeComplete', pageview)
-   return () => {
-     router.events.off('routeChangeComplete', pageview)
-   }
- }, [router.events])
+
  if(params.slug != 'anime' && params.slug != 'team' && params.slug != 'cooperation' && params.slug != 'tags' && params.slug != 'login' && params.slug != 'signup'&& params.slug != 'shop' && params.slug != 'frequently-asked-question' &&params.slug !=  'karaoke' ) return(<></>);
 
  

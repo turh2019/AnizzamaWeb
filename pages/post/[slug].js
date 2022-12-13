@@ -19,12 +19,7 @@ const PostDetails = ({post}) => {
 
 
 
- useEffect(() => {
-   router.events.on('routeChangeComplete', pageview)
-   return () => {
-     router.events.off('routeChangeComplete', pageview)
-   }
- }, [router.events])
+
 //  useEffect(() => {
 
 //   // scroller.scrollTo('bodyText', {

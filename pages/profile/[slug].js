@@ -21,12 +21,7 @@ const profile = ({Profile}) => {
 
     
 
-  useEffect(() => {
-    router.events.on('routeChangeComplete', pageview)
-    return () => {
-      router.events.off('routeChangeComplete', pageview)
-    }
-  }, [router.events])
+
 
   return (
     <>

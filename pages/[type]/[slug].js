@@ -19,12 +19,6 @@ const SeriesPage = ({page, ep,slugs}) => {
 
 
 
-  useEffect(() => {
-    router.events.on('routeChangeComplete', pageview)
-    return () => {
-      router.events.off('routeChangeComplete', pageview)
-    }
-  }, [router.events])
 
 
  var description ="הסדרה "; // השם של הסדרה ואיזה מספר פרק
