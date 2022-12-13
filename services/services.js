@@ -133,8 +133,6 @@ export const getPageFormat = async () => {
             name
             slug
           }
-          
-
           seasons_ {
               nameSeason
               seasonSlug
@@ -145,7 +143,6 @@ export const getPageFormat = async () => {
                       linkVideo {
                         link
                         nameFormat
-                        
                     }
               }
             }
@@ -828,19 +825,20 @@ export const getCommentsPages = async (slug) => {
           photoUrl
           id
 
-          wear{
-            name
-            id
-            image{
-              url
-            } 
-            bodyPart
-          }
         }
       }
     }
   `;
 
+  
+          // wear{
+          //   name
+          //   id
+          //   image{
+          //     url
+          //   } 
+          //   bodyPart
+          // }
   const result = await request(graphqlAPI, query, { slug });
 
   return result.comments;
@@ -876,19 +874,19 @@ export const getCommentsEps = async (epSlug) => {
           bio
           photoUrl
           id
-          wear{
-            name
-            id
-            image{
-              url
-            } 
-            bodyPart
-          }
+
         }
       }
     }
   `;
-
+          // wear{
+          //   name
+          //   id
+          //   image{
+          //     url
+          //   } 
+          //   bodyPart
+          // }
   const result = await request(graphqlAPI, query, { epSlug });
 
   return result.comments;
@@ -924,19 +922,19 @@ export const getComments = async (slug) => {
           photoUrl
           id
 
-          wear{
-            name
-            id
-            image{
-              url
-            } 
-            bodyPart
-          }
+
         }
       }
     }
   `;
-
+          // wear{
+          //   name
+          //   id
+          //   image{
+          //     url
+          //   } 
+          //   bodyPart
+          // }
   const result = await request(graphqlAPI, query, { slug });
 
   return result.comments;
@@ -971,18 +969,20 @@ export const getComment = async (id) => {
           bio
           photoUrl
           id
-          wear{
-            name
-            id
-            image{
-              url
-            } 
-            bodyPart
-          }
+
         }
       }
     }
   `;
+
+            // wear{
+          //   name
+          //   id
+          //   image{
+          //     url
+          //   } 
+          //   bodyPart
+          // }
 
   const result = await request(graphqlAPI, query, { id });
 
@@ -1142,34 +1142,26 @@ export const GetmyProfileSlug = async (name) => {
            author{
             name
             photoUrl
-            wear{
-              name
-              id
-              
-              image{
-                url
-              } 
-              bodyPart
-            }
+           
           }
 
         }
 
-        wear{
-          name
-          id
-          image{
-            url
-          } 
-          bodyPart
-        }
+  
 
         profileStatus
         id
       }
     }
   `;
-
+  // wear{
+  //   name
+  //   id
+  //   image{
+  //     url
+  //   } 
+  //   bodyPart
+  // }
   const result = await request(graphqlAPI, query, { name });
 
   return result.authors;
