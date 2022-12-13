@@ -41,28 +41,16 @@ const EditProfile = ({Profile}) =>{
     const  sudmitCodeHandler = async () =>{
         if(oneTime == true) return;
         SetOneTime(true);
-        if(photoOBJ.name != "")
+        if(photo != "")
         {
-            const data = new FormData();
-            data.append('file',photoOBJ);
-            data.append('upload_preset','pyhlnkig');
-            
-          await Axios.post(
-                "https://api.cloudinary.com/v1_1/dsap8pivo/image/upload",
-                data
-            ).then((respons) =>{
-            
-                sudmitCodeHandlerCheck(respons.data.url);
-            });
+            sudmitCodeHandlerCheck(photo);
         }else{
 
        
             sudmitCodeHandlerCheck(Profile?.photoUrl);
         }
 
-        sudmitCodeHandlerCheck(photo);
-      
-       // setPhoto(file?.becure_url)
+     //   setPhoto(file?.becure_url)
     
 
     }
