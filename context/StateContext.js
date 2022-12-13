@@ -6,14 +6,7 @@ const Context = createContext();
 export const StateContext = ({children}) =>{
 
   
-    const router = useRouter()
 
-    useEffect(() => {
-      router.events.on('routeChangeComplete', pageview)
-      return () => {
-        router.events.off('routeChangeComplete', pageview)
-      }
-    }, [router.events])
    
     const [isLogin, setIsLogin] = useState(false)
     const [profile,setProfile] = useState()
