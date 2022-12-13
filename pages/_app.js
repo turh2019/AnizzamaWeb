@@ -12,12 +12,15 @@ import {StateContext} from  '../context/StateContext'
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter()
+
   useEffect(() => {
     router.events.on('routeChangeComplete', pageview)
     return () => {
       router.events.off('routeChangeComplete', pageview)
     }
   }, [router.events])
+
+
 
   return (
 

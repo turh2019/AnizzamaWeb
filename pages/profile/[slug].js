@@ -21,13 +21,21 @@ const profile = ({Profile}) => {
 
     
 
+  useEffect(() => {
+    router.events.on('routeChangeComplete', pageview)
+    return () => {
+      router.events.off('routeChangeComplete', pageview)
+    }
+  }, [router.events])
+
   return (
     <>
       <div className="container mx-auto px-10 mb-8" >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 " >
             <div className=' mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-20 text-white' id="body">
-             
+             {console.log(profile?.id)}
+             {console.log(Profile[0]?.id)}
               {profile != undefined && profile.id == Profile[0].id && 
                 <div className='text-white text-right'>
                     <button onClick={(e) => SetIsEdit(!isEdit)}> {isEdit ? "cancel" :"Edit" }</button>
