@@ -1,9 +1,15 @@
 import React,{useContext,useState,useEffect, createContext} from "react";
 import { getAllProfiles,GetmyProfileSlug  } from '../services/services';
-
+import { useRouter } from 'next/router';
 const Context = createContext();
 
 export const StateContext = ({children}) =>{
+
+    const router =useRouter();
+    if(router.isFallback){
+     return <Loader />
+    }
+   
     const [isLogin, setIsLogin] = useState(false)
     const [profile,setProfile] = useState()
 
