@@ -15,6 +15,7 @@ export default async function asynchandler(req, res) {
     const query = gql`
     mutation publishAuthor( $id: ID!,$name: String!, $bio: String!, $photoUrl: String!) {
         updateAuthor(data: {name: $name,bio: $bio,  photoUrl: $photoUrl}, where: {id: $id}) { id }
+        publishAuthor(where: {id:$id}) { id }
     }
   `;
     try {
