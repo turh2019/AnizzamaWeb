@@ -29,15 +29,15 @@ const profile = ({Profile}) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8 " >
             <div className=' mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-20 text-white' id="body">
-             {console.log(profile?.id)}
-             {console.log(Profile[0]?.id)}
-              {profile != undefined && profile.id == Profile[0].id && 
+           
+             {console.log(Profile?.id)}
+              {profile != undefined && profile.id == Profile.id && 
                 <div className='text-white text-right'>
                     <button onClick={(e) => SetIsEdit(!isEdit)}> {isEdit ? "cancel" :"Edit" }</button>
                 </div>
               }
-              {!isEdit && <ShowProfile Profile={Profile[0]}/>}
-              {isEdit && <EditProfile Profile={Profile[0]}/>}
+              {!isEdit && <ShowProfile Profile={profile != undefined && profile.id == Profile.id ?profile:Profile}/>}
+              {isEdit && <EditProfile Profile={profile != undefined && profile.id == Profile.id  ?profile:Profile}/>}
 
       
             </div>
@@ -60,9 +60,11 @@ export default profile;
 export async function getStaticProps({ params }) {
   const data = await GetmyProfileSlug(params.slug);
   
+  data.map((Itme) => console.log({Itme}))
+
   return {
     props: {
-      Profile: data,
+      Profile: data[0],
     },
   };
 }
