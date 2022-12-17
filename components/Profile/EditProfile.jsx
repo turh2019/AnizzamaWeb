@@ -85,19 +85,19 @@ const EditProfile = ({Profile}) =>{
 
 
         SetProfiles([])
-        if(name != Profile.name){
-            await getAllProfiles()
-            .then((newProfiles)=>SetProfiles(newProfiles))
+        // if(name != Profile.name){
+        //     await getAllProfiles()
+        //     .then((newProfiles)=>SetProfiles(newProfiles))
       
-            var foundProfile = profiles.find((item) => item.name === name )
+        //     var foundProfile = profiles.find((item) => item.name === name )
                 
-            if(foundProfile)
-            {
-                setError("שם משתמש תפוס")
-                return;
-            }
+        //     if(foundProfile)
+        //     {
+        //         setError("שם משתמש תפוס")
+        //         return;
+        //     }
        
-        }
+        // }
         const id = Profile.id
         const commentObj = {
             id,
@@ -115,13 +115,10 @@ const EditProfile = ({Profile}) =>{
             return;
         }
 
-        var someting = await  publishAuthor(someting.updateAuthor)
-        if(someting?.updateAuthor?.id != "" ){
-            SetOneTime(false)
-            setError("עדכנת את הפרופיל בהצלחה!");
-            window.location.assign(`/profile/${name}`)
-            return;
-        }
+
+        SetOneTime(false)
+        setError("עדכנת את הפרופיל בהצלחה!");
+        window.location.assign(`/profile/${name}`)
 
     }
 
@@ -143,8 +140,8 @@ const EditProfile = ({Profile}) =>{
        </div> }
        </div>
             <div className='m-2 text-center'>
-                <p className='flex justify-center p-1 text-white text-center'>:שם</p>
-                <input type="text" name='name' id='name' onChange={e => setdetails({...details,name:e.target.value})} value={details.name} placeholder="שם משתמש"   className=" py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-white  bg-cover_color text-white caret-pink-500 " />
+                <p className='flex justify-center p-1 text-white text-center'>{details.name}</p>
+                {/* <input type="text" name='name' id='name' onChange={e => setdetails({...details,name:e.target.value})} value={details.name} placeholder="שם משתמש"   className=" py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-white  bg-cover_color text-white caret-pink-500 " /> */}
             </div>
 
             <div className='m-2 '>
