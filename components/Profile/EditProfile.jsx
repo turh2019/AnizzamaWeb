@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Axios from 'axios'
 import {updateAuthor ,getAllProfiles,publishAuthor} from '../../services/services'
 import {Inventory} from '../getComponents'
-
+import {useStateContext} from  '../../context/StateContext'
 
 
 const EditProfile = ({Profile}) =>{
@@ -14,6 +14,9 @@ const EditProfile = ({Profile}) =>{
     const [profiles, SetProfiles] = useState([])
     const [error,setError] = useState("");
     const [oneTime,SetOneTime]  =useState(false)
+
+
+    const {forceUpdate} = useStateContext();
     useEffect(() => {
 
         setdetails({...details,name:Profile.name})
@@ -118,6 +121,7 @@ const EditProfile = ({Profile}) =>{
 
         SetOneTime(false)
         setError("עדכנת את הפרופיל בהצלחה!");
+        forceUpdate();
         window.location.assign(`/profile/${name}`)
 
     }
