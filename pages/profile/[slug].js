@@ -60,7 +60,7 @@ export default profile;
 export async function getStaticProps({ params }) {
   const data = await GetmyProfileSlug(params.slug);
   
-  data.map((Itme) => console.log({Itme}))
+ 
 
   return {
     props: {
