@@ -36,8 +36,8 @@ const profile = ({Profile}) => {
                     <button onClick={(e) => SetIsEdit(!isEdit)}> {isEdit ? "cancel" :"Edit" }</button>
                 </div>
               }
-              {!isEdit && <ShowProfile Profile={Profile}/>}
-              {isEdit && <EditProfile Profile={Profile}/>}
+              {!isEdit && <ShowProfile Profile={profile != undefined && profile.id == Profile.id ?profile:Profile}/>}
+              {isEdit && <EditProfile Profile={profile != undefined && profile.id == Profile.id  ?profile:Profile}/>}
 
       
             </div>
