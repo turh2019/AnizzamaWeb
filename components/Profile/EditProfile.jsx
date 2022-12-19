@@ -16,7 +16,7 @@ const EditProfile = ({Profile}) =>{
     const [oneTime,SetOneTime]  =useState(false)
 
 
-       const {forceUpdate,setProfile,ignored} = useStateContext();
+    const {forceUpdate,setProfile,ignored} = useStateContext();
     useEffect(() => {
 
         setdetails({...details,name:Profile.name})
@@ -41,7 +41,7 @@ const EditProfile = ({Profile}) =>{
         reader.readAsDataURL(e.target.files[0])
     }
 
-    const  sudmitCodeHandler = async () =>{
+    const  sudmitCodeHandler = async () => {
         if(oneTime == true) return;
         SetOneTime(true);
         if(photo != "")
@@ -109,6 +109,7 @@ const EditProfile = ({Profile}) =>{
             photoUrl,
             
         };
+
      await updateAuthor(commentObj)
         .then((res) => {
             console.log(res);
@@ -128,11 +129,12 @@ const EditProfile = ({Profile}) =>{
          
      
         }, 3000);
-       // forceUpdate();
+      
+       // 
     }
 
     return (
-   
+       
      <div className="text-center" dir="rtl">
        <div className=' flex justify-center ' >
        {/* <Inventory Profile = {Profile}  setUp = {oneTime}/> */}
@@ -159,11 +161,10 @@ const EditProfile = ({Profile}) =>{
             </div>  
             {error}
             <div className='m-2 py-3 flex justify-center'>
-             
-                <button  type="submit" onClick={sudmitCodeHandler}  className='className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-cover_color text-lg font-medium rounded-full text-white px-7  cursor-pointer "'> שמור</button>
-            <שמור</button>
+                <button  type="submit" onClick={sudmitCodeHandler}    className='className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-cover_color text-lg font-medium rounded-full text-white px-7  cursor-pointer "'> שמור</button>
             </div> 
      </div>
+    
    );}
    
    export default EditProfile;
