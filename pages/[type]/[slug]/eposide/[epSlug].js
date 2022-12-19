@@ -98,24 +98,14 @@ export default SeriesPage;
 
 
 export async function getStaticProps({ params }) {
-
-
-
   var ep = null;
 
   var page =null ;
-
-
-
-    
-    page =  await getpageDetails(params.slug)
-
-    var id = page.seasons_.filter((item) =>(item.seasonSlug ==params.slug))[0].eps.filter((ep)=> (ep.epSlug == params.epSlug))[0].id
   
-    ep = await getEpDetails(id)
+  page = await getpageDetails(params.slug)
 
-    
  
+  ep = page.seasons_.filter((item) => (item.seasonSlug == params.slug))[0].eps?.filter((item) =>(item.epSlug ==params.epSlug))[0]
 
   return {
     props: {
@@ -124,8 +114,6 @@ export async function getStaticProps({ params }) {
       slugs: params,
     },
   };
- 
-
 }
 
 export async function getStaticPaths() {
