@@ -137,7 +137,8 @@ export const getPageFormat = async () => {
               nameSeason
               seasonSlug
               eps{
-                nameEp
+                    id
+                    nameEp
                     epNum
                     epSlug
                       linkVideo {
@@ -361,14 +362,21 @@ export const getpageDetails = async (slug) => {
           
           seasonSlug
           eps{
+            epNum
+          
             nameEp
-                epNum
-                epSlug
-                  id
-                  linkVideo {
-                    link
-                    nameFormat
-                }
+            epSlug
+            summaryEp {
+             raw
+            }
+  
+            linkVideo {
+                link
+                nameFormat
+            }
+            seasons {
+              seasonSlug
+            }
           }
         }
         
@@ -385,6 +393,83 @@ export const getpageDetails = async (slug) => {
         }
       }
     }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.page;
+};
+
+
+
+
+export const getPageDetailsEps = async (slug) => {
+  const query = gql`
+    query GetpageDetails($slug : String!) {
+      page(where: {slug: $slug}) {
+        title
+        excerpt
+
+        format
+        projectStatus
+        summaryAnime{
+          raw
+        }
+
+      
+        wallpaper{
+          url
+        }
+        search
+        author{
+          name
+          bio
+          photo {
+            url
+          }
+        }
+        featuredImage{
+          url
+        }
+        seasons_ {
+          nameSeason
+          seasonShowName
+          
+          seasonSlug
+          eps{
+            epNum
+          
+            nameEp
+            epSlug
+            summaryEp {
+             raw
+            }
+  
+            linkVideo {
+                link
+                nameFormat
+            }
+            seasons {
+              seasonSlug
+            }
+          }
+        }
+        
+        createdAt
+        time
+        slug
+        
+        content {
+          raw
+        }
+        pages_ {
+          name
+          slug
+        }
+      }
+
+    }
+  
   `;
 
   const result = await request(graphqlAPI, query, { slug });
