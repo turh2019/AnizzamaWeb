@@ -8,8 +8,8 @@ export const StateContext = ({children}) =>{
     
     const [isLogin, setIsLogin] = useState(false)
     const [profile,setProfile] = useState()
-    const [Oldprofile,setOldProfile] = useState()
-    const [ignored,forceUpdate] = useReducer(x => x + 1,0)
+
+    const [ignored,forceUpdate] = useState(0)
     const [profileData, setProfileData] = useState({ name: "", password: ""});
   const router = useRouter()
 
@@ -41,8 +41,7 @@ export const StateContext = ({children}) =>{
             setIsLogin(true);
             window.localStorage.setItem('isLogin', true);
 
-            if(Oldprofile!= undefined&&(Oldprofile.name != foundProfile[0].name||Oldprofile.bio != foundProfile[0].bioOldprofile.photoUrl != foundProfile[0].photoUrl ))
-            setOldProfile(foundProfile[0])
+
             setProfile(foundProfile[0]);
             return foundProfile;
 
@@ -79,7 +78,8 @@ export const StateContext = ({children}) =>{
                 HandleLogout,
                 setProfile,
                 HandleLogin,
-                forceUpdate
+                forceUpdate,
+                ignored
                 
             }}>
                 {children}
