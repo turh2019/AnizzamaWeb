@@ -16,7 +16,7 @@ const EditProfile = ({Profile}) =>{
     const [oneTime,SetOneTime]  =useState(false)
 
 
-    const {forceUpdate} = useStateContext();
+    const {forceUpdate,setProfile} = useStateContext();
     useEffect(() => {
 
         setdetails({...details,name:Profile.name})
@@ -110,8 +110,8 @@ const EditProfile = ({Profile}) =>{
             
         };
         var someting = await updateAuthor(commentObj)
-   
-        if(someting?.createAuthor?.id == "" ){
+        console.log(someting.publishAuthor);
+        if(someting?.updateAuthor.createAuthor?.id == "" ){
             SetOneTime(false)
             setError("יש בעיה");
  
@@ -119,11 +119,13 @@ const EditProfile = ({Profile}) =>{
         }
 
 
-     
+      
         setError("עדכנת את הפרופיל בהצלחה!");
-       
-        window.location.assign(`/profile/${name}`)
-        forceUpdate();
+        
+        //
+       setProfile(someting.publishAuthor);
+       window.location.assign(`/profile/${name}`)
+       // forceUpdate();
     }
 
     return (
