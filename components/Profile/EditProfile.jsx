@@ -16,7 +16,7 @@ const EditProfile = ({Profile}) =>{
     const [oneTime,SetOneTime]  =useState(false)
 
 
-    const {forceUpdate,setProfile} = useStateContext();
+       const {forceUpdate,setProfile,ignored} = useStateContext();
     useEffect(() => {
 
         setdetails({...details,name:Profile.name})
@@ -109,22 +109,25 @@ const EditProfile = ({Profile}) =>{
             photoUrl,
             
         };
-        var someting = await updateAuthor(commentObj)
-        console.log(someting.publishAuthor);
-        if(someting?.updateAuthor.createAuthor?.id == "" ){
+     await updateAuthor(commentObj)
+        .then((res) => {
+            console.log(res);
+            if(res == undefined){
+                console.log("NotWork");
+                SetOneTime(false)
+                setError("יש בעיה");
+                return;
+            }
+            setError("עדכנת את הפרופיל בהצלחה!");
+           
+            
+            setProfile(res.publishAuthor);
+            window.location.assign(`/profile/${name}`)
             SetOneTime(false)
-            setError("יש בעיה");
- 
-            return;
-        }
-
-
-      
-        setError("עדכנת את הפרופיל בהצלחה!");
-        
-        //
-       setProfile(someting.publishAuthor);
-       window.location.assign(`/profile/${name}`)
+            forceUpdate(ignored + 1);
+         
+     
+        }, 3000);
        // forceUpdate();
     }
 
@@ -156,7 +159,9 @@ const EditProfile = ({Profile}) =>{
             </div>  
             {error}
             <div className='m-2 py-3 flex justify-center'>
-                <button onClick={(e) => sudmitCodeHandler()}  className='className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-cover_color text-lg font-medium rounded-full text-white px-7  cursor-pointer "'> שמור</button>
+             
+                <button  type="submit" onClick={sudmitCodeHandler}  className='className="transition duration-500 ease hover:bg-[#382C8B] inline-block bg-cover_color text-lg font-medium rounded-full text-white px-7  cursor-pointer "'> שמור</button>
+            <שמור</button>
             </div> 
      </div>
    );}
