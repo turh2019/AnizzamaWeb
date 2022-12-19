@@ -119,11 +119,11 @@ const EditProfile = ({Profile}) =>{
         }
 
 
-        SetOneTime(false)
+     
         setError("עדכנת את הפרופיל בהצלחה!");
-        forceUpdate();
+       
         window.location.assign(`/profile/${name}`)
-
+        forceUpdate();
     }
 
     return (
