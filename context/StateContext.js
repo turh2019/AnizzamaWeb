@@ -65,6 +65,11 @@ export const StateContext = ({children}) =>{
         window.location.assign('/');
     }
 
+    const  HandleUpdateData = async(name) =>{
+        var  foundProfile = await GetmyProfileSlug(name ,profileData.password)
+        setProfile(foundProfile[0]);
+        window.location.assign(`/profile/${name}`)
+    }
 
    
 
@@ -79,7 +84,8 @@ export const StateContext = ({children}) =>{
                 setProfile,
                 HandleLogin,
                 forceUpdate,
-                ignored
+                ignored,
+                HandleUpdateData
                 
             }}>
                 {children}
