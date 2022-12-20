@@ -36,8 +36,8 @@ const profile = ({Profile}) => {
                     <button onClick={(e) => SetIsEdit(!isEdit)}> {isEdit ? "cancel" :"Edit" }</button>
                 </div>
               }
-              {!isEdit && <ShowProfile Profile={profile != undefined && profile.id == Profile.id ?profile:Profile}/>}
-              {isEdit && <EditProfile Profile={profile != undefined && profile.id == Profile.id  ?profile:Profile}/>}
+              {!isEdit && <ShowProfile Profile={profile != undefined && profile.id == Profile.id? profile:Profile}/>}
+              {isEdit && <EditProfile Profile={profile != undefined && profile.id == Profile.id? profile:Profile}/>}
 
       
             </div>
@@ -60,7 +60,7 @@ export default profile;
 export async function getStaticProps({ params }) {
   const data = await GetmyProfileSlug(params.slug);
   
- 
+
 
   return {
     props: {
