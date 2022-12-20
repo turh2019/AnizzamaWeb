@@ -16,7 +16,7 @@ const EditProfile = ({Profile}) =>{
     const [oneTime,SetOneTime]  =useState(false)
 
 
-    const {forceUpdate,setProfile,ignored} = useStateContext();
+    const {forceUpdate,setProfile,ignored,HandleUpdateData} = useStateContext();
     useEffect(() => {
 
         setdetails({...details,name:Profile.name})
@@ -121,11 +121,11 @@ const EditProfile = ({Profile}) =>{
             }
             setError("עדכנת את הפרופיל בהצלחה!");
            
-            
-            setProfile(res.publishAuthor);
-            window.location.assign(`/profile/${name}`)
-            SetOneTime(false)
-            forceUpdate(ignored + 1);
+            HandleUpdateData(name)
+
+         
+           //SetOneTime(false)
+        
          
      
         }, 3000);
