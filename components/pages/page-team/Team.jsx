@@ -61,7 +61,7 @@ function Team() {
 
                           
                            <a href={`/profile/${author?.name}`}><h3 className="mt-10 text-white text-center mb-4 text-xl font-bold p-1 break-all">{author.name}</h3></a> 
-                            <p className="text-white text-ls break-all">{author.bio}</p>
+                           <p className="text-white text-ls break-all">{author.bio?.split("\n").map((item) =>(<div className='pb-2'>{item}</div>))}</p>
                        
                             <div className='mt-10 flex justify-center  items-center mt-10 flex flex-wrap ' > 
                                 {author.profileStatus.map((Status,index) => (
@@ -97,7 +97,7 @@ function Team() {
                                         />
                                     </div>
                                     <h3 className="text-white text-center mt-10 mb-4 text-xl font-bold  text-center break-all">{author.name}</h3>
-                                    <p className="text-white text-ls break-all">{author.bio}</p>
+                                    <p className="text-white text-ls break-all">{author.bio?.split("\n").map((item) =>(<div className='pb-2'>{item}</div>))}</p>
                                     <div className='mt-10 flex justify-center  items-center mt-10 flex flex-wrap  ' > 
                                     {author.profileStatus.map((Status,index) => (
                                         ProfileStatus.map((s) => (

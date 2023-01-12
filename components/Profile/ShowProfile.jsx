@@ -30,6 +30,7 @@ const ShowProfile = ({Profile}) =>{
   
 
 
+
  return (
 
   <div className="text-center">
@@ -47,8 +48,11 @@ const ShowProfile = ({Profile}) =>{
         ))))}
       </div>
     </div>
+   
+    
     <h3 className= "text-white mt-4 mb-4 text-xl font-bold">{Profile?.name} </h3>
-    <p className="text-white text-ls">{Profile?.bio}</p>
+    
+    <p className="text-white text-ls breake  break-all">{Profile?.bio?.split("\n").map((item) =>(<div  className='pb-2'>{item}</div>))}</p>
     
 
 

@@ -131,7 +131,7 @@ function Signup() {
         };
          
          var someting = await createAuthor(commentObj)
-        
+        console.log(someting);
         if(someting.createAuthor.id == null){
         
             setError("יש בעיה תבדוק שוב את השם שלך או אם משהו חסר");

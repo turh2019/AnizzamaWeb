@@ -24,8 +24,8 @@ function Cooperation() {
                 <div className=' grid grid-cols-1 gap-4 flex justify-end'>
                     {cooperations.map((cooperation,index)=>(
                         <div key={index}  className='text-center mt-20  p-4 relative rounded-lg bg-black bg-opacity-20'>
-                           <h1 className="text-white text-center cursor-pointer mb-4 text-xl font-bold p-1"><a  target="_blank" href={cooperation.link} >{cooperation.title}</a></h1>
-                            <h2 className="text-white text-ls">{cooperation.bio}</h2>
+                           <h1 className="text-white text-center cursor-pointer mb-4 text-xl font-bold p-1 brake"><a  target="_blank" href={cooperation.link} >{cooperation.title}</a></h1>
+                            <p className="text-white text-ls">{cooperation.bio}</p>
                             <div className="absolute float-left right-1 top-1  ">
                                 <a  target="_blank" href={cooperation.link} >
                                     <Image

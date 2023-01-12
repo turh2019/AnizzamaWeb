@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-
+  
     <div className=' w-full h-full'>
           {/* Google Tag Manager - Global base code */}
           <Script
@@ -57,14 +57,16 @@ function MyApp({ Component, pageProps }) {
           <meta http-equiv="content-language" content="iw_IL"/>
       </Head>
        <div className='bg-main_bg_color w-full '>
-        <StateContext> 
+       <StateContext> 
           <Layout>   
-            <Component {...pageProps} />
+            
+              <Component {...pageProps} />
+           
           </Layout>
-        </StateContext>
+          </StateContext>
        </div>
     </div>
-  
+
   )
 
 }

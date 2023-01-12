@@ -98,6 +98,7 @@ export default SeriesPage;
 
 
 export async function getStaticProps({ params }) {
+
   var ep = null;
 
   var page =null ;
@@ -118,7 +119,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
 
-  console.log("sad");
+  
   const posts = await getPageFormat();
   var paths = null ;
   posts.map((p)=>{
@@ -132,9 +133,10 @@ export async function getStaticPaths() {
     })
 
   })
-  console.log({paths})
+
   return{
     paths,
+
     fallback: true,
   }
 

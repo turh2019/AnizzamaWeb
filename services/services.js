@@ -1231,9 +1231,6 @@ export const GetmyProfileSlug = async (name) => {
           }
 
         }
-
-  
-
         profileStatus
         id
       }

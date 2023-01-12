@@ -132,7 +132,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
         Setselected("")
         formData.comment = '';
       }
-    });
+    }, 3000);
     
   
   }else if (type=="ep")
@@ -181,7 +181,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       await UpdateNotifications(commentObj_)
       await UpdateNotifications({IsPublis:true})
       
-      publishAuthor({id:commentObj.authorID})
+     await publishAuthor({id:commentObj.authorID})
 
     }
   }

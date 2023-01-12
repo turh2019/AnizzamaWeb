@@ -81,7 +81,7 @@ const PostWidget = ({ tags, slug }) => {
       
       <div className='transition duration-700 ease-in-out open:w-full w-0' open ={isRecommendedPost}>
       { isRecommendedPost  && relatedPosts.filter((item,index)=>(  !slug || index ==  randomNum_1 || index == randomNum_2 || index == randomNum_3)).map((post, index) => (
-      <span key={index} className='transition duration-700 ease-in-out  open:scale-100 sacle-0' open ={!isRecommendedPost}>
+      <span key={post.slug + index} className='transition duration-700 ease-in-out  open:scale-100 sacle-0' open ={!isRecommendedPost}>
           <div  className="flex items-right w-full mb-6 text-white " >
             
             <div className="flex-grow ml-10">
@@ -110,7 +110,7 @@ const PostWidget = ({ tags, slug }) => {
    </div>
 <div className='transition duration-700 ease-in-out   ' open ={!isRecommendedPost}>
   { !isRecommendedPost && recommendedPost.filter((post, index) =>(  index ==  randomNum_1 ||  index == randomNum_2 ||index ==  randomNum_3 )).map((post, index) => (
-        <span key={index} className='transition duration-700 ease-in-out  open:scale-100 sacle-0' open ={!isRecommendedPost}>
+        <span key={post.slug + index} className='transition duration-700 ease-in-out  open:scale-100 sacle-0' open ={!isRecommendedPost}>
          
             {slug != null && (index != randomNum_1 && index != randomNum_2 &&index != randomNum_3) ? "":
             <div  className="flex items-right w-full mb-6 text-white " >
