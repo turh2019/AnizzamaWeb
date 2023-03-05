@@ -40,11 +40,6 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
 
 
 
-
- 
-
-
-
   const onInputChange = (e) => {
     const { target } = e;
     if (target.type === 'checkbox') {
@@ -80,7 +75,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       id,
       sendEmail,
       authorID,
-      ReaplyID:selected.author.id,
+      ReaplyID:selected?.author?.id,
       Slug
     };
 
@@ -179,8 +174,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       };
 
       await UpdateNotifications(commentObj_)
-      await UpdateNotifications({IsPublis:true})
-      
+     
      await publishAuthor({id:commentObj.authorID})
 
     }

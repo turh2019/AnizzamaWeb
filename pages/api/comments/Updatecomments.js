@@ -21,7 +21,9 @@ export default async function asynchandler(req, res) {
             mutation updateComment( $CommentID: ID!,$authorID: ID!) {
                 updateComment( where: {id: $CommentID} , data: {minus: {connect: {where: {id: $authorID}}}, plus: {disconnect: {id: $authorID}}} ){id}
               }
+           
         `;
+        
     
         try {
           const result = await graphQLClient.request(query, req.body);
@@ -35,6 +37,11 @@ export default async function asynchandler(req, res) {
         const  query = gql`
         mutation updateComment( $CommentID: ID!,$authorID: ID!) {
           updateComment( where: {id: $CommentID} , data: {plus: {connect: {where: {id: $authorID}}}, minus: {disconnect: {id: $authorID}}} ){id}
+          }
+          mutation updateAuthor( ) {
+            publishManyNotifications {
+              count
+            }
           }
         `;
     

@@ -15,10 +15,14 @@ export default async function asynchandler(req, res) {
 
 
   if(req.body.IsHeRead){
-    console.log("asd")
     const query = gql`
-    mutation updateAuthor($id: ID!) {
+    mutation updateAuthor($id: ID!, $authorID: ID!) {
       updateManyNotifications(data: {isHeRead: true} where: {author: {id: $id}}){count}
+    
+   
+      publishManyNotifications { count}
+
+      publishAuthor(where: {id:$authorID}) { id }
     }
   `;
   try {
@@ -31,22 +35,7 @@ export default async function asynchandler(req, res) {
   
   }
 
-  if(req.body.IsPublis){
-    const query = gql`
-    mutation updateAuthor( ) {
-      publishManyNotifications {
-        count
-      }
-    }
-  `;
-  try {
-    const result = await graphQLClient.request(query, req.body);
-    return res.status(200).send(result);
-  } catch (error) {
 
-    return res.status(500).send(error);
-  }
-  }
 
 
   console.log("asd_2")
