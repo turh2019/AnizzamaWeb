@@ -93,7 +93,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
     .then((res) => {
       if (res.createComment) {
      
-        publishComment({CommentID:res.createComment.id})
+      //  publishComment({CommentID:res.createComment.id})
         updateNof(commentObj,res.createComment,selected)
         setFormData((prevState) => ({
           ...prevState,
@@ -117,7 +117,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
     .then((res) => {
       if (res.createComment) {
      
-        publishComment({CommentID:res.createComment.id})
+      //  publishComment({CommentID:res.createComment.id})
         updateNof(commentObj,res.createComment,selected)
         setFormData((prevState) => ({
           ...prevState,
@@ -138,7 +138,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       if (res.createComment) {
        
         
-        publishComment({CommentID:res.createComment.id})
+     //   publishComment({CommentID:res.createComment.id})
         updateNof(commentObj,res.createComment,selected)
         setFormData((prevState) => ({
           ...prevState,

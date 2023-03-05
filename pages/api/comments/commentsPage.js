@@ -17,6 +17,9 @@ export default async function asynchandler(req, res) {
     const query = gql`
     mutation CreateComment($comment: String!, $isBelongs: Boolean, $id: ID!,$authorID: ID!,$Slug: String!) {
       createComment(data: { comment: $comment, slug: $Slug , isBelongs: $isBelongs, comments_: {connect: {id: $id}},author: {connect: {id: $authorID}}}) { id }
+      publishManyComments(where: {author: {id: $authorID}}) {
+        count
+      }
     }
   `;
     try {
@@ -31,6 +34,9 @@ export default async function asynchandler(req, res) {
     const query = gql`
     mutation CreateComment( $comment: String!, $isBelongs:Boolean, $slug: String!,$authorID: ID!,$Slug: String!) {
       createComment(data: { comment: $comment, slug: $Slug , isBelongs: $isBelongs, page: {connect: {slug: $slug}} ,author: {connect: {id: $authorID}}}) { id }
+      publishManyComments(where: {author: {id: $authorID}}) {
+        count
+      }
     }
   `;
     try {
