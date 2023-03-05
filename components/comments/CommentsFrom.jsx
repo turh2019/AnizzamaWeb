@@ -173,9 +173,9 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
         
       };
 
-      await UpdateNotifications(commentObj_)
+     // await UpdateNotifications(commentObj_)
      
-     await publishAuthor({id:commentObj.authorID})
+    // await publishAuthor({id:commentObj.authorID})
 
     }
   }
