@@ -104,7 +104,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
         formData.comment = '';
         setTimeout(() => {
           setShowSuccessMessage(false);
-        }, 3000);
+        }, 7000);
        
       }
     });
@@ -127,7 +127,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
         Setselected("")
         formData.comment = '';
       }
-    }, 3000);
+    }, 7000);
     
   
   }else if (type=="ep")
@@ -149,7 +149,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
         setShowSuccessMessage(true);
         setTimeout(() => {
           setShowSuccessMessage(false);
-        }, 3000);
+        }, 7000);
       }
     });
 
