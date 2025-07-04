@@ -12,7 +12,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
   const [onetime, SetOnetime] = useState(false);
  console.log(Slug
   )
-  const [formData, setFormData] = useState({ comment: null,isBelongs: false ,id:null,});
+  const [formData, setFormData] = useState({ comment: null,isBelongs: false ,id:null,authorID:""});
 
   formData.isBelongs= false;
   formData.id= "";
@@ -65,7 +65,6 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       setError(true);
       return;
     }
-    const authorID = profile.id;
     
     const commentObj = {
       
@@ -94,7 +93,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       if (res.createComment) {
      
       //  publishComment({CommentID:res.createComment.id})
-        updateNof(commentObj,res.createComment,selected)
+        // updateNof(commentObj,res.createComment,selected)
         setFormData((prevState) => ({
           ...prevState,
           ...formData,
@@ -118,7 +117,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       if (res.createComment) {
      
       //  publishComment({CommentID:res.createComment.id})
-        updateNof(commentObj,res.createComment,selected)
+        // updateNof(commentObj,res.createComment,selected)
         setFormData((prevState) => ({
           ...prevState,
           ...formData,
@@ -139,7 +138,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
        
         
      //   publishComment({CommentID:res.createComment.id})
-        updateNof(commentObj,res.createComment,selected)
+        // updateNof(commentObj,res.createComment,selected)
         setFormData((prevState) => ({
           ...prevState,
           ...formData,
@@ -186,7 +185,7 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
     <div className="bg-cover_bg_color text-white shadow-lg rounded-lg p-8 pb-12 mb-8" dir="rtl" >
     
       <h3 className="text-xl mb-8 font-semibold border-b pb-4  flex justify-center" >הוסף תגובה</h3>
-      {isLogin&&<>
+      <>
       <div className="grid grid-cols-1 gap-4 mb-4" >
       {selected? 
       <div className='bg-black bg-opacity-50 p-4 rounded-lg' >
@@ -217,19 +216,8 @@ const CommentsForm = ({ Slug,slug ,type ,selected, Setselected }) => {
       <div className="mt-8 flex justify-center">
         <button type="submit" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-cover_bg_color_2 inline-block bg-cover_color text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer ">פרסם תגובה</button>
         
-      </div></>}
-    {!isLogin && <div>
-      <p className='whitespace-pre-line text-white  flex justify-center'> בשביל לרשום תגובה אתה צריך להתחבר</p>
-      <div className='my-5  flex justify-center'>
-          <a href={`/pages/login`} >
-            <span className=' flex justify-center '>
-                <span className='mx-3 open:translate-x-[150px] transition  duration-[2500ms] ease transform hover:duration-700  hover:translate-y-[5px] flex justify-center border-4 border-indigo-200  border-y-indigo-500  hover:bg-cover_bg_color_2 inline-block bg-cover_color text-lg font-medium rounded-full text-white px-5  cursor-pointer  '>
-                  התחברות
-                </span>
-            </span>
-        </a>
-      </div> 
-    </div>}
+      </div></>
+   
      
     </div>
   </form>
