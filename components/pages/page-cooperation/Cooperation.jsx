@@ -22,24 +22,31 @@ function Cooperation() {
                   </h1> 
             <div>
                 <div className=' grid grid-cols-1 gap-4 flex justify-end'>
-                    {cooperations.map((cooperation,index)=>(
-                        <div key={index}  className='text-center mt-20  p-4 relative rounded-lg bg-black bg-opacity-20'>
-                           <h1 className="text-white text-center cursor-pointer mb-4 text-xl font-bold p-1 brake"><a  target="_blank" href={cooperation.link} >{cooperation.title}</a></h1>
-                            <p className="text-white text-ls">{cooperation.bio}</p>
-                            <div className="absolute float-left right-1 top-1  ">
-                                <a  target="_blank" href={cooperation.link} >
-                                    <Image
-                                    unoptimized             
-                                    alt={"author.name"}
-                                    height="100px"
-                                    width="100px"
-                                    className="align-left rounded-lg cursor-pointer"
-                                    src={cooperation.photo.url}
-                                    />
-                                </a>
-                            </div>
+                    {cooperations.map((cooperation, index) => (
+                    <div
+                        key={index}
+                        className="flex items-center mt-20 p-4 rounded-lg bg-black bg-opacity-20"
+                    >
+                        <div className="flex-1">
+                        <h1 className="text-white cursor-pointer mb-2 text-xl font-bold text-center">
+                            <a target="_blank" href={cooperation.link}>{cooperation.title}</a>
+                        </h1>
+                            <p className="text-white text-sm text-right mr-5">{cooperation.bio}</p>
                         </div>
+
+                        <a target="_blank" href={cooperation.link}>
+                            <Image
+                                unoptimized
+                                alt={cooperation.title}
+                                height="100"
+                                width="100"
+                                className="rounded-lg cursor-pointer mr-4"
+                                src={cooperation.photo.url}
+                            />
+                        </a>
+                    </div>
                     ))}
+
                 </div>
             </div>
         </div>
