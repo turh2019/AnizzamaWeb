@@ -52,7 +52,7 @@ const TopHeader = () => {
         <div className={isLogin? 'flex items-center bg-cover_bg_color opacity-90 rounded-lg drop-shadow-2xl  grid grid-cols-3 border-2 border-opacity-10 z-40': 'z-40 flex items-center bg-cover_bg_color opacity-90 rounded-lg drop-shadow-2xl  grid grid-cols-3 border-2 border-opacity-10'}>
         {!isLogin &&
             <div className=' grid grid-cols-2  place-items-start place-content-start  content-start justify-self-start ' >
-                <a target="_blank"  href={`/pages/login`} onClick={ (e) => SetOpenNav(false)} >
+                {/* <a target="_blank"  href={`/pages/login`} onClick={ (e) => SetOpenNav(false)} >
                     <Link target="_blank" href={`/pages/login`}>
                         <span className='  flex  place-items-end md:scale-100 scale-50'>
                             <span className='-mx-6 md:mx-3 scale-100  hover:delay-[0ms] translate-x-[0] text-white hover:text-cover_color transition  duration-700 delay-[150ms] ease transform hover:scale-110  flex justify-center border-4 border-indigo-200  border-y-indigo-500  hover:bg-cover_bg_color_2 inline-block bg-cover_color text-lg font-medium rounded-full px-5  cursor-pointer  ' >
@@ -70,7 +70,7 @@ const TopHeader = () => {
                                 </span>
                             </span>
                         </Link>
-                </a>
+                </a> */}
          </div> } 
      
             {isLogin && <div className="bg-coin bg-auto bg-no-repeat h-[70px] w-[70px] bg-center flex justify-center flex items-center px-4   text-[#404040] font-bold  md:scale-100 scale-75 "> <p className='flex justify-left color text-ellipsis overflow-hidden '>{profile.mycoins >= 1000 &&profile.mycoins < 1000000 ?  profile.mycoins / 1000 + "K" : profile.mycoins >= 1000000 ?  profile.mycoins / 1000000 + "M": profile.mycoins}</p></div>}
