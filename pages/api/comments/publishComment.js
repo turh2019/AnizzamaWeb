@@ -33,12 +33,6 @@ export default async function asynchandler(req, res) {
             minus{
                 name
             }
-            author {
-                name
-                bio
-                photoUrl
-                id
-            }
         }
 
     }

@@ -904,13 +904,6 @@ export const getCommentsPages = async (slug) => {
         minus{
           name
         }
-        author {
-          name
-          bio
-          photoUrl
-          id
-
-        }
       }
     }
   `;
@@ -954,13 +947,6 @@ export const getCommentsEps = async (epSlug) => {
           name
         }
         
-        author {
-          name
-          bio
-          photoUrl
-          id
-
-        }
       }
     }
   `;
@@ -1000,14 +986,6 @@ export const getComments = async (slug) => {
 
         minus{
           name
-        }
-        author {
-          name
-          bio
-          photoUrl
-          id
-
-
         }
       }
     }
@@ -1049,13 +1027,6 @@ export const getComment = async (id) => {
           name
         }
         
-        author {
-          name
-          bio
-          photoUrl
-          id
-
-        }
       }
     }
   `;
