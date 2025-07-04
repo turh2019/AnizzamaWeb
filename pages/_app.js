@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }) {
           <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
           <meta http-equiv="content-language" content="iw_IL"/>
       </Head>
-       <div className='bg-main_bg_color w-full '>
+       <div className='bg-main_bg_color w-full h-[120hv] py-1 '>
        <StateContext> 
           <Layout>   
             
