@@ -42,13 +42,13 @@ const PostDetail = ({ post }) => {
         return <h3 key={index} className="text-xl font-semibold mb-4 canter mx-2 text-gray-200">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
 
       case 'paragraph'://" "
-        return <p key={index} className="mb-2 mx-2 text-lg text-textColor text-gray-200">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+        return <p key={index} className="mb-2 mx-2 text-lg  text-gray-200">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
 
       case 'heading-four'://h4
         return <h4 key={index} className="text-lg font-medium	 mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
 
         case 'link'://h4
-        return  <a target="_blank" href={obj.href} className ="transition duration-700 text-blue-300 text-center text-linksColor  mb-8 cursor-pointer hover:text-cover_color"> <span >{obj.title}</span></a>;
+        return  <a target="_blank" href={obj.href} className ="transition duration-700 text-blue-300 text-center  mb-8 cursor-pointer hover:text-cover_color"> <span >{obj.title}</span></a>;
 
       case 'image': //img
         return (
