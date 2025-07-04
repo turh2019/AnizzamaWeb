@@ -47,7 +47,7 @@ const PostCard = ({ post ,type }) => (
             </Link>
           </h1>
 
-          <p className="text-center text-base text-lg text-textColor font-normal">
+          <p className="text-center text-base text-lg  text-gray-200  text-textColor font-normal">
              {post.excerpt}
           </p>
           <div className="text-center items-center my-2  w-full text-white  ">

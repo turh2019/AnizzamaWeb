@@ -82,16 +82,16 @@ const PageDetail = ({ post , ep ,page ,slugs}) => {
 
     switch (obj.type) {
       case 'heading-three'://h3
-        return <h3 key={index} className="text-xl font-semibold mb-4 canter mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+        return <h3 key={index} className="text-xl font-semibold mb-4 canter mx-2  text-gray-200 ">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
 
       case 'paragraph'://" "
-        return <p key={index} className="mb-5 mx-2 text-lg text-textColor ">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+        return <p key={index} className="mb-5 mx-2 text-lg text-textColor text-gray-200 ">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
 
       case 'heading-four'://h4
-        return <h4 key={index} className="text-md font-semibold mb-4 mx-2">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index} className="text-md font-semibold mb-4 mx-2  text-gray-200 ">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
 
         case 'link'://h4
-        return  <a target="_blank" key={index} href={obj.href}><Link target="_blank" key={index} href={obj.href} ><span className ="transition duration-700 text-center text-linksColor  mb-8 cursor-pointer hover:text-cover_color   ">{obj.title}</span></Link></a>;
+        return  <a target="_blank" key={index} href={obj.href}><Link target="_blank" key={index} href={obj.href} ><span className ="transition duration-700   text-blue-300  text-center text-linksColor  mb-8 cursor-pointer hover:text-cover_color   ">{obj.title}</span></Link></a>;
 
       case 'image': //img
         return (
