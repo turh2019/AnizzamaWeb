@@ -1,1 +1,1 @@
-To refresh the website, change the number #3 to any diffrent number!
+To refresh the website, change the number #2 to any diffrent number!
