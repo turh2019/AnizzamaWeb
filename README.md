@@ -1,1 +1,1 @@
-To refresh the website, change the number #34 to any diffrent number!
+To refresh the website, change the number #24 to any diffrent number!
