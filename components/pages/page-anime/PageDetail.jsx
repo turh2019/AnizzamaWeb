@@ -174,7 +174,7 @@ const PageDetail = ({ post , ep ,page ,slugs}) => {
                   return getContentFragment(index, children, typeObj, typeObj.type);
               })}
           </div>
-          {post.seasons_.length > 1?
+          {post.seasons_.length >= 1?
           <div className='grid grid-flow-row auto-rows-max  flex justify-left pb-5 border-b-2 place-content-start  '  >
               <div className='flex  flex-wrap basis-1/2 place-content-center px-2 flex justify-left '> 
              
